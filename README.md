@@ -87,19 +87,31 @@ Read more for Less is a project where users can subscribe to get a box of books 
 
 ### 1. Strategy
 
+As a person that loves to read, sometimes I spend more time looking for new books than actual reading. Keeping that in mind Read more for Less was created to facilitate chose a book. As time is a priceless asset, the users only need to provide information on what genre of books they like. If they want, they also can inform the authors and books they enjoy for a more precise chose.
   
+####  Site Goals
 
-- Provide a platform where the user can create personal summaries about books they read.
+- Provide an easy navigation website.
 
-- Provide a platform where user can create a list of books and share it with other users if they want.
+- Provide a platform where users can create a book reviews and interact with other users.
 
-- Create an enjoyable, and easy to use platform that makes the user uses it frequently.
+- Give a way to users easily choose a plan and checkout.
 
   
 
 ### 2. Scope
 
+- Fits in with my current skill-set of HTML, CSS, JavaScript, Python and Django.
 
+- Website information clearly relayed upon entering the home page.
+
+- Easy way to Sign Up, Log in and Log out.
+
+- Easily purchase a plan. 
+
+- Allow users to create, read, update and delete reviews.
+
+- Allow users to comment in reviews from other users.
   
 
 ### 3. Structure
