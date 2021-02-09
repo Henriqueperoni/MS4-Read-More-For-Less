@@ -1,45 +1,372 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Read more for Less
 
-Welcome USER_NAME,
+  
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+![Project Mock-up](static/images/intro-readme.png)
 
-## Gitpod Reminders
+  
+Read more for Less is a project where users can subscribe to get a box of books every month. To don't get any random book, users are able to set their preferences, such as genre, authors and books the enjoyed. Also, the website has a Book Club page, where users can create reviews about the books they are reading and discuss it with other users.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Live demo on Heroku pages [HERE](https://bookss-world.herokuapp.com/)
 
-`python3 -m http.server`
+  
 
-A blue button should appear to click: *Make Public*,
+## Table of Contents:
 
-Another blue button should appear to click: *Open Browser*.
+  
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+-  [UX](#ux)
 
-A blue button should appear to click: *Make Public*,
+-  [User Stories](#user-stories)
 
-Another blue button should appear to click: *Open Browser*.
+-  [Strategy](#1-strategy)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+-  [Scope](#2-scope)
 
-## Updates Since The Instructional Video
+-  [Structure](#3-structure)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+-  [Skeleton](#4-skeleton)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+-  [Surface](#5-surface)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+-  [Features](#features)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+-  [Existing Features](#existing-features)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+-  [Features to consider implementing in the future](#features-to-consider-implementing-in-the-future)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+-  [Technologies Used](#technologies-used)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+-  [Languages](#1-languages)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+-  [Integrations](#2-integrations)
 
---------
+-  [Workspace, Version Control, and Repository Storage](#3-workspace-version-control-and-repository-storage)
 
-Happy coding!
+-  [Resources](#resources)
+
+-  [Testing](#testing)
+
+-  [Deployment](#deployment)
+
+-  [Credits](#credits)
+
+-  [Media](#media)
+
+-  [Code](#code)
+
+-  [Acknowledgments](#acknowledgments)
+
+  
+
+## UX
+
+  
+
+### User Stories
+
+- As a user, I want to easily understand the main purpose of the website so that I immediately know what the site is intended for upon entering.
+
+-  As a user, I want to be able to view the site on any device I may have, (mobile/tablet/desktop).
+
+- As a user, I want to easily sign up to the website.
+
+- As a user, I want to easily log in and log out on my account.
+
+- As a user, I want to set my Profile preferences and saved.
+
+- As a user, I want to check when I will recieve my next delivery and when my plan expire.
+
+- As a user, I want to partcipate of the Book Club, Creating, Editing and Deleting posts with my profile or anonymously.
+
+- As a admin/superuser, I want to have the ability to update site content.
+
+- As a admin/superuser, I want to be able to login to an administration panel.
+
+  
+
+### 1. Strategy
+
+  
+
+- Provide a platform where the user can create personal summaries about books they read.
+
+- Provide a platform where user can create a list of books and share it with other users if they want.
+
+- Create an enjoyable, and easy to use platform that makes the user uses it frequently.
+
+  
+
+### 2. Scope
+
+
+  
+
+### 3. Structure
+
+  
+
+
+
+  
+
+### 4. Skeleton
+
+  
+
+-  [Wireframes](static/docs/wireframe.pdf)
+
+
+
+![Project Mock-up](static/images/db_diagram.png)
+
+  
+
+### 5. Surface
+
+The overall UX is clean and similar in all pages to keep consistency.
+
+  
+
+### Colors:
+
+The base color **deep-purple(#673AB7)** was chosen from [Materalize](https://materializecss.com/). Some different purple tones were
+
+also chosen to make the website more elegant.
+
+![Palette of colors](static/images/colors.png)
+
+### Typography :
+
+ 
+
+  
+
+### Images:
+
+
+
+  
+
+## Features
+
+  
+
+### Existing Features
+
+  
+
+- Designed with HTML5, CSS3, JavaScript, Python3, Flask, MongoDB.
+
+- Responsive navigation bar.
+
+- Button to create summaries that pops up a modal to fill in with the book's information.
+
+- Button to create a list of books.
+
+- Button to share a list of books.
+
+- Section where user can edit and delete summaries and lists.
+
+- Random quotes that inspire reading on the profile page (only on large screens.
+
+- Footer with social media links.
+
+  
+
+### Features to consider implementing in the future
+
+
+  
+
+## Technologies Used
+
+  
+
+### 1. Languages
+
+  
+
+-  [HTML5](https://en.wikipedia.org/wiki/HTML5)
+
+-  [CSS](https://en.wikipedia.org/wiki/CSS)
+
+-  [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+
+-  [Python](<https://en.wikipedia.org/wiki/Python_(programming_language)>)
+
+  
+
+### 2. Integrations
+
+  
+
+-  [Google Fonts](https://fonts.google.com/) - Typography.
+
+-  [FontAwesome](https://fontawesome.com/) - Used for icons.
+
+-  [Materalize](https://materializecss.com/) - CSS framework.
+
+-  [jQuery](https://jquery.com/) - JavaScript library.
+
+-  [Flask](https://flask.palletsprojects.com/en/1.1.x/) - Micro web framework written in Python.
+
+-  [MongoDB](https://www.mongodb.com/) - NoSQL database program, using JSON-like documents.
+
+  
+
+### 3. Workspace, version control, and repository storage
+
+  
+
+-  [Gitpod](https://www.gitpod.io/) - IDE (Integrated Development Environment) used to write the code.
+
+-  [GitHub](https://github.com/) - Repository hosting service to host the deployed website and track previous versions of code.
+
+-  [Git](https://git-scm.com/) - Version control tool to record changes and updates to my files.
+
+-  [Heroku](https://www.heroku.com/) - Container-based cloud platform for deployment and running of apps.
+
+  
+
+## Resources
+
+  
+
+-  [W3.CSS](https://www.w3schools.com/w3css/defaulT.asp) - General resource.
+
+-  [Stack Overflow](https://pt.stackoverflow.com/) - General resource.
+
+-  [Youtube](https://www.youtube.com/) - General resource.
+
+-  [CSS Matic](https://www.cssmatic.com) - Box Shadow Genetator.
+
+-  [CommonMark](https://commonmark.org/) - For Markdown language reference.
+
+-  [Coolors](https://coolors.co/) - Find matching color palette for site.
+
+-  [TinyPNG](https://tinypng.com/) - Efficient compression of images for site.
+
+-  [Balsamiq](https://balsamiq.com/wireframes/) - Wireframing design tool.
+
+-  [Autoprefixer](https://autoprefixer.github.io/) - Parses CSS and adds vendor prefixes.
+
+-  [Figma](https://www.figma.com/) - Web-based UI and UX design application.
+
+-  [Quick DBD](https://www.quickdatabasediagrams.com/) - Draw your database relationship diagrams and flow quickly using simple DSL language.
+
+-  [Google Mobile-Friendly](https://search.google.com/test/mobile-friendly) - Test Mobile-friendly check on site.
+
+- Code Institute SLACK Community - General Resource
+
+  
+
+## Code Validation
+
+  
+
+-  [W3C](https://validator.w3.org/) - HTML Markup Validation.
+
+-  [Closing Tag Checker for HTML5](https://www.aliciaramirez.com/closing-tags-checker/) - Validates all tags are opening and closing
+
+correctly.
+
+-  [W3C](https://jigsaw.w3.org/css-validator/) - CSS Validation.
+
+-  [JSHINT](https://jshint.com/) - JavaScript code warning & error check.
+
+-  [PEP8 online](http://pep8online.com/) - PEP8 validator.
+
+  
+
+## Testing
+
+  
+
+Testing documentation can be found [HERE](static/testing/TESTING.md)
+
+  
+
+## Project barriers and solutions
+
+  
+
+## Deployment
+
+  
+
+### Project Creation
+
+- To create this project the [CI Gitpod Full Template](https://github.com/Code-Institute-Org/gitpod-full-template).
+
+- I was then directed to the create new repository from template page and entered in my desired repository name, then clicked create
+
+repository from template button.
+
+- Once created, I navigated to my new repository on GitHub and clicked the Gitpod button which built my workspace.
+
+  
+
+### Deployment to Heroku
+
+This project is deployed and hosted on [Heroku](https://www.heroku.com/).
+
+- Navigate to [Heroku](https://www.heroku.com/) and login.
+
+- On the dashboard, click on the 'New' button and select 'Create new app'.
+
+- Enter the app name and select a region.
+
+- Under the 'Settings' tab, click on 'Config Vars' to add Configuration Variables from the env.py file. This includes the IP, Port,
+
+Secret key, MongoDB name and URI, as well as mail settings for Flask Mail.
+
+- In the menu select the 'Deploy' option.
+
+- Under 'Deployment method' select the GitHub option to connect to your GitHub repository. Ensure GitHub username is selected and
+
+use the search function to find the relevant repository.
+
+- Select Automatic deploys from the main branch and click 'Deploy Branch'.
+
+  
+
+### Cloning
+
+- The code can be run locally through clone or download from the repository on GitHub.
+
+- You can do this by opening the repository, clicking on the green 'Code' button and selecting either 'clone or download'.
+
+- The Clone option provides a URL, which you can use on your CLI with **git clone <url>**.
+
+- The Download ZIP option provides a link to download a ZIP file which can be unzipped on your local machine. The files can then
+
+be uploaded to your IDE
+
+  
+
+## Credits
+
+### Media
+
+**Illustrations**:
+
+
+
+  
+
+### Code
+
+
+
+  
+
+## Acknowledgments
+
+- Thanks for my mentor, Excellence Ilesanm for guidence and excellent advices.
+
+- Thanks to all Code Institute staff.
+
+- Thanks to CI Slack Community for all the assistance and support.
+
+- Thanks for all the web development community on Internet.
