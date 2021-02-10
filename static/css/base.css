@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -31,12 +30,21 @@ nav h3 {
 .nav-links {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   font-weight: 400;
   margin: 0;
 }
 
 .nav-links li {
   list-style-type: none;
+}
+.shopping-card {
+    margin-right: 0.5rem;
+}
+
+.shopping-card a i {
+    display: flex;
+    justify-content: center;
 }
 
 .nav-links a {
@@ -98,7 +106,8 @@ nav h3 {
 }
 
 .container-intro > p {
-    width: 63%;
+    width: 80%;
+    max-width: 800px;
     line-height: 2rem;
     text-align: center;
     position: absolute;
