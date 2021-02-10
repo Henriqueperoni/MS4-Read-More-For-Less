@@ -5,14 +5,32 @@
 
     <div class="container-fluid hero">
         <div class="container-intro">
-            <h2>
-                <span>Knowledge is </span>
-                <span><i class="fas fa-brain"></i></span>
-                <span> Freedom</span>
-            </h2>
-            <p>with Read more for Less you don't need to keep searching for what book you will read next. We will send the best
-                books to our home. You only have to <a class="btn-register">Sign Up</a>, wait for the delivery, brew your coffee and enjoy the book</p>
+            <div class="intro-animation">
+                <p class="anim-knowledge">Knowledge is</p>
+                <p class="anim-brain"><i class="fas fa-brain"></i></p>
+                <p class="anim-freedom">Freedom</p>
+            </div>
+            <p class="anim-intro-text">with Read more for Less you don't need to keep searching for what book you will read next. We
+                will send the best
+                books to our home. You only have to <a href="" class="btn-register">Sign Up</a>, wait for the delivery, brew your coffee and
+                enjoy the book.
+            </p>
         </div>
      </div>
+
+{% endblock %}
+
+{% block postloadjs %}
+     <script type="text/javascript">
+     if (window.matchMedia("(min-width: 992px)").matches) {
+        const introAnim = gsap.timeline({ defaults: { ease: "power1.out" } });
+
+            introAnim.from(".anim-knowledge", {y: 150, opacity: 0, duration: 1});
+            introAnim.from(".anim-knowledge", {x: 150, duration: 1});
+            introAnim.from(".anim-freedom", {x: -150, opacity:0, duration: 1}, "-=1");
+            introAnim.from(".anim-brain", { opacity:0, duration: 2}, "-=0.5");
+            introAnim.from(".anim-intro-text", {opacity: 0, duration: 1}, "-=1.5");
+     };
+    </script>
 
 {% endblock %}
