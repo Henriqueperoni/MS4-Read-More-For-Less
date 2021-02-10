@@ -5,6 +5,12 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ------- NAVBAR ------- */
+
 nav {
   display: flex;
   font-family: "Josefin Sans", sans-serif;
@@ -41,8 +47,10 @@ nav h3 {
 
 .btn-register {
     padding: 10px 15px;
+    font-family: "Josefin Sans", sans-serif;
     color: #fff !important;
     background: #2D88FF;
+    text-decoration: none;
     font-weight: 500;
     border-radius: 5px;
     font-size: 1.1rem;
@@ -56,4 +64,38 @@ nav h3 {
   width: 25px;
   height: 3px;
   margin: 5px;
+}
+
+/* ------- HERO ------- */
+.hero {
+    height: 93vh;
+    background: #f9f8f6;
+    position: relative;
+}
+
+.hero h2 {
+    padding-top: 10rem;
+    font-size: 4.5rem;
+    color: #080808;
+}
+
+.container-intro {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 80%;
+}
+
+.fa-brain {
+    color: #2D88FF;
+}
+
+.container-intro p {
+    width: 80%;
+    line-height: 2rem;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
