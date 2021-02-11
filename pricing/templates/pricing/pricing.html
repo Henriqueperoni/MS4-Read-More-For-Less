@@ -21,14 +21,22 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="text-center">Payment Plans</h2>
+                <h2 class="text-center payment-header">Payment Plans</h2>
             </div>
         </div>
         <div class="row">
             {% for plan in pricing %}
-                <div class="col-4">
+                <div class="col-12 col-md-6 col-lg-4">
                     <div class="card">
-                        <p>{{plan.name}}</p>
+                        <div class="pricing-card-header">
+                            <h3>{{ plan.name }}</h3>
+                        </div>
+                        <p>{{plan.description}}</p>
+                        <div class="card-price">
+                            <i class="fas fa-euro-sign"></i>
+                            <p>{{plan.price}}<span>EUR</span></p>
+                        </div>
+                        <p class="frequency-input">You will be billed {{plan.frequency|lower}}.</p>
                     </div>
                 </div>
 
