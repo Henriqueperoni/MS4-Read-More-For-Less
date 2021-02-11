@@ -5,9 +5,34 @@
 
     <div class="container">
         <div class="row">
-            <div class="col">
-                {{ pricing }}
+            <div class="col-12">
+                <h1 class="text-center page-title" >Pricing</h1>
             </div>
+            <div class="col-12">
+                <p class="text-center">
+                    As your name says, Read More For Less, we want to give you fair prices. Besides, give you the convenience of
+                    receiving books at your home as often you want, our team wants you to save your money as much as possible. Keeping
+                    that we mind, our team is always looking for the best books at a fair price to suits you better.
+                </p>
+            <div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center">Payment Plans</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for plan in pricing %}
+                <div class="col-4">
+                    <div class="card">
+                        <p>{{plan.name}}</p>
+                    </div>
+                </div>
+
+            {% endfor %}
         </div>
     </div>
 

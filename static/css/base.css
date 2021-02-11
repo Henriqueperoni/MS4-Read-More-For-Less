@@ -8,6 +8,13 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.page-title {
+    font-size: 3rem;
+    color: #2D88FF;
+    margin-top: 2rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
 /* ------- NAVBAR ------- */
 
 nav {
