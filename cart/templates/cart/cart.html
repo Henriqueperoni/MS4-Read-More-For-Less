@@ -9,7 +9,29 @@
                 <h1 class="text-center page-title" >Shopping Cart</h1>
             </div>
             <div class="col-12">
+                <p class="text-center">
+                    Hi ADD USER, your cart info is below. Please make sure you review the details of the plan you selected before
+                    continuing to Checkout. If you are happy with your purchase, we can then proceed. Click the Checkout button and you
+                    will be asked your details adress and payment method.
+                </p>
             <div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                {% if cart_items %}
+                    <div class="row">
+                        <div class="col"></div>
+                    </div>
+                {% else %}
+                    <p>Your Cart is empty! Have a look at our plans in the <a class="btn-register" href="{% url 'pricing' %}">Pricing</a> page.</p>
+                {% endif %}
+            </div>
+            <div class="col-6">
+                <img src="/media/books.jpg" alt="">
+            </div>
         </div>
     </div>
 
