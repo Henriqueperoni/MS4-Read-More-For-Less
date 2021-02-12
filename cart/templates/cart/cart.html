@@ -23,7 +23,7 @@
             <div class="col-6">
                 {% if cart_items %}
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col">
                             {% for item in cart_items %}
                             <div class="pricing-cards">
                                 <div class="card checkout-card">
@@ -46,9 +46,6 @@
                     <div class="col-6"></div>
                     <p>Your Cart is empty! Have a look at our plans in the <a class="btn-register" href="{% url 'pricing' %}">Pricing</a> page.</p>
                 {% endif %}
-            </div>
-            <div class="col-6">
-                <img src="/media/books.jpg" alt="">
             </div>
         </div>
     </div>
