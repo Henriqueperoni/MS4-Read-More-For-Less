@@ -23,7 +23,9 @@
             <div class="col-6">
                 {% if cart_items %}
                     <div class="row">
-                        <div class="col"></div>
+                        <div class="col">
+                            {{ cart_items }}
+                        </div>
                     </div>
                 {% else %}
                     <p>Your Cart is empty! Have a look at our plans in the <a class="btn-register" href="{% url 'pricing' %}">Pricing</a> page.</p>
