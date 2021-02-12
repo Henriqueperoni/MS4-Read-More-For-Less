@@ -22,6 +22,11 @@ h4 {
     margin: 0;
 }
 
+.main-color {
+    color: #2D88FF;
+    font-weight: 600;
+}
+
 /* ------- NAVBAR ------- */
 
 nav {
@@ -192,4 +197,23 @@ nav h3 {
     top: 0;
     left: 0;
     z-index: 1;
+}
+
+/* ------- CART ------- */
+.checkout-card p {
+    margin: 0;
+}
+
+.checkout-price > p {
+    padding: 3.5rem 0 0 1rem;
+}
+
+.checkout-value {
+    margin: 0
+}
+.btn-checkout {
+    width: 110px;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
 }

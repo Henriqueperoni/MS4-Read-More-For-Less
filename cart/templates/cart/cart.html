@@ -23,11 +23,27 @@
             <div class="col-6">
                 {% if cart_items %}
                     <div class="row">
-                        <div class="col">
-                            {{ cart_items }}
+                        <div class="col-6">
+                            {% for item in cart_items %}
+                            <div class="pricing-cards">
+                                <div class="card checkout-card">
+                                    <p> You chose the <span class="main-color">{{ item.plan.name }}</span> plan.</p>
+                                    <div class="checkout-price">
+                                        <p>Price:</p>
+                                        <div class="card-price checkout-value">
+                                            <i class="fas fa-euro-sign"></i>
+                                            <p>{{item.plan.price}}<span>EUR</span></p>
+                                        </div>
+                                    </div>
+                                    <p>And you will be billed {{item.plan.frequency|lower}}.</p>
+                                    <a href="" class="btn-register btn-checkout">Checkout</a>
+                                </div>
+                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 {% else %}
+                    <div class="col-6"></div>
                     <p>Your Cart is empty! Have a look at our plans in the <a class="btn-register" href="{% url 'pricing' %}">Pricing</a> page.</p>
                 {% endif %}
             </div>
