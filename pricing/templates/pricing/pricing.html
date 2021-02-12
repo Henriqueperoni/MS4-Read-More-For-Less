@@ -28,7 +28,7 @@
             {% for plan in pricing %}
                 
                 <div class="col-12 col-md-6 col-lg-4 pricing-cards">
-                    <a href="{% url 'add_to_cart' pricing.id %}" class="url-overlay"></a>
+                    <a href="{% url 'add_to_cart' item_id=plan.id %}" class="url-overlay"></a>
                     <div class="card">
                         <div class="pricing-card-header">
                             <h3>{{ plan.name }}</h3>

@@ -57,11 +57,11 @@
                     <li><a class="nav-anchor" href="#">Log In</a></li>
                     <li><a class="nav-anchor btn-register" href="#">Register</a></li>
                     <li class="shopping-card">
-                        <a class="{% if grand_total %} text-info font-weight-bold {% endif %} nav-anchor" href="{% url 'view_cart' %}" id="user-options">
+                        <a class="{% if total %} text-info font-weight-bold {% endif %} nav-anchor" href="{% url 'view_cart' %}" id="user-options">
                             <i class="fas fa-shopping-cart"></i>
                             <p class="my-0">
-                                {% if grand_total %}
-                                $({ grand_total|floatformat:2})
+                                {% if total %}
+                                ${{ total|floatformat:2 }}
                                 {% endif %}
                             </p>
                         </a>
