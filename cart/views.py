@@ -15,10 +15,7 @@ def add_to_cart(request, item_id):
     quantity = 1
     cart = request.session.get('cart', {})
 
-    if item_id in list(cart.keys()):
-        cart[item_id] += quantity
-    else:
-        cart[item_id] = quantity
+    cart[item_id] = cart.get(item_id, quantity)
 
     request.session['cart'] = cart
     return redirect('pricing')
