@@ -16,6 +16,19 @@ body {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 
+.btn-blue {
+    padding: 10px 15px;
+    font-family: "Josefin Sans", sans-serif;
+    color: #fff !important;
+    background: #2D88FF;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+
+}
+
 h1,
 h2,
 h3,
@@ -76,15 +89,7 @@ nav h3 {
 }
 
 .btn-register {
-    padding: 10px 15px;
-    font-family: "Josefin Sans", sans-serif;
-    color: #fff !important;
-    background: #2D88FF;
-    text-decoration: none;
-    font-weight: 500;
-    border-radius: 5px;
     font-size: 1.1rem;
-    cursor: pointer;
 }
 
 .burguer {
@@ -210,12 +215,22 @@ nav h3 {
     padding: 3.5rem 0 0 1rem;
 }
 
+.checkout-card > p:nth-child(3) {
+    text-align: end;
+}
+
 .checkout-value {
     margin: 0
 }
-.btn-checkout {
-    width: 110px;
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
+
+.checkout-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 65px;
 }
+
+.btn-checkout {
+    font-size: 0.9rem;
+    padding: 10px;
+}
+

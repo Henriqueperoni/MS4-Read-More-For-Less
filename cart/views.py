@@ -19,3 +19,14 @@ def add_to_cart(request, item_id):
 
     request.session['cart'] = cart
     return redirect('pricing')
+
+
+def clear_cart(request):
+    """ Remove plan from the cart """
+
+    cart = request.session.get('cart', {})
+
+    cart.clear()
+    
+    request.session['cart'] = cart
+    return redirect('pricing')

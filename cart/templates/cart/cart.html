@@ -37,7 +37,10 @@
                                         </div>
                                     </div>
                                     <p>And you will be billed {{item.plan.frequency|lower}}.</p>
-                                    <a href="" class="btn-register btn-checkout">Checkout</a>
+                                    <div class="checkout-buttons">
+                                        <a href="{% url 'clear_cart' %}" class="btn-blue btn-checkout">Clear cart and pick another plan</a>
+                                        <a href="" class="btn-blue btn-checkout">Checkout</a>
+                                    </div>
                                 </div>
                             </div>
                             {% endfor %}
@@ -45,7 +48,7 @@
                     </div>
                 {% else %}
                     <div class="col-6"></div>
-                    <p>Your Cart is empty! Have a look at our plans in the <a class="btn-register" href="{% url 'pricing' %}">Pricing</a> page.</p>
+                    <p>Your Cart is empty! Have a look at our plans in the <a class="btn-blue" href="{% url 'pricing' %}">Pricing</a> page.</p>
                 {% endif %}
             </div>
         </div>
