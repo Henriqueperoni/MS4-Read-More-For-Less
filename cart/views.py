@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+
+from pricing.models import Pricing
 # Create your views here.
 
 
@@ -12,12 +14,14 @@ def view_cart(request):
 def add_to_cart(request, item_id):
     """ Add a pricing plan to the shopping cart"""
 
+    plan = Pricing.objects.get(pk=item_id)
     quantity = 1
     cart = request.session.get('cart', {})
 
     cart[item_id] = cart.get(item_id, quantity)
 
-    messages.success(request, 'Added to the cart')
+    messages.success(
+        request, f"Successfully added {plan.name}'s plan to cart")
     request.session['cart'] = cart
     return redirect('pricing')
 
