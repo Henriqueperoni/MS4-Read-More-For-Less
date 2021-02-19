@@ -20,11 +20,14 @@ def add_to_cart(request, item_id):
 
     if cart.items():
         messages.error(request, 'You already have a plan in your cart')
+        print(len(cart))
 
-    cart[item_id] = cart.get(item_id, quantity)
+    if len(cart) < 1:
+        cart[item_id] = cart.get(item_id, quantity)
+        messages.success(
+            request, f"Successfully added {plan.frequency.lower()} \
+                {plan.name}'s plan to cart")
 
-    messages.success(
-        request, f"Successfully added {plan.frequency.lower()} {plan.name}'s plan to cart")
     request.session['cart'] = cart
     return redirect('pricing')
 
@@ -35,7 +38,7 @@ def clear_cart(request):
     cart = request.session.get('cart', {})
 
     cart.clear()
-    messages.success(request, f'Your cart has successfully been cleared')
+    messages.success(request, 'Your cart has successfully been cleared')
 
     request.session['cart'] = cart
     return redirect('pricing')
