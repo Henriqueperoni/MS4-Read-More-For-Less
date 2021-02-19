@@ -206,6 +206,10 @@ nav h3 {
     z-index: 1;
 }
 
+.tab-content>.active {
+    display: contents;
+}
+
 /* ------- CART ------- */
 .checkout-card p {
     margin: 0;

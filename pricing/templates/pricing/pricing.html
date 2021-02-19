@@ -14,7 +14,7 @@
                     receiving books at your home as often you want, our team wants you to save your money as much as possible. Keeping
                     that we mind, our team is always looking for the best books at a fair price to suits you better.
                 </p>
-            <div>
+            </div>
         </div>
     </div>
 
@@ -25,25 +25,80 @@
             </div>
         </div>
         <div class="row">
-            {% for plan in pricing %}
-                
-                <div class="col-12 col-md-6 col-lg-4 pricing-cards">
-                    <a href="{% url 'add_to_cart' item_id=plan.id %}" class="url-overlay"></a>
-                    <div class="card">
-                        <div class="pricing-card-header">
-                            <h3>{{ plan.name }}</h3>
-                        </div>
-                        <p>{{plan.description}}</p>
-                        <div class="card-price">
-                            <i class="fas fa-euro-sign"></i>
-                            <p>{{plan.price}}<span>EUR</span></p>
-                        </div>
-                        <p class="frequency-input">You will be billed {{plan.frequency|lower}}.</p>
+            <div>
+            
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                            role="tab" aria-controls="home" aria-selected="true">Anually</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                            role="tab" aria-controls="profile" aria-selected="false">Monthly</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content row mt-5" id="myTabContent">
+                    <div class="tab-pane fade show active row" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        {% for plan in pricing %}
+                            {% if plan.frequency == "Annually" %}
+                                <div class="col-12 col-md-6 col-lg-4 pricing-cards">
+                                    <a href="{% url 'add_to_cart' item_id=plan.id %}" class="url-overlay"></a>
+                                    <div class="card">
+                                        <div class="pricing-card-header">
+                                            <h3>{{ plan.name }}</h3>
+                                        </div>
+                                        <p>{{plan.description}}</p>
+                                        <div class="card-price">
+                                            <i class="fas fa-euro-sign"></i>
+                                            <p>{{plan.price}}<span>EUR</span></p>
+                                        </div>
+                                        <p class="frequency-input">You will be billed {{plan.frequency|lower}}.</p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="tab-pane fade row" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        {% for plan in pricing %}
+                            {% if plan.frequency == "Monthly" %}
+                                <div class="col-12 col-md-6 col-lg-4 pricing-cards">
+                                    <a href="{% url 'add_to_cart' item_id=plan.id %}" class="url-overlay"></a>
+                                    <div class="card">
+                                        <div class="pricing-card-header">
+                                            <h3>{{ plan.name }}</h3>
+                                        </div>
+                                        <p>{{plan.description}}</p>
+                                        <div class="card-price">
+                                            <i class="fas fa-euro-sign"></i>
+                                            <p>{{plan.price}}<span>EUR</span></p>
+                                        </div>
+                                        <p class="frequency-input">You will be billed {{plan.frequency|lower}}.</p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
+            </div>
 
-            {% endfor %}
+            
         </div>
     </div>
 
+{% endblock %}
+
+{% block postloadjs %}
+
+    <script type="text/javascript">
+        var triggerTabList = [].slice.call(document.querySelectorAll('#myTab a'))
+        triggerTabList.forEach(function (triggerEl) {
+        var tabTrigger = new bootstrap.Tab(triggerEl)
+
+        triggerEl.addEventListener('click', function (event) {
+            event.preventDefault()
+            tabTrigger.show()
+        })
+        })
+    </script>
 {% endblock %}
