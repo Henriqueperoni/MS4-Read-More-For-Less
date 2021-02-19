@@ -25,26 +25,25 @@
             </div>
         </div>
         <div class="row">
-            <div>
             
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
-                            role="tab" aria-controls="home" aria-selected="true">Anually</button>
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                            aria-controls="pills-home" aria-selected="true">Home</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
-                            role="tab" aria-controls="profile" aria-selected="false">Monthly</button>
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                            aria-controls="pills-profile" aria-selected="false">Profile</a>
                     </li>
                 </ul>
 
-                <div class="tab-content row mt-5" id="myTabContent">
-                    <div class="tab-pane fade show active row" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="tab-content row mt-5" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         {% for plan in pricing %}
                             {% if plan.frequency == "Annually" %}
                                 <div class="col-12 col-md-6 col-lg-4 pricing-cards">
-                                    <a href="{% url 'add_to_cart' item_id=plan.id %}" class="url-overlay"></a>
                                     <div class="card">
+                                    <a href="{% url 'add_to_cart' item_id=plan.id %}" class="url-overlay"></a>
                                         <div class="pricing-card-header">
                                             <h3>{{ plan.name }}</h3>
                                         </div>
@@ -59,7 +58,7 @@
                             {% endif %}
                         {% endfor %}
                     </div>
-                    <div class="tab-pane fade row" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                         {% for plan in pricing %}
                             {% if plan.frequency == "Monthly" %}
                                 <div class="col-12 col-md-6 col-lg-4 pricing-cards">
@@ -80,7 +79,6 @@
                         {% endfor %}
                     </div>
                 </div>
-            </div>
 
             
         </div>
@@ -91,14 +89,9 @@
 {% block postloadjs %}
     {{ block.super }}
     <script type="text/javascript">
-        var triggerTabList = [].slice.call(document.querySelectorAll('#myTab a'))
-        triggerTabList.forEach(function (triggerEl) {
-        var tabTrigger = new bootstrap.Tab(triggerEl)
-
-        triggerEl.addEventListener('click', function (event) {
+        $('#myTab a').on('click', function (event) {
             event.preventDefault()
-            tabTrigger.show()
-        })
+            $(this).tab('show')
         })
     </script>
 {% endblock %}
