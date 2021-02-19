@@ -238,3 +238,8 @@ nav h3 {
     padding: 10px;
 }
 
+/* ------- Toast Messages ------- */
+.message-container {
+    z-index: 999999;
+}
+

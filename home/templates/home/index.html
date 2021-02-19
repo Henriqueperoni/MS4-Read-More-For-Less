@@ -21,6 +21,7 @@
 {% endblock %}
 
 {% block postloadjs %}
+    {{ block.super }}
     <script type="text/javascript">
         var collapseElementList = [].slice.call(document.querySelectorAll('.collapse'))
         var collapseList = collapseElementList.map(function (collapseEl) {

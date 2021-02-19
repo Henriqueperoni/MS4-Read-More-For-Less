@@ -89,7 +89,7 @@
 {% endblock %}
 
 {% block postloadjs %}
-
+    {{ block.super }}
     <script type="text/javascript">
         var triggerTabList = [].slice.call(document.querySelectorAll('#myTab a'))
         triggerTabList.forEach(function (triggerEl) {
