@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 
 from pricing.models import Pricing
@@ -14,14 +14,17 @@ def view_cart(request):
 def add_to_cart(request, item_id):
     """ Add a pricing plan to the shopping cart"""
 
-    plan = Pricing.objects.get(pk=item_id)
+    plan = get_object_or_404(Pricing, pk=item_id)
     quantity = 1
     cart = request.session.get('cart', {})
+
+    if cart.items():
+        messages.error(request, 'You already have a plan in your cart')
 
     cart[item_id] = cart.get(item_id, quantity)
 
     messages.success(
-        request, f"Successfully added {plan.name}'s plan to cart")
+        request, f"Successfully added {plan.frequency.lower()} {plan.name}'s plan to cart")
     request.session['cart'] = cart
     return redirect('pricing')
 
@@ -32,6 +35,7 @@ def clear_cart(request):
     cart = request.session.get('cart', {})
 
     cart.clear()
+    messages.success(request, f'Your cart has successfully been cleared')
 
     request.session['cart'] = cart
     return redirect('pricing')
