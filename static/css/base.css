@@ -258,14 +258,20 @@ nav h3 {
 
 
 /* ------- CHECKOUT------- */
-table {
+.table-price {
     border-collapse: collapse;
     background: white;
-    padding: 5px;
     min-width: 400px;
+    border-radius: 8px;
     box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.15);
 }
 
-table h4{
-    background: #2D88FF !important;
+.table-price h3 {
+    background: #2D88FF;
+    padding: 8px 0;
+    border-radius: 8px 8px 0 0;
+}
+
+.table-price p {
+    padding: 10px;
 }

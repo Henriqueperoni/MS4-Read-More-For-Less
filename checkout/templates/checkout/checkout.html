@@ -10,31 +10,17 @@
             </div>
         </div>
     
-
         <div class="row">
-            <div class="col-12 col-lg-6 order-lg-last">
+            <div class="col-12 col-lg-4 order-lg-last">
                 <h3 class="mb-5">Order Summary</h3>
                 {% for item in cart_items %}
-                    <table>
-                        <thead>
-                        <tr>
-                            <th><h4>Your Order</h4></th>
-                            <th><h4> </h4></th>
-                        </tr>
-                        </thead>
-                        <tr>
-                            <th>Plan:</th>
-                            <td>{{ item.plan.name }}</td>
-                        </tr>
-                        <tr>
-                            <th>Price:</th>
-                            <td>{{ item.plan.price }}</td>
-                        </tr>
-                        <tr>
-                            <th>Frequency:</th>
-                            <td>{{ item.plan.frequency }}</td>
-                        </tr>
-                    </table>
+                    <div class="table-price ">
+                        <h3 class="text-center text-white mb-2">Your Order</h3>
+                        <p><strong>Plan:</strong> {{ item.plan.name }}</p>
+                        <p><strong>Price:</strong> {{ item.plan.price }}</p>
+                        <p><strong>Frequency:</strong> {{ item.plan.frequency }}</p>
+                        <p><strong>Expire Date:</strong> <span id="expire-date"></span></p>
+                    </div>
                 {% endfor %}
             
             </div>
@@ -68,5 +54,17 @@
             </div>
         </div>
     </div>
+
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        n = new Date();
+        y = n.getFullYear() + 1;
+        m = n.getMonth();
+        d = n.getDate();
+        document.getElementById("expire-date").innerHTML = d + "/" + m + "/" + y;
+    </script>
 
 {% endblock %}
