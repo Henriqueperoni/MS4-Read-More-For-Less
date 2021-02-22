@@ -258,12 +258,44 @@ nav h3 {
 
 
 /* ------- CHECKOUT------- */
-.table-price {
-    border-collapse: collapse;
+.container-form {
+    border: 1px solid #827f7f;
+    border-radius: 3px;
+    padding: 10px 0;
+
+}
+
+.table-price,
+.checkout-form {
     background: white;
-    min-width: 400px;
     border-radius: 8px;
     box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.15);
+}
+
+.checkout-form input, label {
+    margin: 0 10px;
+    width: -webkit-fill-available;
+}
+
+#id-save-info, label {
+    margin: 0 0 10px 10px;
+    width: unset;
+}
+
+#id-save-info {
+    margin: 0;
+}
+
+.checkout-form legend {
+    text-align: center;
+    font-weight: 500;
+    padding: 6px 10px;
+    background: #2D88FF;
+    color: #fff;
+}
+
+.checkout-form > fieldset:nth-child(2) > legend {
+    border-radius: 8px 8px 0 0;
 }
 
 .table-price h3 {
