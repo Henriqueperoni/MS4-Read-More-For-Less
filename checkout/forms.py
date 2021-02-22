@@ -33,6 +33,6 @@ class OrderForm(forms.ModelForm):
             if self.fields[field].required:
                 placeholder = f'{placeholders[field]} *'
             else:
-                placeholders[field]
+                placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].label = False
