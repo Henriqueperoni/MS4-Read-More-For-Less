@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content%}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center page-title">Checkout</h1>
+            </div>
+            <div class="col-12">
+                <p class="text-center">
+                    
+                </p>
+                <div>
+                </div>
+            </div>
+        </div>
+    
+
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <p>Please fill out the form below to complete your order</p>
+                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+                    {{ order_form.full_name | as_crispy_field }}
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
