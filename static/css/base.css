@@ -272,6 +272,10 @@ nav h3 {
     box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.15);
 }
 
+.checkout-form {
+    margin-top: 20px;
+}
+
 .checkout-form input, label {
     margin: 0 10px;
     width: -webkit-fill-available;
@@ -306,4 +310,43 @@ nav h3 {
 
 .table-price p {
     padding: 10px;
+}
+
+/* Stripe Payment */
+.StripeElement,
+.stripe-style-input {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.stripe-style-input::placeholder {
+    color: #aab7c4;
+}
+
+.fieldset-label {
+    position: relative;
+    right: .5rem;
+}
+
+#payment-form .form-control,
+#card-element {
+    color: #000;
+    border: 1px solid #000;
 }

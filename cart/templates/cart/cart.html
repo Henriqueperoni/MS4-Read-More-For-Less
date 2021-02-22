@@ -15,16 +15,12 @@
                     continuing to Checkout. If you are happy with your purchase, we can then proceed. Click the Checkout
                     button and you
                     will be asked your details adress and payment method.
-                    {{ request.session.cart }}
                 </p>
                 <div>
                 </div>
             </div>
         </div>
-    </div>
 
-
-    <div class="container">
         <div class="row">
             <div class="col-6">
                 {% if cart_items %}
@@ -44,7 +40,7 @@
                                     <p>And you will be billed {{item.plan.frequency|lower}}.</p>
                                     <div class="checkout-buttons">
                                         <a href="{% url 'clear_cart' %}" class="btn-blue btn-checkout">Clear cart and pick another plan</a>
-                                        <a href="" class="btn-blue btn-checkout">Checkout</a>
+                                        <a href="{% url 'checkout' %}" class="btn-blue btn-checkout">Checkout</a>
                                     </div>
                                 </div>
                             </div>
