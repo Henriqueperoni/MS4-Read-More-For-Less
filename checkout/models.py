@@ -2,7 +2,6 @@ import uuid
 
 from django.db import models
 from pricing.models import Pricing
-from django.conf import settings
 
 # Create your models here.
 
@@ -49,4 +48,4 @@ class OrderLineItem(models.Model):
     quantity = models.IntegerField(default=1, null=False, blank=False)
 
     def __str__(self):
-        return f'Plan {self.plan.price} on order {self.order.order_number} '
+        return f'Plan {self.plan.price} on order {self.order.order_number}'
