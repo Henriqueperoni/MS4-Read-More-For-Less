@@ -36,7 +36,7 @@ h4 {
     margin: 0;
 }
 
-.main-color {
+.blue-text {
     color: #2D88FF;
     font-weight: 600;
 }
@@ -261,7 +261,6 @@ nav h3 {
     border: 1px solid #827f7f;
     border-radius: 3px;
     padding: 10px 0;
-
 }
 
 .table-price,
@@ -368,3 +367,16 @@ nav h3 {
     border: 1px solid #000;
     margin: 10px;
 }
+
+/* ------- CHECKOUT SUCESS------- */
+.success-thanks {
+    color: #2D88FF;
+}
+
+.order-confirmation {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    border: 5px solid #2D88FF;
+}
+
