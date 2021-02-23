@@ -50,20 +50,21 @@
                         <div id="card-element"></div>
                         <div class="mb-2 text-danger" id="card-errors" role="alert"></div>
                     </fieldset>
-                    <div class="submit-button text-right mt-5 mb-2">                    
-						<a href="{% url 'view_cart' %}" class="btn btn-outline-black rounded-0">
+
+                    <div class="submit-button text-right mt-2 mb-2 mr-2">                    
+						<a href="{% url 'view_cart' %}" class="back-to-cart">
 							<span class="icon">
 								<i class="fas fa-chevron-left"></i>
 							</span>
-							<span class="font-weight-bold">Adjust Bag</span>
+							<span class="font-weight-bold">Adjust Cart</span>
 						</a>
-						<button id="submit-button" class="btn btn-black rounded-0">
+						<button id="submit-button" class="btn-blue">
 							<span class="font-weight-bold">Complete Order</span>
 							<span class="icon">
 								<i class="fas fa-lock"></i>
 							</span>
 						</button>
-						<p class="small text-danger my-0">
+						<p class="small text-danger my-0 mt-2">
 							<span class="icon">
 								<i class="fas fa-exclamation-circle"></i>
 							</span>

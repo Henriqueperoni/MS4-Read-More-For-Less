@@ -27,7 +27,6 @@ body {
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
-
 }
 
 h1,
@@ -310,6 +309,24 @@ nav h3 {
 
 .table-price p {
     padding: 10px;
+}
+
+#submit-button {
+    border: none;
+}
+
+.back-to-cart {
+    padding: 12px 15px;
+    font-family: "Josefin Sans", sans-serif;
+    color: #2D88FF !important;
+    background: #fff;
+    border: 2px solid #2D88FF;
+    margin-right: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 /* Stripe Payment */
