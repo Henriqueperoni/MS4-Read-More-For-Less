@@ -2,6 +2,7 @@ import uuid
 
 from django.db import models
 from pricing.models import Pricing
+from django.db.models import Sum
 
 # Create your models here.
 
@@ -27,6 +28,14 @@ class Order(models.Model):
         """
         return uuid.uuid4().hex.upper()
 
+    def update_total(self):
+        """
+        Update total
+        """
+        self.total = self.lineitems.aggregate(
+            Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.save()
+
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the order number
@@ -42,10 +51,27 @@ class Order(models.Model):
 
 class OrderLineItem(models.Model):
     order = models.ForeignKey(
-        Order, null=False, blank=False, on_delete=models.CASCADE)
+        Order,
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE,
+        related_name='lineitem')
     plan = models.ForeignKey(
         Pricing, null=False, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1, null=False, blank=False)
+    lineitem_total = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        null=False, blank=False,
+        editable=False)
+
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the lineitem total
+        and update the order total.
+        """
+        self.lineitem_total = self.plan.price * self.quantity
+        super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'Plan {self.plan.price} on order {self.order.order_number}'
+        return f'Plan {self.plan.name} on order {self.order.order_number}'
