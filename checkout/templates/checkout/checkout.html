@@ -49,8 +49,27 @@
                         <legend class="mb-0">Payment</legend>
                         <div id="card-element"></div>
                         <div class="mb-2 text-danger" id="card-errors" role="alert"></div>
-                        
                     </fieldset>
+                    <div class="submit-button text-right mt-5 mb-2">                    
+						<a href="{% url 'view_cart' %}" class="btn btn-outline-black rounded-0">
+							<span class="icon">
+								<i class="fas fa-chevron-left"></i>
+							</span>
+							<span class="font-weight-bold">Adjust Bag</span>
+						</a>
+						<button id="submit-button" class="btn btn-black rounded-0">
+							<span class="font-weight-bold">Complete Order</span>
+							<span class="icon">
+								<i class="fas fa-lock"></i>
+							</span>
+						</button>
+						<p class="small text-danger my-0">
+							<span class="icon">
+								<i class="fas fa-exclamation-circle"></i>
+							</span>
+							<span>Your card will be charged <strong>${{ total|floatformat:2 }}</strong></span>
+						</p>
+					</div>
                 </form>
             </div>
         </div>
@@ -95,18 +114,19 @@
         card.mount('#card-element');
 
         // Handle realtime validation errors on the card element
-        card.addEventListener('change', function(event) {
+        card.addEventListener('change', function (event) {
             var errorDiv = document.getElementById('card-errors');
             if (event.error) {
                 var html = `
-                <span class="icon ml-3" role="alert">
-                    <i class="fas fa-times"></i>
-                </span>
-                <span>${ event.error.message }</span>`
-
+                    <span class="icon" role="alert">
+                        <i class="fas fa-times"></i>
+                    </span>
+                    <span>${event.error.message}</span>
+                `;
                 $(errorDiv).html(html);
-            } else
-            errorDiv.textContent = '';
+            } else {
+                errorDiv.textContent = '';
+            }
         });
 
         // Handle form submit
@@ -125,7 +145,7 @@
                     var errorDiv = document.getElementById('card-errors');
                     var html = `
                         <span class="icon" role="alert">
-                            <i class="fas fa-times"></i>
+                        <i class="fas fa-times"></i>
                         </span>
                         <span>${result.error.message}</span>`;
                     $(errorDiv).html(html);
