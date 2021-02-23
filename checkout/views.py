@@ -20,15 +20,15 @@ def checkout(request):
         cart = request.session.get('cart', {})
 
         form_data = {
-            'full_name': request.session.get('full_name', {}),
-            'email': request.session.get('email', {}),
-            'phone_number': request.session.get('phone_number', {}),
-            'country': request.session.get('country', {}),
-            'post_code': request.session.get('post_code', {}),
-            'town_or_city': request.session.get('town_or_city', {}),
-            'street_address1': request.session.get('street_address1', {}),
-            'street_address2': request.session.get('street_address2', {}),
-            'county': request.session.get('county', {}),
+            'full_name': request.POST['full_name'],
+            'email': request.POST['email'],
+            'phone_number': request.POST['phone_number'],
+            'country': request.POST['country'],
+            'post_code': request.POST['post_code'],
+            'town_or_city': request.POST['town_or_city'],
+            'street_address1': request.POST['street_address1'],
+            'street_address2': request.POST['street_address2'],
+            'county': request.POST['county'],
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
@@ -39,7 +39,7 @@ def checkout(request):
             total = 0
             for item_id, quantity in cart.items():
                 plan = get_object_or_404(Pricing, pk=item_id)
-                total += quantity . plan.price
+                total += quantity * plan.price
                 total = plan.price
                 order_line_item = OrderLineItem(
                     order=order,
@@ -47,6 +47,9 @@ def checkout(request):
                     quantity=quantity,
                 )
                 order_line_item.save()
+        else:
+            messages.error(request, 'There was an error with your form. \
+                Please double check your information.')
 
         request.session['save_info'] = 'save-info' in request.POST
         return redirect(reverse('checkout_success', args=[order.order_number]))
@@ -56,7 +59,7 @@ def checkout(request):
         if not cart:
             messages.error(
                 request, "There's nothing in your cart at the moment")
-            return redirect(reverse('products'))
+            return redirect(reverse('pricing'))
 
         current_cart = cart_contents(request)
         total = current_cart['total']
@@ -92,7 +95,7 @@ def checkout_success(request, order_number):
         email will be sent to {order.email}')
 
     if 'cart' in request.session:
-        del request.session['bag']
+        del request.session['cart']
 
     template = 'checkout/checkout_success.html'
     context = {
