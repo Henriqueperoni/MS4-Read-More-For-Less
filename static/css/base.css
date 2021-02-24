@@ -380,3 +380,15 @@ nav h3 {
     border: 5px solid #2D88FF;
 }
 
+select,
+select option {
+    color: #000000;
+}
+
+select:invalid {
+    color: #aab7c4 !important;
+}
+
+.form-control {
+    width: -webkit-fill-available;
+}

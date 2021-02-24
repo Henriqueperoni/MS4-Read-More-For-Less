@@ -36,12 +36,12 @@
                     <fieldset>
                         <legend>Delivery</legend>
                         {{ order_form.phone_number | as_crispy_field }}
-                        {{ order_form.country | as_crispy_field }}
-                        {{ order_form.post_code | as_crispy_field }}
-                        {{ order_form.town_or_city | as_crispy_field }}
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
+                        {{ order_form.post_code | as_crispy_field }}
+                        {{ order_form.town_or_city | as_crispy_field }}
                         {{ order_form.county | as_crispy_field }}
+                        {{ order_form.country | as_crispy_field }}
                         <label for="id-save-info">Save this delivey information to my profile</label>
                         <input class="m-0" type="checkbox" id="id-save-info" name="save-info">
                     </fieldset>
