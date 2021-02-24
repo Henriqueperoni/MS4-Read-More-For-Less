@@ -28,7 +28,7 @@ class StripeWH_Handler:
         intent = event.data.object
         pid = intent.id
         cart = intent.metadata.cart
-        save_info = intent.metadata.save_info
+        # save_info = intent.metadata.save_info
 
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
@@ -59,11 +59,6 @@ class StripeWH_Handler:
                 )
                 order_exists = True
                 break
-                return HttpResponse(
-                    content=f'Webhook received: {event["type"]} | \
-                    SUCCESS: Verifield order already in database',
-                    status=200)
-
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
@@ -90,8 +85,6 @@ class StripeWH_Handler:
                 )
                 for item_id, quantity in json.loads(cart).items():
                     plan = Pricing.objects.get(id=item_id)
-                    total += quantity * plan.price
-                    total = plan.price
                     order_line_item = OrderLineItem(
                         order=order,
                         plan=plan,
