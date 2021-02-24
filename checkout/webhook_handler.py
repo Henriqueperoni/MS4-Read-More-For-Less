@@ -1,5 +1,11 @@
 from django.http import HttpResponse
 
+from .models import Order, OrderLineItem
+from pricing.models import Pricing
+
+import json
+import time
+
 
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
@@ -20,8 +26,84 @@ class StripeWH_Handler:
         Handle the payment_intent.succeeded webhook from Stripe
         """
         intent = event.data.object
+        pid = intent.id
+        cart = intent.metadata.cart
+        save_info = intent.metadata.save_info
+
+        billing_details = intent.charge.data[0].billing_details
+        shipping_details = intent.shipping
+        total = round(intent.data.charges[0].amount / 100, 2)
+
+        # Clean data in the shipping details
+        for field, value in shipping_details.address.items():
+            if value == "":
+                shipping_details.address[field] = None
+
+        order_exists = False
+        attempt = 1
+        while attempt <= 5:
+            try:
+                order = Order.object.get(
+                    full_name__ixact=shipping_details.name,
+                    email__ixact=shipping_details.email,
+                    phone_number__ixact=shipping_details.phone,
+                    country__ixact=shipping_details.country,
+                    post_code__ixact=shipping_details.postal_code,
+                    town_or_city__ixact=shipping_details.city,
+                    street_address1__ixact=shipping_details.line1,
+                    street_address2__ixact=shipping_details.line2,
+                    county__ixact=shipping_details.state,
+                    total=total,
+                )
+                order_exists = True
+                return HttpResponse(
+                    content=f'Webhook received: {event["type"]} | \
+                    SUCCESS: Verifield order already in database',
+                    status=200)
+
+            except Order.DoesNotExist:
+                attempt += 1
+                time.spleep(5)
+        if order_exists:
+            return HttpResponse(
+                    content=f'Webhook received: {event["type"]} | \
+                    SUCCESS: Verifield order already in database',
+                    status=200)
+        else:
+            order = None
+            try:
+                order = Order.objects.create(
+                    full_name=shipping_details.name,
+                    email=shipping_details.email,
+                    phone_number=shipping_details.phone,
+                    country=shipping_details.country,
+                    post_code=shipping_details.postal_code,
+                    town_or_city=shipping_details.city,
+                    street_address1=shipping_details.line1,
+                    street_address2=shipping_details.line2,
+                    county=shipping_details.state,
+                    total=total,
+                )
+                for item_id, quantity in json.loads(cart).items():
+                    plan = Pricing.objects.get(id=item_id)
+                    total += quantity * plan.price
+                    total = plan.price
+                    order_line_item = OrderLineItem(
+                        order=order,
+                        plan=plan,
+                        quantity=quantity,
+                    )
+                    order_line_item.save()
+            except Exception as e:
+                if order:
+                    order.delete()
+                return HttpResponse(
+                    content=f'Webhook received: {event["type"]} | ERROR: {e}',
+                    status=500)
+
         return HttpResponse(
-            content=f'Webhook received: {event["type"]}',
+            content=f'Webhook received: {event["type"]} | \
+            SUCCESS: Created order in webhook',
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):

@@ -164,7 +164,14 @@
                             <p class="mb-0 font-weight-bold">Order Total</p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ order.total }}</p>
+                            <p class="mb-0">
+                                {% for item in order.lineitem.all %}
+                                    {% if item.plan.frequency == "Monthly" %} 
+                                        12 x 
+                                    {% endif %}
+                                {% endfor %}
+                                €{{ order.total }}
+                            </p>
                         </div>
                     </div>
                 </div>
