@@ -30,9 +30,9 @@ class StripeWH_Handler:
         cart = intent.metadata.cart
         save_info = intent.metadata.save_info
 
-        billing_details = intent.charge.data[0].billing_details
+        billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
-        total = round(intent.data.charges[0].amount / 100, 2)
+        total = round(intent.charges.data[0].amount / 100, 2)
 
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():
@@ -43,19 +43,22 @@ class StripeWH_Handler:
         attempt = 1
         while attempt <= 5:
             try:
-                order = Order.object.get(
-                    full_name__ixact=shipping_details.name,
-                    email__ixact=shipping_details.email,
-                    phone_number__ixact=shipping_details.phone,
-                    country__ixact=shipping_details.country,
-                    post_code__ixact=shipping_details.postal_code,
-                    town_or_city__ixact=shipping_details.city,
-                    street_address1__ixact=shipping_details.line1,
-                    street_address2__ixact=shipping_details.line2,
-                    county__ixact=shipping_details.state,
+                order = Order.objects.get(
+                    full_name__iexact=shipping_details.name,
+                    email__iexact=billing_details.email,
+                    phone_number__iexact=shipping_details.phone,
+                    country__iexact=shipping_details.address.country,
+                    post_code__iexact=shipping_details.address.postal_code,
+                    town_or_city__iexact=shipping_details.address.city,
+                    street_address1__iexact=shipping_details.address.line1,
+                    street_address2__iexact=shipping_details.address.line2,
+                    county__iexact=shipping_details.address.state,
                     total=total,
+                    original_cart=cart,
+                    stripe_pid=pid,
                 )
                 order_exists = True
+                break
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | \
                     SUCCESS: Verifield order already in database',
@@ -63,7 +66,7 @@ class StripeWH_Handler:
 
             except Order.DoesNotExist:
                 attempt += 1
-                time.spleep(5)
+                time.sleep(1)
         if order_exists:
             return HttpResponse(
                     content=f'Webhook received: {event["type"]} | \
@@ -74,15 +77,16 @@ class StripeWH_Handler:
             try:
                 order = Order.objects.create(
                     full_name=shipping_details.name,
-                    email=shipping_details.email,
+                    email=billing_details.email,
                     phone_number=shipping_details.phone,
-                    country=shipping_details.country,
-                    post_code=shipping_details.postal_code,
-                    town_or_city=shipping_details.city,
-                    street_address1=shipping_details.line1,
-                    street_address2=shipping_details.line2,
-                    county=shipping_details.state,
-                    total=total,
+                    country=shipping_details.address.country,
+                    post_code=shipping_details.address.postal_code,
+                    town_or_city=shipping_details.address.city,
+                    street_address1=shipping_details.address.line1,
+                    street_address2=shipping_details.address.line2,
+                    county=shipping_details.address.state,
+                    original_cart=cart,
+                    stripe_pid=pid,
                 )
                 for item_id, quantity in json.loads(cart).items():
                     plan = Pricing.objects.get(id=item_id)
