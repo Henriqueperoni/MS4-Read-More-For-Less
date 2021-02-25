@@ -17,6 +17,22 @@ body {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.blue-text {
+    color: #2D88FF;
+}
+
+/* Buttons */
 .btn-blue {
     padding: 10px 15px;
     font-family: "Josefin Sans", sans-serif;
@@ -28,6 +44,11 @@ body {
     font-size: 1rem;
     border: none;
     cursor: pointer;
+    transition: .3s;
+}
+
+.btn-blue:hover {
+    background: #0865de;
 }
 
 .btn-white {
@@ -42,19 +63,12 @@ body {
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
+    transition: .3s;
 }
 
-h1,
-h2,
-h3,
-h4 {
-    margin: 0;
+.btn-white:hover {
+    background: #efefef;
 }
-
-.blue-text {
-    color: #2D88FF;
-}
-
 /* ------- NAVBAR ------- */
 
 nav {
@@ -408,6 +422,9 @@ select:invalid {
 }
 
 /* Allauth */
+.container-allauth {
+    margin-top: 200px;
+}
 .allauth-form {
     background: #fff;
     padding: 15px;

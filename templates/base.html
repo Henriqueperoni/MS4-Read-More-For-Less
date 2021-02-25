@@ -66,7 +66,7 @@
                 <ul class="nav-links">
                     <li><a class="nav-anchor" href="{% url 'home' %}">Home</a></li>
                     <li><a class="nav-anchor" href="{% url 'pricing' %}">Pricing</a></li>
-                    <li><a class="nav-anchor" href="#">Log In</a></li>
+                    <li><a class="nav-anchor" href="{% url 'account_login' %}">Log In</a></li>
                     <li><a class="nav-anchor btn-register btn-blue" href="#">Register</a></li>
                     <li class="shopping-card">
                         <a class="{% if total %} text-info font-weight-bold {% endif %} nav-anchor" href="{% url 'view_cart' %}" id="user-options">
