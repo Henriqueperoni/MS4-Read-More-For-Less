@@ -368,6 +368,7 @@ nav h3 {
   box-shadow: 0 1px 3px 0 #e6ebf1;
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
+  font-size: 0.9rem;
 }
 
 .StripeElement--focus,
@@ -396,7 +397,7 @@ nav h3 {
     margin: 10px;
 }
 
-/* ------- CHECKOUT SUCESS------- */
+/* ------- CHECKOUT SUCCESS------- */
 .success-thanks {
     color: #2D88FF;
 }
@@ -411,6 +412,7 @@ nav h3 {
 select,
 select option {
     color: #000000;
+    font-size: 0.9rem;
 }
 
 select:invalid {
@@ -435,4 +437,16 @@ select:invalid {
 
 .btn-allauth {
     padding: 5px 15px;
+}
+
+/* ------- PROFILE------- */
+.container-profile {
+    background: #fff;
+    border-radius: 8px;
+    border: 5px solid #2D88FF;
+    box-shadow: 0px 0px 20px 1px rgb(0 0 0 / 30%);
+}
+
+#profile-update-form input::placeholder {
+    color: #495057;
 }
