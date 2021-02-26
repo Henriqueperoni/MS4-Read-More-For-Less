@@ -69,6 +69,10 @@ a:hover {
 .btn-white:hover {
     background: #efefef;
 }
+
+.smaller-btn {
+    padding: 5px 10px;
+}
 /* ------- NAVBAR ------- */
 
 nav {
