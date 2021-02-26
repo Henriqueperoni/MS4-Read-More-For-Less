@@ -73,6 +73,10 @@ a:hover {
 .smaller-btn {
     padding: 5px 10px;
 }
+
+.smaller-btn-blue {
+    padding: 6px 10px;
+}
 /* ------- NAVBAR ------- */
 
 nav {
