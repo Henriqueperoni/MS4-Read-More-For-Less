@@ -204,10 +204,12 @@ nav h3 {
 
 .card-price {
     font-size: 3rem;
-    margin: 2.5rem 0;
     font-weight: 500;
     display: flex;
-    justify-content: center;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -40%);
 }
 
 .card-price i {
@@ -266,7 +268,7 @@ nav h3 {
 .checkout-buttons {
     display: flex;
     justify-content: space-evenly;
-    padding-top: 65px;
+    padding-top: 150px;
 }
 
 .btn-checkout {
