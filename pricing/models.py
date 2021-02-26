@@ -5,7 +5,7 @@ from django.db import models
 frequency_types = [
     ('monthly', 'Monthly'),
     ('biannual', 'Biannual'),
-    ('yearly', 'Yearly')
+    ('annually', 'Annually')
 ]
 
 

@@ -40,19 +40,19 @@
                 <div class="tab-content row mt-3" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         {% for plan in pricing %}
-                            {% if plan.frequency == "Annually" %}
+                            {% if plan.frequency == "annually" %}
                                 <div class="col-12 col-md-6 col-lg-4 pricing-cards">
                                     <div class="card">
                                     <a href="{% url 'add_to_cart' item_id=plan.id %}" class="url-overlay"></a>
                                         <div class="pricing-card-header">
                                             <h3>{{ plan.name }}</h3>
                                         </div>
-                                        <p>{{plan.description}}</p>
+                                        <p>{{ plan.description }}</p>
                                         <div class="card-price">
                                             <i class="fas fa-euro-sign"></i>
-                                            <p>{{plan.price}}<span>EUR</span></p>
+                                            <p>{{ plan.price }}<span>EUR</span></p>
                                         </div>
-                                        <p class="frequency-input">You will be billed {{plan.frequency|lower}}.</p>
+                                        <p class="frequency-input">You will be billed {{ plan.frequency|lower }}.</p>
                                     </div>
                                 </div>
                             {% endif %}
@@ -60,19 +60,19 @@
                     </div>
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                         {% for plan in pricing %}
-                            {% if plan.frequency == "Monthly" %}
+                            {% if plan.frequency == "monthly" %}
                                 <div class="col-12 col-md-6 col-lg-4 pricing-cards">
                                     <a href="{% url 'add_to_cart' item_id=plan.id %}" class="url-overlay"></a>
                                     <div class="card">
                                         <div class="pricing-card-header">
                                             <h3>{{ plan.name }}</h3>
                                         </div>
-                                        <p>{{plan.description}}</p>
+                                        <p>{{ plan.description }}</p>
                                         <div class="card-price">
                                             <i class="fas fa-euro-sign"></i>
-                                            <p>{{plan.price}}<span>EUR</span></p>
+                                            <p>{{ plan.price }}<span>EUR</span></p>
                                         </div>
-                                        <p class="frequency-input">You will be billed {{plan.frequency|lower}}.</p>
+                                        <p class="frequency-input">You will be billed {{ plan.frequency|lower }}.</p>
                                     </div>
                                 </div>
                             {% endif %}

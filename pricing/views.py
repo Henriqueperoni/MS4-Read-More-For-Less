@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
+from django.contrib import messages
+
 from .models import Pricing
 
 from .forms import PricingForm
@@ -19,7 +21,18 @@ def plans_pricing(request):
 
 def add_pricing(request):
     """ Add a product to the store """
-    form = PricingForm()
+    if request.method == "POST":
+        form = PricingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'New plan successfully added')
+            return redirect(reverse('add_pricing'))
+        else:
+            messages.error(
+                request, 'Failed to add plan. Please ensure the form is valid')
+    else:
+        form = PricingForm()
+
     template = 'pricing/add_pricing.html'
     context = {
         'form': form,
