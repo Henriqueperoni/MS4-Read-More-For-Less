@@ -19,21 +19,21 @@ def plans_pricing(request):
     return render(request, 'pricing/pricing.html', context)
 
 
-def add_pricing(request):
+def add_plan(request):
     """ Add a product to the store """
     if request.method == "POST":
         form = PricingForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'New plan successfully added')
-            return redirect(reverse('add_pricing'))
+            return redirect(reverse('add_plan'))
         else:
             messages.error(
                 request, 'Failed to add plan. Please ensure the form is valid')
     else:
         form = PricingForm()
 
-    template = 'pricing/add_pricing.html'
+    template = 'pricing/add_plan.html'
     context = {
         'form': form,
     }
