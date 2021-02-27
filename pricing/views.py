@@ -42,6 +42,7 @@ def add_plan(request):
 
 
 def edit_plan(request, pricing_id):
+    """ Edit a plan """
     plan = get_object_or_404(Pricing, pk=pricing_id)
 
     if request.method == 'POST':
@@ -64,3 +65,11 @@ def edit_plan(request, pricing_id):
     }
 
     return render(request, template, context)
+
+
+def delete_plan(request, pricing_id):
+    """ Delete a plan """
+    plan = get_object_or_404(Pricing, pk=pricing_id)
+    plan.delete()
+    messages.success(request, f'{plan.name} deleted')
+    return redirect(reverse('pricing'))
