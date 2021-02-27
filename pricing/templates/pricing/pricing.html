@@ -43,6 +43,16 @@
                             {% if plan.frequency == "annually" %}
                                 <div class="col-12 col-md-6 col-lg-4 pricing-cards">
                                     <div class="card">
+                                    {% if request.user.is_superuser %}
+                                        <div class="btn-edit-delete">
+                                            <a href="{% url 'edit_plan' plan.id %}">
+                                                <i class="fas fa-edit"></i>Edit
+                                            </a>
+                                            <a class="text-danger ml-2" href="{% url 'delete_plan' plan.id %}">
+                                                <i class="fas fa-trash justify-content-center d-flex"></i>Delete
+                                            </a>
+                                        </div>
+                                    {% endif %}
                                     <a href="{% url 'add_to_cart' item_id=plan.id %}" class="url-overlay"></a>
                                         <div class="pricing-card-header">
                                             <h3>{{ plan.name }}</h3>
