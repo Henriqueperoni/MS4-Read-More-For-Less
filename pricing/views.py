@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-
+from django.contrib.auth.decorators import login_required
 from .models import Pricing
 
 from .forms import PricingForm
@@ -19,8 +19,13 @@ def plans_pricing(request):
     return render(request, 'pricing/pricing.html', context)
 
 
+@login_required
 def add_plan(request):
     """ Add a product to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only website owners can do that.')
+        return redirect(reverse('home'))
+
     if request.method == "POST":
         form = PricingForm(request.POST)
         if form.is_valid():
@@ -41,8 +46,13 @@ def add_plan(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_plan(request, pricing_id):
     """ Edit a plan """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only website owners can do that.')
+        return redirect(reverse('home'))
+
     plan = get_object_or_404(Pricing, pk=pricing_id)
 
     if request.method == 'POST':
@@ -67,8 +77,13 @@ def edit_plan(request, pricing_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_plan(request, pricing_id):
     """ Delete a plan """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only website owners can do that.')
+        return redirect(reverse('home'))
+
     plan = get_object_or_404(Pricing, pk=pricing_id)
     plan.delete()
     messages.success(request, f'{plan.name} deleted')
