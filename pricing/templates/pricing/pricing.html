@@ -48,7 +48,7 @@
                                             <a href="{% url 'edit_plan' plan.id %}">
                                                 <i class="fas fa-edit"></i>Edit
                                             </a>
-                                            <a class="text-danger ml-2" href="{% url 'delete_plan' plan.id %}">
+                                            <a class="text-danger ml-2" href="#" data-toggle="modal" data-target="#modal-delete">
                                                 <i class="fas fa-trash justify-content-center d-flex"></i>Delete
                                             </a>
                                         </div>
@@ -66,14 +66,26 @@
                                     </div>
                                 </div>
                             {% endif %}
+                            <!-- Modal Delete -->
+                            {% include 'includes/modals/modal_delete.html' %}
                         {% endfor %}
                     </div>
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                         {% for plan in pricing %}
                             {% if plan.frequency == "monthly" %}
                                 <div class="col-12 col-md-6 col-lg-4 pricing-cards">
-                                    <a href="{% url 'add_to_cart' item_id=plan.id %}" class="url-overlay"></a>
+                                    <a href="#" class="url-overlay"></a>
                                     <div class="card">
+                                        {% if request.user.is_superuser %}
+                                            <div class="btn-edit-delete">
+                                                <a href="{% url 'edit_plan' plan.id %}">
+                                                    <i class="fas fa-edit"></i>Edit
+                                                </a>
+                                                <a class="text-danger ml-2" href="#" data-toggle="modal" data-target="#modal-delete">
+                                                    <i class="fas fa-trash justify-content-center d-flex"></i>Delete
+                                                </a>
+                                            </div>
+                                        {% endif %}
                                         <div class="pricing-card-header">
                                             <h3>{{ plan.name }}</h3>
                                         </div>
@@ -86,13 +98,15 @@
                                     </div>
                                 </div>
                             {% endif %}
+                            <!-- Modal Delete -->
+                            {% include 'includes/modals/modal_delete.html' %}
                         {% endfor %}
                     </div>
                 </div>
-
-            
         </div>
     </div>
+    
+    
 
 {% endblock %}
 
@@ -102,6 +116,8 @@
         $('#myTab a').on('click', function (event) {
             event.preventDefault()
             $(this).tab('show')
-        })
+        });
+
+        $('#myModal').modal('show')
     </script>
 {% endblock %}
