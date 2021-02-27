@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 
 from .models import Pricing
@@ -36,6 +36,31 @@ def add_plan(request):
     template = 'pricing/add_plan.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def edit_plan(request, pricing_id):
+    plan = get_object_or_404(Pricing, pk=pricing_id)
+
+    if request.method == 'POST':
+        form = PricingForm(request.POST, instance=plan)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'{plan.name} successfully updated!')
+            return redirect(reverse('pricing'))
+        else:
+            messages.error(request, 'Failed to update plan. \
+                Please ensure the for is valid')
+    else:
+        form = PricingForm(instance=plan)
+        messages.info(request, f'You are editing {plan.name}')
+
+    template = 'pricing/edit_plan.html'
+    context = {
+        'form': form,
+        'plan': plan,
     }
 
     return render(request, template, context)
