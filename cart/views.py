@@ -18,15 +18,19 @@ def add_to_cart(request, item_id):
     quantity = 1
     cart = request.session.get('cart', {})
 
-    if cart.items():
-        messages.error(request, 'You already have a plan in your cart')
-        print(len(cart))
+    if request.user.is_authenticated:
+        if cart.items():
+            messages.error(request, 'You already have a plan in your cart')
+            print(len(cart))
 
-    if len(cart) < 1:
-        cart[item_id] = cart.get(item_id, quantity)
-        messages.success(
-            request, f"Successfully added {plan.frequency.lower()} \
-                {plan.name}'s plan to cart")
+        if len(cart) < 1:
+            cart[item_id] = cart.get(item_id, quantity)
+            messages.success(
+                request, f"Successfully added {plan.frequency.lower()} \
+                    {plan.name}'s plan to cart")
+    else:
+        messages.error(
+            request, 'You must be logged in to add a plan to the cart')
 
     request.session['cart'] = cart
     return redirect('pricing')
