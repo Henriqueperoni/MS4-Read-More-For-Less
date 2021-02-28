@@ -27,8 +27,7 @@ SECRET_KEY = 'kjqv3tuj$9n)x8xkm9y8hq*5xg8((m51+=7dzfh$n*-_x+uvso'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['read-more-for-less.herokuapp.com', 'localhost']
 
 # Application definition
 
@@ -118,12 +117,21 @@ WSGI_APPLICATION = 'read_more_for_less.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
+# DATABASES = {
+#     'default': dj_database_url.parse('postgres://ykyeohzrckevga:2a21bd6a2c0addde7377101aa249a09fc00830ac294e34980fb8bb5719a8a051@ec2-54-247-158-179.eu-west-1.compute.amazonaws.com:5432/df7i86iv1int8j')
+# }
 
 
 # Password validation

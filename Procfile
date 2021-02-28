@@ -1,0 +1,1 @@
+web: gunicorn read_more_for_less.wsgi:application
