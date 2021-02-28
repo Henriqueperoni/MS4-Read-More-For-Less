@@ -95,6 +95,10 @@ a:hover {
 .smaller-btn-blue {
     padding: 6px 10px;
 }
+
+.smaller-btn-red {
+    padding: 3px 10px;
+}
 /* ------- NAVBAR ------- */
 
 nav {
@@ -294,24 +298,6 @@ nav h3 {
     padding: 10px;
 }
 
-.btn-edit-delete {
-    position: absolute;
-    right: 11px;
-    top: 13px;
-    display: flex;
-    font-size: 0.8rem;
-    z-index: 10;
-}
-
-.btn-edit-delete a {
-    display: grid;
-}
-
-.btn-edit-delete a i {
-    display: flex;
-    justify-content: center;
-}
-
 /* ------- Toast Messages ------- */
 .message-container {
     position: fixed;
@@ -501,4 +487,22 @@ select:invalid {
 .modal-header,
 .modal-footer {
     border: none;
+}
+
+.btn-edit-container {
+    position: absolute;
+    right: 11px;
+    top: 13px;
+    display: flex;
+    font-size: 0.8rem;
+    z-index: 10;
+}
+
+.btn-edit-container a {
+    display: grid;
+}
+
+.btn-edit-container i {
+    display: flex;
+    justify-content: center;
 }

@@ -16,11 +16,16 @@
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="text-right">
+                        <a class="float-left btn-danger btn-delete smaller-btn-red" href="#" data-toggle="modal" data-target="#modal-delete">
+                            Delete<i class="fas fa-trash m-1"></i>
+                        </a>
                         <a class="btn-white" href="{% url 'pricing' %}">Cancel</a>
                         <button class="btn-blue smaller-btn-blue" type="submit">Update Plan</button>
                     </div>
                 </form>
             </div>            
         </div>
+        <!-- Modal Delete -->
+        {% include 'includes/modals/modal_delete.html' %}
     </div>
 {% endblock %}

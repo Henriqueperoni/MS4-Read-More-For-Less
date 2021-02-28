@@ -44,12 +44,9 @@
                                 <div class="col-12 col-md-6 col-lg-4 pricing-cards">
                                     <div class="card">
                                     {% if request.user.is_superuser %}
-                                        <div class="btn-edit-delete">
+                                        <div class="btn-edit-container">
                                             <a href="{% url 'edit_plan' plan.id %}">
                                                 <i class="fas fa-edit"></i>Edit
-                                            </a>
-                                            <a class="text-danger ml-2" href="#" data-toggle="modal" data-target="#modal-delete">
-                                                <i class="fas fa-trash justify-content-center d-flex"></i>Delete
                                             </a>
                                         </div>
                                     {% endif %}
@@ -77,12 +74,9 @@
                                     <a href="#" class="url-overlay"></a>
                                     <div class="card">
                                         {% if request.user.is_superuser %}
-                                            <div class="btn-edit-delete">
+                                            <div class="btn-edit-container">
                                                 <a href="{% url 'edit_plan' plan.id %}">
                                                     <i class="fas fa-edit"></i>Edit
-                                                </a>
-                                                <a class="text-danger ml-2" href="#" data-toggle="modal" data-target="#modal-delete">
-                                                    <i class="fas fa-trash justify-content-center d-flex"></i>Delete
                                                 </a>
                                             </div>
                                         {% endif %}
@@ -98,8 +92,6 @@
                                     </div>
                                 </div>
                             {% endif %}
-                            <!-- Modal Delete -->
-                            {% include 'includes/modals/modal_delete.html' %}
                         {% endfor %}
                     </div>
                 </div>
