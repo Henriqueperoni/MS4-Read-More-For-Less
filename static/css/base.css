@@ -157,7 +157,7 @@ nav h3 {
 .burguer div {
     background: #2D88FF;
     width: 25px;
-    height: 2.9px;
+    height: 3px;
     margin: 5px;
 }
 
@@ -515,16 +515,17 @@ select:invalid {
     }
 
     .nav-links {
-        background: #fff;
-        width: 50%;
-        position: absolute;
+        position: fixed;
+        background: rgb(162,201,252);
+        background: radial-gradient(circle, rgba(162,201,252,1) 0%, rgba(45,136,255,1) 100%);
+        width: 70%;
         right: 0;
         top: 7vh;
         height: 93vh;
         display: flex;
         flex-direction: column;
         align-items: center;
-        z-index: 1;
+        z-index: 99;
         transform: translateX(100%);
         transition: transform 0.5s ease-in;
     }
