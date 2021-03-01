@@ -15,7 +15,8 @@ class Pricing(models.Model):
         verbose_name_plural = 'Pricing'
 
     name = models.CharField(max_length=50)
-    description = models.TextField(max_length=150)
+    description = models.TextField(max_length=100)
+    introduction = models.TextField(max_length=600)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     frequency = models.CharField(max_length=20, choices=frequency_types)
 
