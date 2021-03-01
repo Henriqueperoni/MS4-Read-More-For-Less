@@ -60,32 +60,49 @@
     <header>
         <div>
             <nav>
-                <a>
-                    <h3>Read more for Less</h3>
+                <a class="blue-text" href="{% url 'home' %}">
+                    <h3>Read More For Less</h3>
                 </a>
                 <ul class="nav-links">
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser%}
-                            <li><a class="nav-anchor" href="{% url 'add_plan' %}">Admin</a></li>
+                            <li>
+                                <a class="nav-anchor" href="{% url 'add_plan' %}">Admin</a>
+                            </li>
                         {% endif %}
-                        <li><a class="nav-anchor" href="{% url 'home' %}">Home</a></li>
-                        <li><a class="nav-anchor" href="{% url 'profile' %}">Profile</a></li>
-                        <li><a class="nav-anchor" href="{% url 'pricing' %}">Pricing</a></li>
-                        <li><a class="nav-anchor" href="{% url 'account_logout' %}">Log Out</a></li>
+                        <li>
+                            <a class="nav-anchor" href="{% url 'home' %}">Home</a>
+                        </li>
+
+                        <li>
+                            <a class="nav-anchor" href="{% url 'profile' %}">Profile</a>
+                        </li>
+                        <li>
+                            <a class="nav-anchor" href="{% url 'pricing' %}">Pricing</a>
+                        </li>
+                        <li>
+                            <a class="nav-anchor" href="{% url 'account_logout' %}">Log Out</a>
+                        </li>
                         <li class="shopping-card">
-                            <a class="{% if total %} text-info font-weight-bold {% endif %} nav-anchor" href="{% url 'view_cart' %}" id="user-options">
+                            <a class="{% if total %} blue-text font-weight-bold {% endif %} nav-anchor" href="{% url 'view_cart' %}" id="user-options">
                                 <i class="fas fa-shopping-cart"></i>
                                 <p class="my-0">
                                     {% if total %}
-                                    ${{ total|floatformat:2 }}
+                                        €{{ total|floatformat:2 }}
                                     {% endif %}
                                 </p>
                             </a>
                         </li>
                         {% else %}
-                        <li><a class="nav-anchor" href="{% url 'pricing' %}">Pricing</a></li>
-                        <li><a class="nav-anchor" href="{% url 'account_login' %}">Log In</a></li>
-                        <li><a class="nav-anchor btn-register btn-blue" href="{% url 'account_signup' %}">Register</a></li>
+                        <li>
+                            <a class="nav-anchor" href="{% url 'pricing' %}">Pricing</a>
+                        </li>
+                        <li>
+                            <a class="nav-anchor" href="{% url 'account_login' %}">Log In</a>
+                        </li>
+                        <li>
+                            <a class="nav-anchor btn-register btn-blue" href="{% url 'account_signup' %}">Register</a>
+                        </li>
                     {% endif %}
                 </ul>
                 <div class="burguer">
@@ -126,9 +143,7 @@
 
     <!-- Postload JS -->
     {% block postloadjs %}
-    <script type="text/javascript">
-        $('.toast').toast('show');
-    </script>
+        <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
     {% endblock %}
 
 </body>
