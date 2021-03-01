@@ -22,8 +22,12 @@ def plans_pricing(request):
 
 def plan_detail(request, pricing_id):
     """ A view to show individual product details """
-
     pricing = get_object_or_404(Pricing, pk=pricing_id)
+    if request.method == 'POST':
+        form = BookPreferencesForm(request.POST, instance=plan_detail)
+        if form.is_valid():
+            form.save()
+
     form = BookPreferencesForm()
     context = {
         'pricing': pricing,
