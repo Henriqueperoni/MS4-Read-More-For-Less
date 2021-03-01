@@ -10,42 +10,80 @@
             </div>
             <div class="col-12">
                 <p class="text-center">
-                    With the {{ pricing.introduction }}
+                    {{ pricing.introduction }}
                 </p>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12">
-                <h2 class="text-center payment-header">Payment Plans</h2>
+                <h2 class="text-center payment-header">{{ pricing.name }} Details</h2>
             </div>
         </div>
-        <div class="row">
-            
+        <div class="row details-container general-container">
+            <div class="col-12 col-lg-6 mt-3">
+                <p class="text-muted">Plan Details</p>
                 
-                                <div class="col-12 col-md-6 col-lg-4 pricing-cards">
-                                    <div class="card" data-toggle="modal" data-target="#modal-plan">
-                               
-                                       
-                      
-                                    <a href="#" id="add-to-cart" class="url-overlay"></a>
-                                        <div class="pricing-card-header">
-                                            <h3>{{ pricing.name }}</h3>
-                                        </div>
-                                        <p>{{ pricing.description }}</p>
-                                        <div class="card-price">
-                                            <i class="fas fa-euro-sign"></i>
-                                            <p>{{ pricing.price }}<span>EUR</span></p>
-                                        </div>
-                                        <p class="frequency-input">You will be billed {{ pricing.frequency }}.</p>
-                                    </div>
-                                </div>
+                <div class="col-12 col-lg-10">
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <p class="mb-1 font-weight-bold">Plan Name</p>
+                        </div>
+                        <div class="col-12 col-md-8 text-md-right blue-text font-weight-bold">
+                            <p class="mb-1">{{ pricing.name }}</p>
+                        </div>
 
+                        <div class="col-12 col-md-4">
+                            <p class="mb-1 font-weight-bold">Price</p>
+                        </div>
+                        <div class="col-12 col-md-8 text-md-right">
+                            <p class="mb-1">
+                                {% if pricing.frequency == "monthly" %}
+                                    12 x 
+                                {% endif %}
+                                € {{ pricing.price }}
+                            </p>
+                        </div>
+
+                        <div class="col-12 col-md-4">
+                            <p class="mb-1 font-weight-bold">First Delivery</p>
+                        </div>
+                        <div class="col-12 col-md-8 text-md-right">
+                            <p class="mb-1"><span id="delivery-date"></span></p>
+                        </div>
+                        <div class="w-100 d-flex justify-content-end">
+                            <a href="" class="btn-blue smaller-btn float-right mt-1">Add to Cart</a>
+                        </div>
                     </div>
-                   
-         
+                
+                </div>
+
+            </div>
+            <div class="col-12 col-lg-6 mt-3">
+                <p class="text-muted">Book Preferences</p>
+                <form class="mt-3" action="" method="POST" id="profile-update-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn-blue float-right mb-2">Update</button>
+                </form>
+            </div>
+        </div>
     </div>
     
     
 
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        let date = () => {
+            n = new Date();
+            y = n.getFullYear();
+            m = n.getMonth();
+            d = n.getDate() + 5;
+            document.getElementById("delivery-date").innerHTML = d + "/" + m + "/" + y;
+        };
+        date()
+    </script>
 {% endblock %}

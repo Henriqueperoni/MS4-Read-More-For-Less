@@ -37,6 +37,13 @@ a:hover {
     border: 5px solid #2D88FF;
 }
 
+.general-container {
+    background: #fff;
+    border-radius: 8px;
+    border: 5px solid #2D88FF;
+    box-shadow: 0px 0px 20px 1px rgb(0 0 0 / 30%);
+}
+
 /* Buttons */
 .btn-blue {
     padding: 10px 15px;
@@ -271,6 +278,12 @@ nav h3 {
 .tab-content>.active {
     display: contents;
 }
+
+/* ------- PLAN DETAIL ------- */
+#delivery-date {
+    letter-spacing: 1px;
+}
+
 
 /* ------- CART ------- */
 .checkout-card p {
