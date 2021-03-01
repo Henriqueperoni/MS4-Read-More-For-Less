@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Pricing
 
-from .forms import PricingForm
+from .forms import PricingForm, BookPreferencesForm
 
 # Create your views here.
 
@@ -24,9 +24,10 @@ def plan_detail(request, pricing_id):
     """ A view to show individual product details """
 
     pricing = get_object_or_404(Pricing, pk=pricing_id)
-
+    form = BookPreferencesForm()
     context = {
         'pricing': pricing,
+        'form': form,
     }
 
     return render(request, 'pricing/plan_detail.html', context)

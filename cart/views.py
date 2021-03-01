@@ -21,7 +21,6 @@ def add_to_cart(request, item_id):
     if request.user.is_authenticated:
         if cart.items():
             messages.error(request, 'You already have a plan in your cart')
-            print(len(cart))
 
         if len(cart) < 1:
             cart[item_id] = cart.get(item_id, quantity)

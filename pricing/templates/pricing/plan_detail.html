@@ -52,7 +52,8 @@
                             <p class="mb-1"><span id="delivery-date"></span></p>
                         </div>
                         <div class="w-100 d-flex justify-content-end">
-                            <a href="" class="btn-blue smaller-btn float-right mt-1">Add to Cart</a>
+                            <a href="{% url 'add_to_cart' pricing.id %}" class="btn-blue smaller-btn float-right mt-1">Add to Cart</a>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
                     </div>
                 

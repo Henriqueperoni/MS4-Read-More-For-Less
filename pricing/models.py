@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -7,6 +8,16 @@ frequency_types = [
     ('biannual', 'Biannual'),
     ('annually', 'Annually')
 ]
+
+genres = {
+    ('mindset', 'Mindset'),
+    ('business', 'Business'),
+    ('biography', 'Biography'),
+    ('romance', 'Romance'),
+    ('crime', 'Crime'),
+    ('horror', 'Horror'),
+    ('children', 'Children'),
+}
 
 
 class Pricing(models.Model):
@@ -22,3 +33,14 @@ class Pricing(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class BookPreferences(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    genres = models.CharField(
+        max_length=20, choices=genres, null=True, blank=True)
+    favorite_authors = models.CharField(max_length=100, null=True, blank=True)
+    favorite_books = models.CharField(max_length=100, null=True, blank=True)
+
+    def __str__(self):
+        return self.user
