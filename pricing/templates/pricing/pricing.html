@@ -50,7 +50,7 @@
                                             </a>
                                         </div>
                                     {% endif %}
-                                    <a href="{% url 'add_to_cart' item_id=plan.id %}" id="add-to-cart" class="url-overlay"></a>
+                                    <a href="{% url 'add_to_cart' plan.id %}" id="add-to-cart" class="url-overlay"></a>
                                         <div class="pricing-card-header">
                                             <h3>{{ plan.name }}</h3>
                                         </div>
@@ -69,7 +69,6 @@
                         {% for plan in pricing %}
                             {% if plan.frequency == "monthly" %}
                                 <div class="col-12 col-md-6 col-lg-4 pricing-cards">
-                                    <a href="{% url 'add_to_cart' item_id=plan.id %}" class="url-overlay" ></a>
                                     <div class="card">
                                         {% if request.user.is_superuser %}
                                             <div class="btn-edit-container">
@@ -78,6 +77,7 @@
                                                 </a>
                                             </div>
                                         {% endif %}
+                                        <a href="{% url 'add_to_cart' plan.id %}" class="url-overlay" ></a>
                                         <div class="pricing-card-header">
                                             <h3>{{ plan.name }}</h3>
                                         </div>
@@ -93,8 +93,6 @@
                         {% endfor %}
                     </div>
                 </div>
-
-                            {% include 'includes/modals/modal_plan.html' %}
         </div>
     </div>
     
@@ -111,17 +109,5 @@
         });
 
         $('#myModal').modal('show')
-
-        $(document).on('click', '#add-to-cart', function(e){
-            e.preventDefault()
-
-            $.ajax({
-                type: 'POST',
-                url: 'add/',
-                data: {
-
-                }
-            })
-        })
     </script>
 {% endblock %}
