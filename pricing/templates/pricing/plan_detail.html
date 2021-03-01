@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content%}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h1 class="text-center page-title">{{ pricing.frequency|capfirst }} {{ pricing.name }}'s Plan</h1>
+            </div>
+            <div class="col-12">
+                <p class="text-center">
+                    With the {{ pricing.introduction }}
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center payment-header">Payment Plans</h2>
+            </div>
+        </div>
+        <div class="row">
+            
+                
+                                <div class="col-12 col-md-6 col-lg-4 pricing-cards">
+                                    <div class="card" data-toggle="modal" data-target="#modal-plan">
+                               
+                                       
+                      
+                                    <a href="#" id="add-to-cart" class="url-overlay"></a>
+                                        <div class="pricing-card-header">
+                                            <h3>{{ pricing.name }}</h3>
+                                        </div>
+                                        <p>{{ pricing.description }}</p>
+                                        <div class="card-price">
+                                            <i class="fas fa-euro-sign"></i>
+                                            <p>{{ pricing.price }}<span>EUR</span></p>
+                                        </div>
+                                        <p class="frequency-input">You will be billed {{ pricing.frequency }}.</p>
+                                    </div>
+                                </div>
+
+                    </div>
+                   
+         
+    </div>
+    
+    
+
+{% endblock %}
