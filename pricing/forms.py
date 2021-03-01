@@ -19,3 +19,13 @@ class BookPreferencesForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        placeholders = {
+            'genres': 'Genre',
+            'favorite_authors': 'Favorite Authors',
+            'favorite_books': 'Favorite Books',
+        }
+
+        for field in self.fields:
+            placeholder = placeholders[field]
+            self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].widget.attrs['class'] = 'stripe-style-input'

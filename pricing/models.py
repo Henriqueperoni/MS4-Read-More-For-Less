@@ -39,8 +39,8 @@ class BookPreferences(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     genres = models.CharField(
         max_length=20, choices=genres, null=True, blank=True)
-    favorite_authors = models.CharField(max_length=100, null=True, blank=True)
-    favorite_books = models.CharField(max_length=100, null=True, blank=True)
+    favorite_authors = models.TextField(max_length=100, null=True, blank=True)
+    favorite_books = models.TextField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.user
