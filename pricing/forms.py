@@ -21,8 +21,9 @@ class BookPreferencesForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         placeholders = {
             'genres': 'Genre',
-            'favorite_authors': 'Favorite Authors',
-            'favorite_books': 'Favorite Books',
+            'favorite_authors': 'Let us know more about your favorite authors',
+            'favorite_books': (
+                'Books you enjoy reading to help us send good books for you'),
         }
 
         for field in self.fields:
