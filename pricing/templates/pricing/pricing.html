@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="text-center page-title" >Pricing</h1>
+                <h1 class="text-center page-title">Pricing</h1>
             </div>
             <div class="col-12">
                 <p class="text-center">
@@ -42,7 +42,7 @@
                         {% for plan in pricing %}
                             {% if plan.frequency == "annually" %}
                                 <div class="col-12 col-md-6 col-lg-4 pricing-cards">
-                                    <div class="card">
+                                    <div class="card" data-toggle="modal" data-target="#modal-plan">
                                     {% if request.user.is_superuser %}
                                         <div class="btn-edit-container">
                                             <a href="{% url 'edit_plan' plan.id %}">
@@ -50,7 +50,7 @@
                                             </a>
                                         </div>
                                     {% endif %}
-                                    <a href="{% url 'add_to_cart' item_id=plan.id %}" class="url-overlay"></a>
+                                    <a href="{% url 'add_to_cart' item_id=plan.id %}" id="add-to-cart" class="url-overlay"></a>
                                         <div class="pricing-card-header">
                                             <h3>{{ plan.name }}</h3>
                                         </div>
@@ -63,15 +63,13 @@
                                     </div>
                                 </div>
                             {% endif %}
-                            <!-- Modal Delete -->
-                            {% include 'includes/modals/modal_delete.html' %}
                         {% endfor %}
                     </div>
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                         {% for plan in pricing %}
                             {% if plan.frequency == "monthly" %}
                                 <div class="col-12 col-md-6 col-lg-4 pricing-cards">
-                                    <a href="#" class="url-overlay"></a>
+                                    <a href="{% url 'add_to_cart' item_id=plan.id %}" class="url-overlay" ></a>
                                     <div class="card">
                                         {% if request.user.is_superuser %}
                                             <div class="btn-edit-container">
@@ -95,6 +93,8 @@
                         {% endfor %}
                     </div>
                 </div>
+
+                            {% include 'includes/modals/modal_plan.html' %}
         </div>
     </div>
     
@@ -111,5 +111,17 @@
         });
 
         $('#myModal').modal('show')
+
+        $(document).on('click', '#add-to-cart', function(e){
+            e.preventDefault()
+
+            $.ajax({
+                type: 'POST',
+                url: 'add/',
+                data: {
+
+                }
+            })
+        })
     </script>
 {% endblock %}
