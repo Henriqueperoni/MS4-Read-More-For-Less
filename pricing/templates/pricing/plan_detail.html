@@ -62,9 +62,9 @@
             </div>
             <div class="col-12 col-lg-6 mt-3">
                 <p class="text-muted">Book Preferences</p>
-                <form class="mt-3" action="{% url 'plan_detail' pricing.id %}" method="POST">
+                <form class="mt-3" action="{% url 'plan_detail' pricing.id %}" method="POST" id="book-preferences">
                     {% csrf_token %}
-                    {{ form|crispy }}
+                    {{ book_preferences_form|crispy }}
                     <button class="btn-blue float-right mb-2">Update</button>
                 </form>
             </div>

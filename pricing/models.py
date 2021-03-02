@@ -16,7 +16,7 @@ genres = {
     ('romance', 'Romance'),
     ('crime', 'Crime'),
     ('horror', 'Horror'),
-    ('children', 'Children'),
+    ('children', 'Children')
 }
 
 

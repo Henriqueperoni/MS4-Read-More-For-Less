@@ -26,6 +26,9 @@ class BookPreferencesForm(forms.ModelForm):
                 'Books you enjoy reading to help us send good books for you'),
         }
 
+        self.fields['favorite_authors'].widget.attrs['rows'] = 5
+        self.fields['favorite_books'].widget.attrs['rows'] = 5
+
         for field in self.fields:
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
