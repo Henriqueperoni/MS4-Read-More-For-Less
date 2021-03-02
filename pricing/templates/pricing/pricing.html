@@ -42,7 +42,7 @@
                         {% for plan in pricing %}
                             {% if plan.frequency == "annually" %}
                                 <div class="col-12 col-md-6 col-lg-4 pricing-cards">
-                                    <div class="card" data-toggle="modal" data-target="#modal-plan">
+                                    <div class="card">
                                     {% if request.user.is_superuser %}
                                         <div class="btn-edit-container">
                                             <a href="{% url 'edit_plan' plan.id %}">
@@ -108,6 +108,12 @@
             $(this).tab('show')
         });
 
-        $('#myModal').modal('show')
+        if (window.matchMedia("(min-width: 1200px)").matches) {
+            const priceAnim = gsap.timeline({ defaults: { ease: "power1.out" } });
+            priceAnim.from("#pills-home > div:nth-child(2) > div" , { opacity: 0, duration: 1.8 }).delay(0.1);
+            priceAnim.from("#pills-home > div:nth-child(1) > div", { x: 200, opacity: 0, duration: 1.2 }, "-=1.2");
+            priceAnim.from("#pills-home > div:nth-child(3) > div", { x: -200, opacity: 0, duration: 1.2 }, "-=1.2");
+        };
+        // $('#myModal').modal('show')
     </script>
 {% endblock %}
