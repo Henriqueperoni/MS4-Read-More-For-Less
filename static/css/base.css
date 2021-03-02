@@ -279,6 +279,26 @@ nav h3 {
     display: contents;
 }
 
+.discount-container {
+    transform: translateX(-46px);
+}
+
+.triangle {
+    width: 0;
+	height: 0;
+	border-width: 10px 10px 0 10px;
+	border-color: #000 transparent transparent transparent;
+    border-style: solid;
+    margin: 0 auto;
+}
+
+.discount {
+    background: #000;
+    color: #fff;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
 /* ------- PLAN DETAIL ------- */
 #delivery-date {
     letter-spacing: 1px;

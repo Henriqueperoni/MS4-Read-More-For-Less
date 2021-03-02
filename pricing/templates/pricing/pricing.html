@@ -25,24 +25,61 @@
             </div>
         </div>
         <div class="row">
-            
+        
+            <div>
+                <div class="discount-container mb-2">
+                    <div class="discount text-center">
+                        <p class="m-0 font-weight-bold">Best Value</p>
+                        <p class="m-0 font-weight-bold">Save up to 50%</p>
+                    </div>
+                    <div class="triangle">
+                    </div>
+                </div>
                 <ul class="nav nav-pills" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-                            aria-controls="pills-home" aria-selected="true">Annually</a>
-                    </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                                aria-controls="pills-home" aria-selected="true">Annually</a>
+                        </li>
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
                             aria-controls="pills-profile" aria-selected="false">Monthly</a>
                     </li>
                 </ul>
+            </div>
 
-                <div class="tab-content row mt-3" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                        {% for plan in pricing %}
-                            {% if plan.frequency == "annually" %}
-                                <div class="col-12 col-md-6 col-lg-4 pricing-cards">
-                                    <div class="card">
+            <div class="tab-content row mt-3" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    {% for plan in pricing %}
+                        {% if plan.frequency == "annually" %}
+                            <div class="col-12 col-md-6 col-lg-4 pricing-cards">
+                                <div class="card">
+                                {% if request.user.is_superuser %}
+                                    <div class="btn-edit-container">
+                                        <a href="{% url 'edit_plan' plan.id %}">
+                                            <i class="fas fa-edit"></i>Edit
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                <a href="{% url 'plan_detail' plan.id %}" class="url-overlay"></a>
+                                    <div class="pricing-card-header">
+                                        <h3>{{ plan.name }}</h3>
+                                    </div>
+                                    <p>{{ plan.description }}</p>
+                                    <div class="card-price">
+                                        <i class="fas fa-euro-sign"></i>
+                                        <p>{{ plan.price }}<span>EUR</span></p>
+                                    </div>
+                                    <p class="frequency-input">You will be billed {{ plan.frequency|lower }}.</p>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    {% for plan in pricing %}
+                        {% if plan.frequency == "monthly" %}
+                            <div class="col-12 col-md-6 col-lg-4 pricing-cards">
+                                <div class="card">
                                     {% if request.user.is_superuser %}
                                         <div class="btn-edit-container">
                                             <a href="{% url 'edit_plan' plan.id %}">
@@ -51,48 +88,21 @@
                                         </div>
                                     {% endif %}
                                     <a href="{% url 'plan_detail' plan.id %}" class="url-overlay"></a>
-                                        <div class="pricing-card-header">
-                                            <h3>{{ plan.name }}</h3>
-                                        </div>
-                                        <p>{{ plan.description }}</p>
-                                        <div class="card-price">
-                                            <i class="fas fa-euro-sign"></i>
-                                            <p>{{ plan.price }}<span>EUR</span></p>
-                                        </div>
-                                        <p class="frequency-input">You will be billed {{ plan.frequency|lower }}.</p>
+                                    <div class="pricing-card-header">
+                                        <h3>{{ plan.name }}</h3>
                                     </div>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        {% for plan in pricing %}
-                            {% if plan.frequency == "monthly" %}
-                                <div class="col-12 col-md-6 col-lg-4 pricing-cards">
-                                    <div class="card">
-                                        {% if request.user.is_superuser %}
-                                            <div class="btn-edit-container">
-                                                <a href="{% url 'edit_plan' plan.id %}">
-                                                    <i class="fas fa-edit"></i>Edit
-                                                </a>
-                                            </div>
-                                        {% endif %}
-                                        <a href="{% url 'plan_detail' plan.id %}" class="url-overlay"></a>
-                                        <div class="pricing-card-header">
-                                            <h3>{{ plan.name }}</h3>
-                                        </div>
-                                        <p>{{ plan.description }}</p>
-                                        <div class="card-price">
-                                            <i class="fas fa-euro-sign"></i>
-                                            <p>{{ plan.price }}<span>EUR</span></p>
-                                        </div>
-                                        <p class="frequency-input">You will be billed {{ plan.frequency|lower }}.</p>
+                                    <p>{{ plan.description }}</p>
+                                    <div class="card-price">
+                                        <i class="fas fa-euro-sign"></i>
+                                        <p>{{ plan.price }}<span>EUR</span></p>
                                     </div>
+                                    <p class="frequency-input">You will be billed {{ plan.frequency|lower }}.</p>
                                 </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
+            </div>
         </div>
     </div>
     
