@@ -43,4 +43,4 @@ class BookPreferences(models.Model):
     favorite_books = models.TextField(max_length=100, null=True, blank=True)
 
     def __str__(self):
-        return self.user
+        return f'{self.user} reading preferences'
