@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Pricing
-# from profiles.models import UserProfile
+from profiles.models import UserProfile
 
 
 from .forms import PricingForm, BookPreferencesForm
@@ -27,6 +27,9 @@ def plan_detail(request, pricing_id):
 
     pricing = get_object_or_404(Pricing, pk=pricing_id)
 
+    user = get_object_or_404(UserProfile, pk=request.user.id)
+    print(user)
+
     if request.method == 'POST':
         form_data = {
                 'genres': request.POST['genres'],
@@ -39,9 +42,11 @@ def plan_detail(request, pricing_id):
             book_preferences = book_preferences_form.save(commit=False)
             book_preferences.user = request.user
             book_preferences.save()
+            messages.success(
+                request, 'Book Preferences successfully save')
+    else:
+        book_preferences_form = BookPreferencesForm(instance=user)
 
-    book_preferences_form = BookPreferencesForm()
-    print(book_preferences_form)
     context = {
         'pricing': pricing,
         'book_preferences_form': book_preferences_form,

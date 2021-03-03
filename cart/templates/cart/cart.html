@@ -52,6 +52,13 @@
                     <p>Your Cart is empty! Have a look at our plans in the <a class="btn-blue" href="{% url 'pricing' %}">Pricing</a> page.</p>
                 {% endif %}
             </div>
+            <div class="col-6">
+                <form class="mt-3" action="#" method="POST" id="profile-update-form">
+                    {% csrf_token %}
+                    {{ book_preferences_form|crispy }}
+                    <button class="btn-blue float-right mb-2">Update Information</button>
+                </form>
+            </div>
         </div>
     </div>
 

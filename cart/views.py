@@ -2,13 +2,28 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 
 from pricing.models import Pricing
-# Create your views here.
+from pricing.forms import BookPreferencesForm
 
 
 def view_cart(request):
     """ A view that renders the cart content page """
 
-    return render(request, 'cart/cart.html')
+    user = get_object_or_404(Pricing, pk=request.user)
+    print(f'USER:{user}')
+
+    book_preferences_form = BookPreferencesForm(request.POST, instance=user)
+    if request.method == 'POST':
+        if book_preferences_form.is_valid():
+            book_preferences_form.save()
+
+    # else:
+    #     book_preferences_form = BookPreferencesForm(instance=user)
+
+    context = {
+        'book_preferences_form': 'book_preferences_form',
+    }
+
+    return render(request, 'cart/cart.html', context)
 
 
 def add_to_cart(request, item_id):
