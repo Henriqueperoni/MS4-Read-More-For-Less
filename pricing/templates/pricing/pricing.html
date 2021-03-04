@@ -60,7 +60,7 @@
                                         </a>
                                     </div>
                                 {% endif %}
-                                <a href="{% url 'plan_detail' plan.id %}" class="url-overlay"></a>
+                                <a href="{% url 'add_to_cart' plan.id %}" class="url-overlay"></a>
                                     <div class="pricing-card-header">
                                         <h3>{{ plan.name }}</h3>
                                     </div>
@@ -87,7 +87,7 @@
                                             </a>
                                         </div>
                                     {% endif %}
-                                    <a href="{% url 'plan_detail' plan.id %}" class="url-overlay"></a>
+                                    <a href="{% url 'add_to_cart' plan.id %}" class="url-overlay"></a>
                                     <div class="pricing-card-header">
                                         <h3>{{ plan.name }}</h3>
                                     </div>
