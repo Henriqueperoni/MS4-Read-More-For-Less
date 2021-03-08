@@ -170,7 +170,7 @@ nav h3 {
 
 /* ------- HERO ------- */
 .hero {
-    height: 80vh;
+    height: 70vh;
     position: relative;
 }
 
@@ -492,8 +492,9 @@ select:invalid {
 
 /* Allauth */
 .container-allauth {
-    margin-top: 200px;
+    margin-top: 150px;
 }
+
 .allauth-form {
     background: #fff;
     padding: 15px;
@@ -574,8 +575,13 @@ select:invalid {
 }
 
 /* ------- FOOTER ------- */
-.social-links {
-    padding: 2rem 0;
+footer {
+    min-height: 200px;
+    display: flex;
+}
+
+footer div {
+    margin: auto;
 }
 
 .social-links ul {
