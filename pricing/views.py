@@ -2,10 +2,9 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Pricing
-from profiles.models import UserProfile
 
 
-from .forms import PricingForm, BookPreferencesForm
+from .forms import PricingForm
 
 # Create your views here.
 
@@ -27,48 +26,11 @@ def plan_detail(request, pricing_id):
 
     pricing = get_object_or_404(Pricing, pk=pricing_id)
 
-    user = get_object_or_404(UserProfile, pk=request.user.id)
-    print(user)
-
-    if request.method == 'POST':
-        form_data = {
-                'genres': request.POST['genres'],
-                'favorite_authors': request.POST['favorite_authors'],
-                'favorite_books': request.POST['favorite_books'],
-            }
-
-        book_preferences_form = BookPreferencesForm(form_data)
-        if book_preferences_form.is_valid():
-            book_preferences = book_preferences_form.save(commit=False)
-            book_preferences.user = request.user
-            book_preferences.save()
-            messages.success(
-                request, 'Book Preferences successfully save')
-    else:
-        book_preferences_form = BookPreferencesForm(instance=user)
-
     context = {
         'pricing': pricing,
-        'book_preferences_form': book_preferences_form,
     }
 
     return render(request, 'pricing/plan_detail.html', context)
-
-
-# def book_preferences(request):
-
-#     if request.method == 'POST':
-#         form = BookPreferencesForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-
-#     form = BookPreferencesForm()
-#     template = 'pricing/plan_detail.html'
-#     context = {
-#         'form': form,
-#     }
-
-#     return render(request, template, context)
 
 
 @login_required

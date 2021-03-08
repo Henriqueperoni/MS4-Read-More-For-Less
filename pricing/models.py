@@ -1,7 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 
 # Create your models here.
 
@@ -35,25 +32,3 @@ class Pricing(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class BookPreferences(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    genres = models.CharField(
-        max_length=20, choices=genres, null=True, blank=True)
-    favorite_authors = models.TextField(max_length=100, null=True, blank=True)
-    favorite_books = models.TextField(max_length=100, null=True, blank=True)
-
-    def __str__(self):
-        return f'{self.user} reading preferences'
-
-
-@receiver(post_save, sender=User)
-def create_or_update_book_preferences(sender, instance, created, **kwargs):
-    """
-    Create or update the user profile
-    """
-    if created:
-        BookPreferences.objects.create(user=instance)
-
-    instance.bookpreferences.save()
