@@ -1,33 +1,45 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extracss %}
+    <link rel="stylesheet" href="{% static 'book_club/css/book_club.css' %}">
+{% endblock %}
+
 {% block content%}
 
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="text-center page-title">{{ review.book_name }}'s Review</h1>
-            </div>
-            <div class="col-12">
-                <p class="text-center">
-                    
-                </p>
+        <div class="row mb-2">
+            <div class="col-12 text-center">
+                <h1 class=" page-title">{{ review.book_name }}'s Review</h1>
+                <p class="blue-text">Review Author: {{ review.user }}</p>
             </div>
         </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="text-center payment-header">Reviews</h2>
+    
+        <div class="general-container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-center payment-header">Review</h2>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            {% for review in reviews %}
-                {{ review.book_name }}
-                <img src="{{ review.image_url }}" alt="">
-                {{ review.date_posted }}
-            {% endfor %}
+            <div class="row">
+                <div class="col-12 col-lg-5 review-image mb-3">
+                    <img src="{{ review.image_url }}" alt="{{ review.book_name }}'s cover'">
+                </div>
+                <div class="book-summary col-12 col-lg-7">
+                    <div>
+                        <h2>{{ review.book_name }}</h2>
+                        <h3>{{ review.book_author }}</h3>
+                    </div>
+                    <div class="mt-3">
+                        <p>{{ review.book_review}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-center payment-header">Comments</h2>
+                </div>
+            </div>
         </div>
     </div>
  

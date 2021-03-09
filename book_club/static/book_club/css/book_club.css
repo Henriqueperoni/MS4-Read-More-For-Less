@@ -1,0 +1,11 @@
+body {
+    background: red;
+}
+
+.review-image img{
+    width: 300px;
+}
+
+h2 {
+    font-size: 10rem;
+}
