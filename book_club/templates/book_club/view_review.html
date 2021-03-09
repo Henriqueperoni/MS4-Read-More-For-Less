@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content%}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center page-title">{{ review.book_name }}'s Review</h1>
+            </div>
+            <div class="col-12">
+                <p class="text-center">
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center payment-header">Reviews</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for review in reviews %}
+                {{ review.book_name }}
+                <img src="{{ review.image_url }}" alt="">
+                {{ review.date_posted }}
+            {% endfor %}
+        </div>
+    </div>
+ 
+{% endblock %}

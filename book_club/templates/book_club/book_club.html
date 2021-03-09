@@ -10,10 +10,14 @@
             </div>
             <div class="col-12">
                 <p class="text-center">
-                    As your name says, Read More For Less, we want to give you fair prices. Besides, give you the convenience of
-                    receiving books at your home as often you want, our team wants you to save your money as much as possible. Keeping
-                    that we mind, our team is always looking for the best books at a fair price to suits you better.
+                    At the Read More For Less Book Club you will find book review from other users. The Book Club is exclusive for members what makes it unique. You can add a review in the reviews of other users, or you can create your own review and wait for the feedback from other users. 
                 </p>
+                <p class="text-center">
+                    To create a review, just click in the button below.
+                </p>
+                <div class="d-flex justify-content-center">
+                    <a class="btn-blue text-center" href="">Create Review</a>
+                </div>
             </div>
         </div>
     </div>
@@ -21,12 +25,13 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="text-center payment-header">Payment Plans</h2>
+                <h2 class="text-center payment-header">Reviews</h2>
             </div>
         </div>
         <div class="row">
             {% for review in reviews %}
-                {{ review.book_name }}
+            {{ review.id }}
+                <a href="{% url 'view_review' review.id %}">{{ review.book_name }}</a>
                 <img src="{{ review.image_url }}" alt="">
                 {{ review.date_posted }}
             {% endfor %}

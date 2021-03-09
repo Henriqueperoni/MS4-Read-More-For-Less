@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import BookReview
 
@@ -12,3 +12,17 @@ def book_club(request):
     }
 
     return render(request, 'book_club/book_club.html', context)
+
+
+def view_review(request, review_id):
+    """
+    A view to return a book review that enable user to add comments to it
+    """
+    review = get_object_or_404(BookReview, pk=review_id)
+    print(f'REVIEW: {review}')
+
+    context = {
+        'review': review,
+    }
+
+    return render(request, 'book_club/view_review.html', context)
