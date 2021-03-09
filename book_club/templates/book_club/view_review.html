@@ -15,7 +15,7 @@
             </div>
         </div>
     
-        <div class="general-container">
+        <div>
             <div class="row">
                 <div class="col-12">
                     <h2 class="text-center payment-header">Review</h2>
@@ -39,9 +39,11 @@
                 <div class="col-12">
                     <h2 class="text-center payment-header">Comments</h2>
                     {% for comment in review_comments %}
-                        {{ comment.user }}
-                        {{ comment.date_commented }}
-                        {{ comment.comment_text }}
+                        <div class="col-12 review-comments">
+                            <p class="comment-date mb-1">{{ comment.date_commented }}</p>
+                            <p><span class="blue-text username">{{ comment.user }}</span>: {{ comment.comment_text }}</p>
+                        </div>
+                        <hr clss="1col-4 offset-">
                     {% endfor %}
                 </div>
             </div>

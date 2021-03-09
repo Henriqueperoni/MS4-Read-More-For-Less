@@ -1,7 +1,22 @@
 /* View Review */
-
 .review-image img {
     max-width: 300px;
     display: flex;
     margin: 0 auto;
+}
+
+.review-comments p {
+    margin: 0;
+}
+
+hr {
+    margin: 0.9rem;
+}
+
+.comment-date {
+    font-size: .7rem;
+}
+
+.username {
+    font-weight: 600;
 }
