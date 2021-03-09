@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 
 from .models import BookReview
+from .forms import CreateReviewForm
 
 
 def book_club(request):
@@ -31,4 +32,8 @@ def view_review(request, review_id):
 def create_review(request):
     """  A view to return the create_review template and CreateReview form. """
 
-    return render(request, 'book_club/create_review.html')
+    context = {
+        'form': CreateReviewForm
+    }
+
+    return render(request, 'book_club/create_review.html', context)

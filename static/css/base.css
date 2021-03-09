@@ -636,12 +636,3 @@ footer div {
     margin: 0 auto;
     background: #f9f8f6;
 }
-
-/* ------- BOOKO CLUB ------- */
-/* View Review */
-
-.review-image img {
-    max-width: 300px;
-    display: flex;
-    margin: 0 auto;
-}
