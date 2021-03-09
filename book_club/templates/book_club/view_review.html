@@ -38,6 +38,11 @@
             <div class="row">
                 <div class="col-12">
                     <h2 class="text-center payment-header">Comments</h2>
+                    {% for comment in review_comments %}
+                        {{ comment.user }}
+                        {{ comment.date_commented }}
+                        {{ comment.comment_text }}
+                    {% endfor %}
                 </div>
             </div>
         </div>

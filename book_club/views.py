@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 
-from .models import BookReview
+from .models import BookReview, ReviewComment
 from .forms import CreateReviewForm
 
 
@@ -21,10 +21,11 @@ def view_review(request, review_id):
     A view to return a book review that enable user to add comments to it.
     """
     review = get_object_or_404(BookReview, pk=review_id)
-    print(f'REVIEW: {review}')
+    review_comments = ReviewComment.objects.all()
 
     context = {
         'review': review,
+        'review_comments': review_comments,
     }
 
     return render(request, 'book_club/view_review.html', context)
