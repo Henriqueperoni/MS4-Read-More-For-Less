@@ -25,10 +25,11 @@
             </div>
         </div>
         <div class="row">
-        
-            
-
-            
+            {% for review in reviews %}
+                {{ review.book_name }}
+                <img src="{{ review.image_url }}" alt="">
+                {{ review.date_posted }}
+            {% endfor %}
         </div>
     </div>
  
