@@ -1,5 +1,5 @@
 from django import forms
-from .models import BookReview
+from .models import BookReview, ReviewComment
 
 
 class CreateReviewForm(forms.ModelForm):
@@ -28,3 +28,19 @@ class CreateReviewForm(forms.ModelForm):
             placeholder = placeholders[field]
             self.fields[field].label = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+
+
+class CreateCommentForm(forms.ModelForm):
+
+    class Meta:
+        model = ReviewComment
+        fields = ('comment_text',)
+
+    comment_text = forms.CharField(
+        label=False,
+        widget=forms.Textarea(attrs={
+            'rows': 2,
+            'class': 'stripe-style-input',
+            'placeholder': 'Add your Comment Details',
+        })
+    )

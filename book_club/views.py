@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 
 from .models import BookReview, ReviewComment
-from .forms import CreateReviewForm
+from .forms import CreateReviewForm, CreateCommentForm
 
 
 def book_club(request):
@@ -21,11 +21,12 @@ def view_review(request, review_id):
     A view to return a book review that enable user to add comments to it.
     """
     review = get_object_or_404(BookReview, pk=review_id)
-    review_comments = ReviewComment.objects.all()
+    review_comments = ReviewComment.objects.filter(review_id=review_id)
 
     context = {
         'review': review,
         'review_comments': review_comments,
+        'form': CreateCommentForm,
     }
 
     return render(request, 'book_club/view_review.html', context)
