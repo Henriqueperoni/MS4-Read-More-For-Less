@@ -4,7 +4,7 @@ from .models import BookReview
 
 
 def book_club(request):
-    """ A view to return the book club page with book reviews """
+    """ A view to return the book club page with book reviews. """
     reviews = BookReview.objects.all()
 
     context = {
@@ -16,7 +16,7 @@ def book_club(request):
 
 def view_review(request, review_id):
     """
-    A view to return a book review that enable user to add comments to it
+    A view to return a book review that enable user to add comments to it.
     """
     review = get_object_or_404(BookReview, pk=review_id)
     print(f'REVIEW: {review}')
@@ -26,3 +26,9 @@ def view_review(request, review_id):
     }
 
     return render(request, 'book_club/view_review.html', context)
+
+
+def create_review(request):
+    """  A view to return the create_review template and CreateReview form. """
+
+    return render(request, 'book_club/create_review.html')

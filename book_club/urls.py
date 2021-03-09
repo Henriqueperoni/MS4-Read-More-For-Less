@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.book_club, name='book_club'),
     path(
         'view_review/<int:review_id>/', views.view_review, name='view_review'),
+    path('create_review/', views.create_review, name='create_review'),
 ]
