@@ -47,7 +47,7 @@
                     {% endfor %}
                 </div>
                 <div class="col-12 col-lg-8 offset-lg-2">
-                    <form class="mt-3" action="" method="POST" id="profile-update-form">
+                    <form class="mt-3" action="#" method="POST">
                     {% csrf_token %}
                     {{ form|crispy }}
                     <button class="btn-blue smaller-btn float-right mb-2">Add Comment</button>

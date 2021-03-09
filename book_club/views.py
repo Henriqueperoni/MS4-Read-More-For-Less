@@ -23,6 +23,16 @@ def view_review(request, review_id):
     review = get_object_or_404(BookReview, pk=review_id)
     review_comments = ReviewComment.objects.filter(review_id=review_id)
 
+    if request.method == 'POST':
+        create_comment_form = ReviewComment(
+            comment_text=request.POST.get('comment_text'),
+            user=request.user,
+            review=review
+        )
+        create_comment_form.save()
+        messages.success(request, 'Comment successfully added')
+        return redirect('view_review', review_id)
+
     context = {
         'review': review,
         'review_comments': review_comments,

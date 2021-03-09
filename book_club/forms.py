@@ -41,6 +41,6 @@ class CreateCommentForm(forms.ModelForm):
         widget=forms.Textarea(attrs={
             'rows': 2,
             'class': 'stripe-style-input',
-            'placeholder': 'Add your Comment Details',
+            'placeholder': 'Add your Comment here',
         })
     )
