@@ -9,7 +9,7 @@ from .forms import CreateReviewForm, CreateCommentForm
 @login_required
 def book_club(request):
     """ A view to return the book club page with book reviews. """
-    reviews = BookReview.objects.all()
+    reviews = BookReview.objects.all().order_by('date_posted')
 
     context = {
         'reviews': reviews,
@@ -24,7 +24,8 @@ def view_review(request, review_id):
     A view to return a book review that enable user to add comments to it.
     """
     review = get_object_or_404(BookReview, pk=review_id)
-    review_comments = ReviewComment.objects.filter(review_id=review_id)
+    review_comments = ReviewComment.objects.filter(
+        review_id=review_id).order_by('-date_commented')
 
     if request.method == 'POST':
         create_comment_form = ReviewComment(
@@ -88,8 +89,9 @@ def edit_review(request, review_id):
         else:
             messages.error(request, 'Failed to update Review. \
                 Please, ensure the for is valid')
-
-    edit_review_form = CreateReviewForm(instance=review)
+    else:
+        edit_review_form = CreateReviewForm(instance=review)
+        messages.info(request, f'You are editing {review.book_name}')
 
     context = {
         'form': edit_review_form,
