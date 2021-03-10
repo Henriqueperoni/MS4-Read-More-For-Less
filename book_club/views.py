@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 
 from .models import BookReview, ReviewComment
@@ -63,3 +63,32 @@ def create_review(request):
     }
 
     return render(request, 'book_club/create_review.html', context)
+
+
+def edit_review(request, review_id):
+    """ A view to allows the user edit their reviews """
+    review = get_object_or_404(BookReview, pk=review_id)
+
+    if request.user != review.user:
+        messages.error(
+            request, 'Sorry, only the creator of this review can edit it.')
+        return redirect(reverse('book_club'))
+
+    if request.method == 'POST':
+        edit_review_form = CreateReviewForm(request.POST, instance=review)
+        if edit_review_form.is_valid():
+            edit_review_form.save()
+            messages.success(request, 'Review updated successfully!')
+            return redirect('view_review', review_id)
+        else:
+            messages.error(request, 'Failed to update Review. \
+                Please, ensure the for is valid')
+
+    edit_review_form = CreateReviewForm(instance=review)
+
+    context = {
+        'form': edit_review_form,
+        'review': review
+    }
+
+    return render(request, 'book_club/edit_review.html', context)
