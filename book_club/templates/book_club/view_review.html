@@ -24,6 +24,11 @@
             <div class="row">
                 <div class="col-12 col-lg-5 review-image mb-3">
                     <img src="{{ review.image_url }}" alt="{{ review.book_name }}'s cover'">
+                    <div class="btn-edit-container btn-edit-review">
+                        <a href="{% url 'edit_review' review.id %}">
+                            <i class="fas fa-edit"></i>Edit
+                        </a>
+                    </div>
                 </div>
                 <div class="book-summary col-12 col-lg-7">
                     <div>
