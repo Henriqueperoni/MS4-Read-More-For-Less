@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import BookReview, ReviewComment
 from .forms import CreateReviewForm, CreateCommentForm
 
 
+@login_required
 def book_club(request):
     """ A view to return the book club page with book reviews. """
     reviews = BookReview.objects.all()
@@ -16,6 +18,7 @@ def book_club(request):
     return render(request, 'book_club/book_club.html', context)
 
 
+@login_required
 def view_review(request, review_id):
     """
     A view to return a book review that enable user to add comments to it.
@@ -42,6 +45,7 @@ def view_review(request, review_id):
     return render(request, 'book_club/view_review.html', context)
 
 
+@login_required
 def create_review(request):
     """  A view to return the create_review template and CreateReview form. """
 
@@ -65,6 +69,7 @@ def create_review(request):
     return render(request, 'book_club/create_review.html', context)
 
 
+@login_required
 def edit_review(request, review_id):
     """ A view to allows the user edit their reviews """
     review = get_object_or_404(BookReview, pk=review_id)
@@ -92,3 +97,19 @@ def edit_review(request, review_id):
     }
 
     return render(request, 'book_club/edit_review.html', context)
+
+
+@login_required
+def delete_review(request, review_id):
+    """ A view to allows the user delete their reviews """
+    review = get_object_or_404(BookReview, pk=review_id)
+
+    if request.user == review.user or request.user.is_superuser:
+        review.delete()
+        messages.success(request, f'{review.book_name} deleted')
+    else:
+        messages.error(
+            request, 'Sorry, only the creator of this review can do that.')
+        return redirect(reverse('book_club'))
+
+    return redirect(reverse('book_club'))
