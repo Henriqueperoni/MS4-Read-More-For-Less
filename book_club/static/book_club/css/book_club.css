@@ -13,6 +13,25 @@
     margin: 0 auto;
 }
 
+.input-search input {
+    font-size: 0.9rem;
+    height: 3.0rem;
+    padding: 0.5rem;
+    border: 3px solid #2d88ff;
+    border-radius: 20px;
+    outline: none;
+}
+
+.input-search button {
+    font-size: 1.4rem;
+    background: #2d88ff;
+    color: #fff;
+    margin-left: 5px;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
 /* View Review */
 .review-image img {
     max-width: 300px;

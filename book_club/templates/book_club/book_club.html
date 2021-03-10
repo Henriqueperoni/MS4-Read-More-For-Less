@@ -29,7 +29,15 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <h2 class="text-center payment-header">Reviews</h2>
+                <h2 class="text-center payment-header mb-0">Reviews</h2>
+            </div>
+            <div class="col-12 col-lg-4 offset-lg-4 my-3">
+                <form class="w-100" action="{% url 'book_club' %}" method="GET">
+                    <div class="w-100 d-flex justify-content-center input-search">
+                        <input class="w-100" type="text" name="q" placeholder="Search Review">
+                        <button type="submit"><i class="fas fa-search d-flex align-items-center "></i></button>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="row">

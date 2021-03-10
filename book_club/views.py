@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 from .models import BookReview, ReviewComment
 from .forms import CreateReviewForm, CreateCommentForm
@@ -9,10 +10,25 @@ from .forms import CreateReviewForm, CreateCommentForm
 @login_required
 def book_club(request):
     """ A view to return the book club page with book reviews. """
+
     reviews = BookReview.objects.all().order_by('date_posted')
+    query = None
+
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(
+                    request, "You didn't enter any search criteria!")
+                return redirect(reverse('book_club'))
+
+            queries = (Q(book_name__icontains=query) | Q(
+                book_author__icontains=query))
+            reviews = reviews.filter(queries)
 
     context = {
         'reviews': reviews,
+        'search_term': query,
     }
 
     return render(request, 'book_club/book_club.html', context)
