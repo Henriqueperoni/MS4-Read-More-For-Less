@@ -24,9 +24,9 @@
                 <h2 class="text-center payment-header">Payment Plans</h2>
             </div>
         </div>
-        <div class="row">
+        <div class="row d-flex justify-content-center d-lg-block">
         
-            <div>
+            <div class="ml-3 discount-wrapper">
                 <div class="discount-container mb-2">
                     <div class="discount text-center">
                         <p class="m-0 font-weight-bold">Best Value</p>
@@ -47,11 +47,11 @@
                 </ul>
             </div>
 
-            <div class="tab-content row mt-3" id="pills-tabContent">
+            <div class="tab-content row mt-3 m-0 d-flex justify-content-center" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                     {% for plan in pricing %}
                         {% if plan.frequency == "annually" %}
-                            <div class="col-12 col-md-6 col-lg-4 pricing-cards">
+                            <div class="col-12 col-md-6 col-lg-4 pricing-cards d-flex justify-content-center">
                                 <div class="card">
                                 {% if request.user.is_superuser %}
                                     <div class="btn-edit-container">
@@ -78,7 +78,7 @@
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                     {% for plan in pricing %}
                         {% if plan.frequency == "monthly" %}
-                            <div class="col-12 col-md-6 col-lg-4 pricing-cards">
+                            <div class="col-12 col-md-6 col-lg-4 pricing-cards d-flex justify-content-center">
                                 <div class="card">
                                     {% if request.user.is_superuser %}
                                         <div class="btn-edit-container">

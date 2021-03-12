@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="text-center page-title">Book Club</h1>
+                <h1 class="text-center page-title mb-2">Book Club</h1>
             </div>
             <div class="col-12">
                 <p class="text-center">
@@ -31,7 +31,7 @@
             <div class="col-12">
                 <h2 class="text-center payment-header mb-0">Reviews</h2>
             </div>
-            <div class="col-12 col-lg-4 offset-lg-4 my-3">
+            <div class="col-12">
                 <form class="w-100" action="{% url 'book_club' %}" method="GET">
                     <div class="w-100 d-flex justify-content-center input-search">
                         <input class="w-100" type="text" name="q" placeholder="Search Review">
@@ -42,7 +42,7 @@
         </div>
         <div class="row">
             {% for review in reviews %}
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 book-cover mb-3">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 book-cover my-3">
                     <a href="{% url 'view_review' review.id %}"><img src="{{ review.image_url }}" alt="{{ review.book_name }}'s cover'"></a>
                     <div>
                         <p class="mt-1 mb-0">{{ review.book_name }}</p>

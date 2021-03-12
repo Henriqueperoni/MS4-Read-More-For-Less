@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="text-center page-title">Shopping Cart</h1>
+                <h1 class="text-center page-title mb-2">Shopping Cart</h1>
             </div>
             <div class="col-12">
                 <p class="text-center">
@@ -29,7 +29,7 @@
                             {% for item in cart_items %}
                             <div class="pricing-cards">
                                 <div class="card checkout-card">
-                                    <p> You chose the <span class="main-color">{{ item.plan.name }}</span> plan.</p>
+                                    <p> You chose the <span class="blue-text font-weight-bold">{{ item.plan.name }}</span> plan.</p>
                                     <div class="checkout-price">
                                         <p>Price:</p>
                                         <div class="card-price checkout-value">
@@ -39,7 +39,7 @@
                                     </div>
                                     <p>And you will be billed {{item.plan.frequency|lower}}.</p>
                                     <div class="checkout-buttons">
-                                        <a href="{% url 'clear_cart' %}" class="btn-blue btn-checkout">Clear cart and pick another plan</a>
+                                        <a href="{% url 'clear_cart' %}" class="btn-white btn-checkout">Clear cart and pick another plan</a>
                                         <a href="{% url 'checkout' %}" class="btn-blue btn-checkout">Checkout</a>
                                     </div>
                                 </div>

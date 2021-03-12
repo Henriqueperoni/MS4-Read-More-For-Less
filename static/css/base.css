@@ -42,6 +42,7 @@ a:hover {
     border-radius: 8px;
     border: 5px solid #2D88FF;
     box-shadow: 0px 0px 20px 1px rgb(0 0 0 / 30%);
+    max-width: 98%;
 }
 
 /* Buttons */
@@ -178,10 +179,10 @@ nav h3 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-top: 10rem;
 }
 
 .intro-animation p {
-    padding-top: 10rem;
     font-size: 4.5rem;
     color: #080808;
 }
@@ -281,6 +282,7 @@ nav h3 {
 
 .discount-container {
     transform: translateX(-46px);
+    max-width: 188px;
 }
 
 .triangle {
@@ -325,7 +327,7 @@ nav h3 {
 .checkout-buttons {
     display: flex;
     justify-content: space-evenly;
-    padding-top: 150px;
+    padding-top: 145px;
 }
 
 .btn-checkout {
@@ -356,6 +358,7 @@ nav h3 {
     border: 1px solid #827f7f;
     border-radius: 3px;
     padding: 10px 0;
+    margin: 0;
 }
 
 .table-price,
@@ -509,10 +512,7 @@ select:invalid {
 
 /* ------- PROFILE------- */
 .container-profile {
-    background: #fff;
-    border-radius: 8px;
-    border: 5px solid #2D88FF;
-    box-shadow: 0px 0px 20px 1px rgb(0 0 0 / 30%);
+    max-width: 98%;
 }
 
 #profile-update-form input::placeholder {
@@ -541,37 +541,6 @@ select:invalid {
 .btn-edit-container i {
     display: flex;
     justify-content: center;
-}
-
-@media screen and (max-width:768px) {
-    body {
-        overflow-x: hidden;
-    }
-
-    .nav-links {
-        position: fixed;
-        background: rgb(162,201,252);
-        background: radial-gradient(circle, rgba(162,201,252,1) 0%, rgba(45,136,255,1) 100%);
-        width: 70%;
-        right: 0;
-        top: 7vh;
-        height: 93vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        z-index: 99;
-        transform: translateX(100%);
-        transition: transform 0.5s ease-in;
-    }
-
-    .burguer {
-        display: block;
-        cursor: pointer;
-    }
-}
-
-.nav-active {
-    transform: translateX(0%);
 }
 
 /* ------- FOOTER ------- */
@@ -635,4 +604,87 @@ footer div {
     color: transparent;
     margin: 0 auto;
     background: #f9f8f6;
+}
+
+@media screen and (max-width: 992px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .nav-links {
+        position: fixed;
+        background: rgb(162,201,252);
+        background: radial-gradient(circle, rgba(162,201,252,1) 0%, rgba(45,136,255,1) 100%);
+        width: 70%;
+        right: 0;
+        top: 7vh;
+        height: 93vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 99;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .burguer {
+        display: block;
+        cursor: pointer;
+    }
+
+    .discount-wrapper {
+        margin: 0 !important;
+    }
+}
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+
+@media screen and (max-width: 576px) {
+    .hero {
+        height: 75vh;
+    }
+
+    .intro-animation {
+        padding-top: 3rem;
+    }
+
+    .intro-animation p {
+        font-size: 3rem;
+    }
+
+    .container-intro > p {
+        width: 100%;
+    }
+
+    
+
+
+
+    footer {
+        min-height: 100px;
+    }
+
+    footer div {
+        margin-bottom: 10px;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+    .intro-animation {
+        padding-top: 1rem;
+    }
+
+    .intro-animation p {
+        margin: 0;
+    }
+
+
+
+
+    
+
 }

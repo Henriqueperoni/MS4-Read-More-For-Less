@@ -11,18 +11,18 @@
         <div class="row mb-2">
             <div class="col-12 text-center">
                 <h1 class=" page-title">{{ review.book_name }}'s Review</h1>
-                <p class="blue-text">Review Author: {{ review.user }}</p>
+                <p class="text-muted">Review Author: {{ review.user }}</p>
             </div>
         </div>
     
         <div>
             <div class="row">
                 <div class="col-12">
-                    <h2 class="text-center payment-header">Review</h2>
+                    <h2 class="text-center blue-text">Review</h2>
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-lg-5 review-image mb-3">
+                <div class="col-12 col-lg-5 review-image m-3">
                     <img src="{{ review.image_url }}" alt="{{ review.book_name }}'s cover'">
                     {% if request.user == review.user or request.user.is_superuser %}
                     <div class="btn-edit-container btn-edit-review">
@@ -44,7 +44,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <h2 class="text-center payment-header">Comments</h2>
+                    <h2 class="text-center blue-text">Comments</h2>
                     {% for comment in review_comments %}
                         <div class="col-12 review-comments">
                             <p class="comment-date mb-1">{{ comment.date_commented }}</p>
