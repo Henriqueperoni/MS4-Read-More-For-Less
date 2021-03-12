@@ -40,9 +40,8 @@ a:hover {
 .general-container {
     background: #fff;
     border-radius: 8px;
-    border: 5px solid #2D88FF;
+    border: 2px solid #2D88FF;
     box-shadow: 0px 0px 20px 1px rgb(0 0 0 / 30%);
-    max-width: 98%;
     margin: 0 auto;
 }
 
@@ -339,7 +338,7 @@ nav h3 {
     top: 75px;
     right: 2px;
     margin: 0 5px;
-    z-index: 9999;
+    z-index: 99;
 }
 
 .custom-toast {
@@ -514,6 +513,10 @@ select:invalid {
 }
 
 /* ------- MODAL ------- */
+.modal {
+    z-index: 999;
+}
+
 .modal-header,
 .modal-footer {
     border: none;
@@ -525,7 +528,7 @@ select:invalid {
     top: 13px;
     display: flex;
     font-size: 0.8rem;
-    z-index: 10;
+    z-index: 2;
 }
 
 .btn-edit-container a {
