@@ -3,6 +3,7 @@ from django.shortcuts import (
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
@@ -39,6 +40,7 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 
+@login_required
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -142,12 +144,15 @@ def checkout(request):
     return render(request, template, context)
 
 
+@login_required
 def checkout_success(request, order_number):
     """
     Handle succesfull checkouts
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+    start_date = datetime.strftime(order.start_date, '%d %B %Y')
+    end_date = datetime.strftime(order.end_date, '%d %B %Y')
 
     profile = UserProfile.objects.get(user=request.user)
     # Attach the user's profile to the order
@@ -177,7 +182,10 @@ def checkout_success(request, order_number):
 
     template = 'checkout/checkout_success.html'
     context = {
-        'order': order
+        'order': order,
+        'start_date': start_date,
+        'end_date': end_date,
     }
 
     return render(request, template, context)
+
