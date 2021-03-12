@@ -69,18 +69,31 @@ hr {
     font-weight: 600;
 }
 
-@media screen and (max-width: 992px) {
-    .page-title {
-        font-size: 2.5rem;
+@media screen and (max-width: 576px) {
+
+    .review-header h2 {
+        font-size: 1.5rem;
     }
 
+    .review-header h3 {
+        font-size: 1.25;
+    }
 
+    .book-cover img {
+        max-width: 155px;
+    }
+
+    .book-cover p {
+        max-width: 155px;
+    }
 }
 
-@media screen and (max-width: 576px) {
-    .page-title {
-        font-size: 2rem;
+@media screen and (max-width: 350px) {
+    .book-cover img {
+        max-width: 135px;
     }
 
-
+    .book-cover p {
+        max-width: 135px;
+    }
 }

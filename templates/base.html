@@ -70,10 +70,13 @@
                                 <a class="nav-anchor" href="{% url 'add_plan' %}">Admin</a>
                             </li>
                         {% endif %}
+                        <li class="d-none d-lg-block">
+                            <p class="m-0 blue-text">Hello,</p>
+                            <p class="m-0 blue-text">{{ user|capfirst }}</p>  
+                        </li>
                         <li>
                             <a class="nav-anchor" href="{% url 'home' %}">Home</a>
                         </li>
-
                         <li>
                             <a class="nav-anchor" href="{% url 'profile' %}">Profile</a>
                         </li>

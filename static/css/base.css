@@ -43,6 +43,7 @@ a:hover {
     border: 5px solid #2D88FF;
     box-shadow: 0px 0px 20px 1px rgb(0 0 0 / 30%);
     max-width: 98%;
+    margin: 0 auto;
 }
 
 /* Buttons */
@@ -210,11 +211,6 @@ nav h3 {
 }
 
 /* ------- PRICING ------- */
-.payment-header {
-    color: #2D88FF;
-    margin: 2rem 0;
-}
-
 .pricing-cards {
     position: relative;
 }
@@ -332,7 +328,9 @@ nav h3 {
 
 .btn-checkout {
     font-size: 0.9rem;
-    padding: 10px;
+    padding: 9px;
+    align-self: center;
+    border: 2px solid #2d88ff;
 }
 
 /* ------- Toast Messages ------- */
@@ -511,10 +509,6 @@ select:invalid {
 }
 
 /* ------- PROFILE------- */
-.container-profile {
-    max-width: 98%;
-}
-
 #profile-update-form input::placeholder {
     color: #495057;
 }
@@ -611,6 +605,10 @@ footer div {
         overflow-x: hidden;
     }
 
+    .page-title {
+        font-size: 2.5rem;
+    }
+
     .nav-links {
         position: fixed;
         background: rgb(162,201,252);
@@ -641,8 +639,11 @@ footer div {
     transform: translateX(0%);
 }
 
-
 @media screen and (max-width: 576px) {
+    .page-title {
+        font-size: 2.5rem;
+    }
+
     .hero {
         height: 75vh;
     }
