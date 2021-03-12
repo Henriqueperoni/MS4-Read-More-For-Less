@@ -4,6 +4,10 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+from django.utils.timezone import make_aware
+
 from .forms import Order, OrderForm
 from cart.context import cart_contents
 from pricing.models import Pricing
@@ -41,6 +45,8 @@ def checkout(request):
 
     if request.method == 'POST':
         cart = request.session.get('cart', {})
+        start_date = make_aware(datetime.now())
+        end_date = start_date + relativedelta(years=1)
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -52,10 +58,15 @@ def checkout(request):
             'street_address1': request.POST['street_address1'],
             'street_address2': request.POST['street_address2'],
             'county': request.POST['county'],
+            'start_date': start_date,
+            'end_date': end_date,
+            'active_plan': True,
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
+            order.start_date = start_date
+            order.end_date = end_date
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
@@ -73,12 +84,15 @@ def checkout(request):
                     quantity=quantity,
                 )
                 order_line_item.save()
+
+            request.session['save_info'] = 'save-info' in request.POST
+
+            return redirect(reverse(
+                'checkout_success', args=[order.order_number]))
+
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
-
-        request.session['save_info'] = 'save-info' in request.POST
-        return redirect(reverse('checkout_success', args=[order.order_number]))
 
     else:
         cart = request.session.get('cart', {})
@@ -98,7 +112,7 @@ def checkout(request):
 
         if request.user.is_authenticated:
             try:
-                profile=UserProfile.objects.get(user=request.user)
+                profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
                     'full_name': profile.user.get_full_name(),
                     'email': profile.user.email,

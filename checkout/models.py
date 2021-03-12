@@ -27,6 +27,9 @@ class Order(models.Model):
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=40, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
+    start_date = models.DateTimeField(max_length=80, null=True, blank=True)
+    end_date = models.DateTimeField(max_length=80, null=True, blank=True)
+    plan_active = models.BooleanField(default=True)
     total = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, default=0)
     original_cart = models.TextField(null=False, blank=False, default='')
