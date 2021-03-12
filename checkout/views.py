@@ -189,3 +189,10 @@ def checkout_success(request, order_number):
 
     return render(request, template, context)
 
+
+def check_active_plan():
+    """ Function to check premium user status and remove user
+    if premium ends """
+    date = make_aware(datetime.now())
+    end_dates = Order.objects.filter(end_date__lte=date)
+    end_dates.delete()
