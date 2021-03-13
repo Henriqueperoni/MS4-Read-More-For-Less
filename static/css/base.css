@@ -531,11 +531,17 @@ select:invalid {
 
 .my-reviews img {
     width: 125px;
+    height: 190px;
+    display: flex;
+    margin: 0 auto;
 }
 
 .my-reviews p {
+    width: 125px;
     font-weight: 600;
     font-size: .8rem;
+    display: flex;
+    margin: 0 auto;
 }
 
 /* ------- FOOTER ------- */
@@ -684,9 +690,12 @@ footer div {
         margin: 0;
     }
 
+    .my-reviews img {
+        width: 100px;
+        height: 152px;
+    }
 
-
-
-    
-
+    .my-reviews p {
+        width: 100px;
+    }
 }

@@ -13,7 +13,7 @@
             <div class="col-12 col-lg-6">
                 <p class="text-muted">Current Plan</p>
                 
-                <div class="col-12 col-lg-10">
+                <div class="col-12">
                 <div class="order-history">
                     <div class="row">
                         {% for order in orders %}
@@ -42,7 +42,7 @@
                             </div>
                         {% endfor %}
                         {% for review in my_reviews %}
-                            <div class="my-reviews my-3">
+                            <div class="col-6 col-md-4 my-reviews my-3">
                                 <a href="{% url 'view_review' review.id %}"><img src="{{ review.image_url }}" alt="{{ review.book_name }}'s cover'"></a>
                                 <p class="mt-1">Posted: {{ review.date_posted|date:'d/m/Y' }}</p>
                             </div>
