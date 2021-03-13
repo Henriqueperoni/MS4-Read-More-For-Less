@@ -1,16 +1,21 @@
 /* Book Club */
 .book-cover img {
-    max-width: 185px;
+    width: 185px;
+    height: 280px;
     display: flex;
     margin: 0 auto;
 }
 
 .book-cover p {
-    max-width: 185px;
+    width: 185px;
     font-weight: 700;
     font-size: .8rem;
     display: flex;
     margin: 0 auto;
+}
+
+.book-cover p:last-child{
+    font-size: .7rem;
 }
 
 .input-search input {
@@ -35,9 +40,15 @@
 }
 /* View Review */
 .review-image img {
-    max-width: 300px;
+    width: 300px;
     display: flex;
     margin: 0 auto;
+}
+
+.book-cover-wrapper {
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
 }
 
 .btn-edit-review {
@@ -49,8 +60,8 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    right: 93px;
-    top: 4px;
+    right: 5px;
+    top: 5px;
 }
 
 .review-comments p {
@@ -76,24 +87,26 @@ hr {
     }
 
     .review-header h3 {
-        font-size: 1.25;
+        font-size: 1.25rem;
     }
 
     .book-cover img {
-        max-width: 155px;
+        width: 155px;
+        height: 235px;
     }
 
     .book-cover p {
-        max-width: 155px;
+        width: 155px;
     }
 }
 
 @media screen and (max-width: 350px) {
     .book-cover img {
-        max-width: 135px;
+        width: 135px;
+        height: 215px;
     }
 
     .book-cover p {
-        max-width: 135px;
+        width: 135px;
     }
 }

@@ -15,51 +15,46 @@
             </div>
         </div>
     
-        <div>
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="text-center blue-text">Review</h2>
-                </div>
-            </div>
-            <div class="row my-3">
-                <div class="col-12 col-lg-5 review-image mb-2">
+        <div class="row my-3">
+            <div class="col-12 col-lg-5 review-image mb-2">
+                <div class="book-cover-wrapper">
                     <img src="{{ review.image_url }}" alt="{{ review.book_name }}'s cover'">
                     {% if request.user == review.user or request.user.is_superuser %}
-                    <div class="btn-edit-container btn-edit-review">
-                        <a href="{% url 'edit_review' review.id %}">
-                            <i class="fas fa-edit"></i>Edit
-                        </a>
-                    </div>
+                        <div class="btn-edit-container btn-edit-review">
+                            <a href="{% url 'edit_review' review.id %}">
+                                <i class="fas fa-edit"></i>Edit
+                            </a>
+                        </div>
                     {% endif %}
                 </div>
-                <div class="review-header col-12 col-lg-7">
-                    <div>
-                        <h2>{{ review.book_name }}</h2>
-                        <h3>{{ review.book_author }}</h3>
-                    </div>
-                    <div class="mt-3">
-                        <p>{{ review.book_review}}</p>
-                    </div>
+            </div>
+            <div class="review-header col-12 col-lg-7">
+                <div>
+                    <h2>{{ review.book_name }}</h2>
+                    <h3>{{ review.book_author }}</h3>
+                </div>
+                <div class="mt-3">
+                    <p>{{ review.book_review}}</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="text-center blue-text">Comments</h2>
-                    {% for comment in review_comments %}
-                        <div class="col-12 review-comments">
-                            <p class="comment-date mb-1">{{ comment.date_commented }}</p>
-                            <p><span class="blue-text username">{{ comment.user }}</span>: {{ comment.comment_text }}</p>
-                        </div>
-                        <hr>
-                    {% endfor %}
-                </div>
-                <div class="col-12 col-lg-8 offset-lg-2">
-                    <form class="mt-3" action="#" method="POST">
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center blue-text">Comments</h2>
+                {% for comment in review_comments %}
+                    <div class="col-12 review-comments">
+                        <p class="comment-date mb-1">{{ comment.date_commented }}</p>
+                        <p><span class="blue-text username">{{ comment.user }}</span>: {{ comment.comment_text }}</p>
+                    </div>
+                    <hr>
+                {% endfor %}
+            </div>
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <form class="mt-3" action="#" method="POST">
                     {% csrf_token %}
                     {{ form|crispy }}
                     <button class="btn-blue smaller-btn float-right mb-2">Add Comment</button>
                 </form>
-                </div>
             </div>
         </div>
     </div>
