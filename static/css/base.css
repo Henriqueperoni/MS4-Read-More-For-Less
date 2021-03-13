@@ -529,6 +529,15 @@ select:invalid {
     justify-content: center;
 }
 
+.my-reviews img {
+    width: 125px;
+}
+
+.my-reviews p {
+    font-weight: 600;
+    font-size: .8rem;
+}
+
 /* ------- FOOTER ------- */
 footer {
     min-height: 200px;

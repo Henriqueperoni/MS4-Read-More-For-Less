@@ -6,12 +6,19 @@ from .models import UserProfile
 from .forms import UserProfileForm
 from checkout.views import check_active_plan
 from checkout.models import Order
+from book_club.models import BookReview
 
 
 @login_required
 def profile(request):
     """ Display the user's profile. """
+    # Check if user has a valid plan
     check_active_plan()
+
+    user = request.user
+    book_reviews = BookReview.objects.order_by('-date_posted')
+    my_reviews = book_reviews.filter(user__exact=user)
+
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
@@ -33,6 +40,7 @@ def profile(request):
         'profile': profile,
         'form': form,
         'orders': orders,
+        'my_reviews': my_reviews,
     }
 
     return render(request, template, context)
