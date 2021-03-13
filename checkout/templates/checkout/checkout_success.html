@@ -5,15 +5,29 @@
 
     <div class="container">
         <div class="row">
-            <div class="col">
-                <h2 class="success-thanks mb-4 mt-5">Thank You for chose Read More For Less</h2>
-                <p>Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
+            <div class="col-12">
+                <h1 class="text-center page-title mb-1">Success</h1>
+            </div>
+            <div class="col-12 col-lg-10 offset-lg-1">
+                <h4 class="blue-text mb-4 mt-2 text-center">Thank you for chose Read More For Less</h4>
+                <p class="text-justify">
+                    {{ user|capfirst }}, your subscription plan starts on {{ start_date }} and will end on
+                    {{ end_date}}. If you are based in Ireland or the UK, you will receive your first delivery within 5 days. Otherwise,
+                    it might take a few more days.
+                </p>
+                <p>
+                    In the meanwhile, we encourage you to join our <a class="blue-text font-weight-bold" href="{% url 'book_club' %}" target="_blank">Book Club</a>,
+                    there you will be able to create book reviews and interact with other users by comments.
+                </p>
+                <p>
+                    Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.
+                </p>
             </div>
         </div>
-        start {{ start_date }}end {{ end_date }}
-        <div class="row">
-            <div class="col-12 col-lg-8">
-                <div class="order-confirmation">
+
+        <div class="row mt-4">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <div class="general-container p-3">
                     <div class="row">
                         <div class="col">
                             <small class="text-muted">Order Info:</small>
@@ -62,7 +76,7 @@
                             </p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ item.plan.frequency }}</p>
+                            <p class="mb-0">{{ item.plan.frequency|capfirst }}</p>
                         </div>
                     </div>
                     {% endfor %}

@@ -465,17 +465,6 @@ nav h3 {
 }
 
 /* ------- CHECKOUT SUCCESS------- */
-.success-thanks {
-    color: #2D88FF;
-}
-
-.order-confirmation {
-    background: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    border: 5px solid #2D88FF;
-}
-
 select,
 select option {
     color: #000000;
