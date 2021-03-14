@@ -9,49 +9,70 @@
                 <h1 class="text-center page-title">{{ user|capfirst }}'s Profile</h1>
             </div>
         </div>
-         <div class="row container-profile general-container py-2">
+        <div class="row container-profile general-container py-2">
             <div class="col-12 col-lg-6">
-                <p class="text-muted">Current Plan</p>
                 
+                <!-- User Current Plan -->
+                <p class="text-muted">Current Plan</p>
                 <div class="col-12">
-                <div class="order-history">
-                    <div class="row">
-                        {% for order in orders %}
-                            {% for item in order.lineitem.all %}
-                                <div class="col-12 col-md-6">
-                                    <p class="mb-1 font-weight-bold">Current Plan</p>
-                                </div>
-                                <div class="col-12 col-md-6 text-md-right blue-text font-weight-bold">
-                                    <p class="mb-1">{{ item.plan.name }} Plan</p>
-                                </div>
-                            {% endfor %}
-                            <div class="col-12 col-md-6">
-                                <p class="mb-1 font-weight-bold">Order Date</p>
-                            </div>
-                            <div class="col-12 col-md-6 text-md-right">
-                                <p class="mb-1">{{ order.start_date|date:"M d, Y" }}</p>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <p class="mb-1 font-weight-bold">Next Delivery</p>
-                            </div>
-                            <div class="col-12 col-md-6 text-md-right">
-                                <p class="mb-1">{{ order.end_date|date:"M d, Y" }}</p>
-                            </div>
-                            <div class="w-100 d-flex justify-content-end">
-                                <a href="{% url 'order_history' order.order_number %}" class="btn-blue smaller-btn float-right mt-1">See Order</a>
-                            </div>
-                        {% endfor %}
-                        {% for review in my_reviews %}
-                            <div class="col-6 col-md-4 my-reviews my-3">
-                                <a href="{% url 'view_review' review.id %}"><img src="{{ review.image_url }}" alt="{{ review.book_name }}'s cover'"></a>
-                                <p class="mt-1">Posted: {{ review.date_posted|date:'d/m/Y' }}</p>
-                            </div>
-                    {% endfor %}
+                    <div class="order-history">
+                        <div class="row">
+                            {% if orders %}
+                                {% for order in orders %}
+                                    {% for item in order.lineitem.all %}
+                                        <div class="col-12 col-md-6">
+                                            <p class="mb-1 font-weight-bold">Current Plan</p>
+                                        </div>
+                                        <div class="col-12 col-md-6 text-md-right blue-text font-weight-bold">
+                                            <p class="mb-1">{{ item.plan.name }} Plan</p>
+                                        </div>
+                                    {% endfor %}
+                                    <div class="col-12 col-md-6">
+                                        <p class="mb-1 font-weight-bold">Order Date</p>
+                                    </div>
+                                    <div class="col-12 col-md-6 text-md-right">
+                                        <p class="mb-1">{{ order.start_date|date:"M d, Y" }}</p>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <p class="mb-1 font-weight-bold">Plan Expire</p>
+                                    </div>
+                                    <div class="col-12 col-md-6 text-md-right">
+                                        <p class="mb-1">{{ order.end_date|date:"M d, Y" }}</p>
+                                    </div>
+                                    <div class="w-100 d-flex justify-content-end">
+                                        <a href="{% url 'order_history' order.order_number %}"
+                                            class="btn-blue smaller-btn float-right mt-1">See Order</a>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <p class="mb-5">
+                                    You haven't purchase a plan yet. Go to the <a class="text-blue font-weight-bold"
+                                        href="{% url 'pricing' %}">Pricing</a> and chose the best plan for you.
+                                </p>
+                            {% endif %}
+                            
+                            <!-- User Reviews -->
+                            <p class="col-12 text-muted p-0 m-0">My Reviews</p>
+                            {% if my_reviews %}
+                                {% for review in my_reviews %}
+                                    <div class="col-6 col-md-4 my-reviews my-3">
+                                        <a href="{% url 'view_review' review.id %}"><img src="{{ review.image_url }}"
+                                                alt="{{ review.book_name }}'s cover'"></a>
+                                        <p class="mt-1">Posted: {{ review.date_posted|date:'d/m/Y' }}</p>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <p>
+                                    You haven't create any review yet. Go to our <a class="text-blue font-weight-bold"
+                                        href="{% url 'book_club' %}">Book Club</a> and create your first review.
+                                </p>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
 
-            </div>
+            <!-- User Default Delivery Information Form -->
             <div class="col-12 col-lg-6">
                 <p class="text-muted">Default Delivery Information</p>
                 <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
