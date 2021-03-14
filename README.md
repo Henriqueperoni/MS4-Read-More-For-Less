@@ -142,14 +142,18 @@ The overall UX is clean and similar in all pages to keep consistency.
 
 ### Colors:
 
-The base color **deep-purple(#673AB7)** was chosen from [Materalize](https://materializecss.com/). Some different purple tones were
+Following the biggest social-media(Facebook, Twitter, LinkedIn). **(#2D88FF)** was chosen a base color. In general, blue colours show trust to the users and fit perfect for this project. All the other colours were chosen to keep harmony with the base colour, and also keep the project consistent and elegent.
 
-also chosen to make the website more elegant.
-
-![Palette of colors](static/images/colors.png)
+![Palette of colors](media/palette.png)
 
 ### Typography :
 
+#### Content
+- Logo - "Merriweather" font (with fall-back font of Serif). A mordern font created especialy for screen was a perfect choice for the logo.
+
+- Navigation Links and Buttons - "Josefin Sans" font (with fall-back font of Serif).  A geometric, elegant and kind of vintage font.  It has a great style and fit perfect for the website
+
+- Content - "Montserrat" font (with fall-back font of Serif). A classic the never get's old, was chosen for the general content for its readability, especialy in small screens.
  
 
   
@@ -162,25 +166,9 @@ also chosen to make the website more elegant.
 
 ## Features
 
-  
-
 ### Existing Features
 
-  
-
-- Designed with HTML5, CSS3, JavaScript, Python3, Flask, MongoDB.
-
-- Responsive navigation bar.
-
-- Button to create summaries that pops up a modal to fill in with the book's information.
-
-- Button to create a list of books.
-
-- Button to share a list of books.
-
-- Section where user can edit and delete summaries and lists.
-
-- Random quotes that inspire reading on the profile page (only on large screens.
+.
 
 - Footer with social media links.
 
@@ -301,6 +289,8 @@ Testing documentation can be found [HERE](static/testing/TESTING.md)
 
 ## Project barriers and solutions
 
+- Was hard to figure out how to save the start_date and end_date in the Order model as they were not part of the OrderForm. I easily managed to create the variables start_date and end_date, my first option was to include the form_data in the checkout function in the checkout app, but as the start_date and end_date was part of OrderForm it wasn't saving. So I decided to add the start_date and end_date as fields of the OrderForm and add hidden input fields in the checkout template, but it also did not work. In the end, I have the idea to add the variables after creating the form and order. And then setting the variables.
+
   
 
 ## Deployment
@@ -361,7 +351,6 @@ be uploaded to your IDE
 
 ### Media
 
-**Illustrations**:
 
 
 
