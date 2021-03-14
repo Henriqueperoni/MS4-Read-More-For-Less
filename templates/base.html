@@ -92,16 +92,16 @@
                         <li>
                             <a class="nav-anchor" href="{% url 'account_logout' %}">Log Out</a>
                         </li>
-                        <li class="shopping-card">
-                            <a class="{% if total %} blue-text font-weight-bold {% endif %} nav-anchor" href="{% url 'view_cart' %}" id="user-options">
-                                <i class="fas fa-shopping-cart"></i>
-                                <p class="my-0">
-                                    {% if total %}
+                        {% if total %}
+                            <li class="shopping-card">
+                                <a class=" blue-text font-weight-bold  nav-anchor" href="{% url 'view_cart' %}" id="user-options">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <p class="my-0">
                                         €{{ total|floatformat:2 }}
-                                    {% endif %}
-                                </p>
-                            </a>
-                        </li>
+                                    </p>
+                                </a>
+                            </li>
+                        {% endif %}
                         {% else %}
                         <li>
                             <a class="nav-anchor" href="{% url 'pricing' %}">Pricing</a>
