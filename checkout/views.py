@@ -60,9 +60,6 @@ def checkout(request):
             'street_address1': request.POST['street_address1'],
             'street_address2': request.POST['street_address2'],
             'county': request.POST['county'],
-            'start_date': start_date,
-            'end_date': end_date,
-            'active_plan': True,
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
@@ -151,7 +148,6 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    start_date = datetime.strftime(order.start_date, '%d %B %Y')
     end_date = datetime.strftime(order.end_date, '%d %B %Y')
 
     profile = UserProfile.objects.get(user=request.user)
@@ -183,7 +179,6 @@ def checkout_success(request, order_number):
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
-        'start_date': start_date,
         'end_date': end_date,
     }
 

@@ -11,8 +11,8 @@
             <div class="col-12 col-lg-10 offset-lg-1">
                 <h4 class="blue-text mb-4 mt-2 text-center">Thank you for chose Read More For Less</h4>
                 <p class="text-justify">
-                    {{ user|capfirst }}, your subscription plan starts on {{ start_date }} and will end on
-                    {{ end_date}}. If you are based in Ireland or the UK, you will receive your first delivery within 5 days. Otherwise,
+                    {{ user|capfirst }}, your subscription plan starts on {{ order.start_date|date:"M d, Y" }} and will end on
+                    {{ order.end_date|date:"M d, Y" }}. If you are based in Ireland or the UK, you will receive your first delivery within 5 days. Otherwise,
                     it might take a few more days.
                 </p>
                 <p>
@@ -59,29 +59,27 @@
                     </div>
 
                     {% for item in order.lineitem.all %}
-                    <div class="row">
-                        <div class="col-12 col-md-4">
-                            <p class="mb-0 blue-text font-weight-bold">
-                                {{ item.plan.name }} Plan
-                            </p>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 blue-text font-weight-bold">
+                                    {{ item.plan.name }} Plan
+                                </p>
+                            </div>
+                            <div class="col-12 col-md-8 text-md-right">
+                                <p class="mb-0">€{{ item.plan.price }}</p>
+                            </div>
                         </div>
-                        <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">€{{ item.plan.price }}</p>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0  font-weight-bold">
+                                    Payment
+                                </p>
+                            </div>
+                            <div class="col-12 col-md-8 text-md-right">
+                                <p class="mb-0">{{ item.plan.frequency|capfirst }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 col-md-4">
-                            <p class="mb-0  font-weight-bold">
-                                Payment
-                            </p>
-                        </div>
-                        <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ item.plan.frequency|capfirst }}</p>
-                        </div>
-                    </div>
                     {% endfor %}
-
-                    
 
                     <div class="row">
                         <div class="col">
@@ -119,14 +117,14 @@
                     {% endif %}
 
                     {% if order.county %}
-                    <div class="row">
-                        <div class="col-12 col-md-4">
-                            <p class="mb-0 font-weight-bold">County</p>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 font-weight-bold">County</p>
+                            </div>
+                            <div class="col-12 col-md-8 text-md-right">
+                                <p class="mb-0">{{ order.county }}</p>
+                            </div>
                         </div>
-                        <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ order.county }}</p>
-                        </div>
-                    </div>
                     {% endif %}
 
                     <div class="row">
@@ -139,14 +137,14 @@
                     </div>
 
                     {% if order.postcode %}
-                    <div class="row">
-                        <div class="col-12 col-md-4">
-                            <p class="mb-0 font-weight-bold">Postal Code</p>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 font-weight-bold">Postal Code</p>
+                            </div>
+                            <div class="col-12 col-md-8 text-md-right">
+                                <p class="mb-0">{{ order.postcode }}</p>
+                            </div>
                         </div>
-                        <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ order.postcode }}</p>
-                        </div>
-                    </div>
                     {% endif %}
 
                     <div class="row">
