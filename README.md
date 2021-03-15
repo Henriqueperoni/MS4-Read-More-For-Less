@@ -9,8 +9,6 @@ Read more for Less is a project where users can subscribe to get a box of books 
 
 ## Live demo on Heroku pages [HERE](https://bookss-world.herokuapp.com/)
 
-  
-
 ## Table of Contents:
 -  [UX](#ux)
     -  [User Stories](#user-stories)
@@ -243,57 +241,82 @@ Testing documentation can be found [HERE](static/testing/TESTING.md)
 
 ## Deployment
 
-  
-
 ### Project Creation
-
 - To create this project the [CI Gitpod Full Template](https://github.com/Code-Institute-Org/gitpod-full-template).
-
 - I was then directed to the create new repository from template page and entered in my desired repository name, then clicked create
-
 repository from template button.
-
 - Once created, I navigated to my new repository on GitHub and clicked the Gitpod button which built my workspace.
 
-  
+### Local Installation
+1. Save a copy of the github [repository](https://github.com/Henriqueperoni/MS4-Read-More-For-Less) by clicking the `download.zip` button at the top of the page 
+and extracting the zip file, or you clone the repository with this command:
+```
+$ git clone https://github.com/Henriqueperoni/MS4-Read-More-For-Less.git
+```
+2. Copy the repository into your IDE.
+3. Install all required modules with the command:
+```
+pip3 install -r requirements.txt
+```
+4. Store your environment variables and save them in the `Environment Variables-Settings` in your IDE:
+```
+DEVELOPMENT - Set to True
+SECRET_KEY - From a free Django Secret Key Generator
+STRIPE_PUBLIC_KEY - From Developer's API on the Stripe dashboard
+STRIPE_SECRET_KEY - From Developer's API on the Stripe dashboard
+STRIPE_WH_SECRET - From Stripe's developer API after creating a webhook
+```
+5. Set up the local database running the following commands:
+```
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+6. Create a superuser to access the Django Admin Panel with the command:
+```
+python3 manage.py createsuperuser
+```
+7. Start you server running the following command:
+```
+python3 manage.py runserver
+```
 
-### Deployment to Heroku
+### Remote Deployment on Heroku
 
-This project is deployed and hosted on [Heroku](https://www.heroku.com/).
+#### Create application
+1. Setup and account and log in to Heroku.
+2. Click on the `new` button.
+3. Select create `new app`.
+4. Enter the app name.
+5. Select region.
+ 
+#### Set up connection to Github Repository:
+1. Click the `Deploy tab`.
+2. `Select GitHub - Connect to GitHub`.
+3. A prompt to find a Github repository to connect to will be displayed.
+4. Enter the repository name for the project and `Click Search`.
+5. Once the repo has been found, click the `Connect Button`.
 
-- Navigate to [Heroku](https://www.heroku.com/) and login.
+#### Set environment variables:
+1. Click on the `Settings tab`.
+2. Click `Reveal Config Vars`.
+3. Variables added:
+```
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+DATABASE_URL
+EMAIL_HOST_PASSWORD
+EMAIL_HOST_USER
+SECRET_KEY
+STRIPE_PUBLIC_KEY
+STRIPE_SECRET_KEY
+STRIPE_WH_SECRET
+USE_AWS
+```
 
-- On the dashboard, click on the 'New' button and select 'Create new app'.
-
-- Enter the app name and select a region.
-
-- Under the 'Settings' tab, click on 'Config Vars' to add Configuration Variables from the env.py file. This includes the IP, Port,
-
-Secret key, MongoDB name and URI, as well as mail settings for Flask Mail.
-
-- In the menu select the 'Deploy' option.
-
-- Under 'Deployment method' select the GitHub option to connect to your GitHub repository. Ensure GitHub username is selected and
-
-use the search function to find the relevant repository.
-
-- Select Automatic deploys from the main branch and click 'Deploy Branch'.
-
-  
-
-### Cloning
-
-- The code can be run locally through clone or download from the repository on GitHub.
-
-- You can do this by opening the repository, clicking on the green 'Code' button and selecting either 'clone or download'.
-
-- The Clone option provides a URL, which you can use on your CLI with **git clone <url>**.
-
-- The Download ZIP option provides a link to download a ZIP file which can be unzipped on your local machine. The files can then
-
-be uploaded to your IDE
-
-  
+#### Enable automatic deployment:
+1. Click the `Deploy tab`.
+2. In the Automatic Deploys section, choose the branch you want to deploy (the master branc in my Read More For Less in my case).
+3. Click `Enable Automation Deploys`.
 
 ## Credits
 
