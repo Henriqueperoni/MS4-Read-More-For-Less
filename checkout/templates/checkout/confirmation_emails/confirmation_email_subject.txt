@@ -1,1 +1,1 @@
-Read More For Less Confirmation subscrition plan. {{ order.plan.name }}
+Read More For Less Confirmation subscription plan.
