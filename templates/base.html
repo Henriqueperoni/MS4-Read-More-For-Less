@@ -61,7 +61,8 @@
         <div>
             <nav>
                 <a class="blue-text" href="{% url 'home' %}">
-                    <h3>Read More For Less</h3>
+                    <h3 class="name-logo d-none d-sm-block">Read More For Less</h3>
+                    <h3 class="small-logo d-sm-none d-flex">R</h3>
                 </a>
                 <ul class="nav-links">
                     {% if request.user.is_authenticated %}
@@ -92,9 +93,10 @@
                         <li>
                             <a class="nav-anchor" href="{% url 'account_logout' %}">Log Out</a>
                         </li>
+                        <!-- Cart icon with total for large and larger screens -->
                         {% if total %}
-                            <li class="shopping-card">
-                                <a class=" blue-text font-weight-bold  nav-anchor" href="{% url 'view_cart' %}" id="user-options">
+                            <li class="shopping-card d-none d-lg-block">
+                                <a class=" blue-text font-weight-bold  nav-anchor" href="{% url 'view_cart' %}">
                                     <i class="fas fa-shopping-cart"></i>
                                     <p class="my-0">
                                         €{{ total|floatformat:2 }}
@@ -117,6 +119,17 @@
                         </li>
                     {% endif %}
                 </ul>
+                <!-- Cart icon with total for medium and smaller screens -->
+                {% if total %}
+                    <div class="shopping-card d-lg-none d-flex mt-2">
+                        <a class=" blue-text font-weight-bold  nav-anchor" href="{% url 'view_cart' %}">
+                            <i class="fas fa-shopping-cart"></i>
+                            <p class="my-0">
+                                €{{ total|floatformat:2 }}
+                            </p>
+                        </a>
+                    </div>
+                {% endif %}
                 <div class="burguer">
                     <div class="line1"></div>
                     <div class="line2"></div>

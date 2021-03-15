@@ -108,7 +108,6 @@ a:hover {
     padding: 3px 10px;
 }
 /* ------- NAVBAR ------- */
-
 nav {
   display: flex;
   align-items: center;
@@ -121,10 +120,22 @@ nav {
   z-index: 2;
 }
 
-nav h3 {
+.name-logo {
     font-family: 'Merriweather', serif;
     margin-left: 1rem;
     margin-bottom: 0;
+}
+
+.small-logo {
+    margin-left: 1rem;
+    margin-bottom: 0;
+    border: 2px solid #087bff;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    font-family: serif;
 }
 
 .nav-links {
@@ -656,6 +667,11 @@ footer div {
         width: 100%;
     }
 
+    .card {
+        width: 330px;
+        height: 330px;
+    }
+
     
 
 
@@ -671,12 +687,22 @@ footer div {
 }
 
 @media screen and (max-width: 320px) {
+    .small-logo {
+        width: 40px;
+        height: 40px;
+    }
+
     .intro-animation {
         padding-top: 1rem;
     }
 
     .intro-animation p {
         margin: 0;
+    }
+
+    .card {
+        width: 290px;
+        height: 290px;
     }
 
     .my-reviews img {
