@@ -12,57 +12,27 @@ Read more for Less is a project where users can subscribe to get a box of books 
   
 
 ## Table of Contents:
-
-  
-
 -  [UX](#ux)
-
--  [User Stories](#user-stories)
-
--  [Strategy](#1-strategy)
-
--  [Scope](#2-scope)
-
--  [Structure](#3-structure)
-
--  [Skeleton](#4-skeleton)
-
--  [Surface](#5-surface)
-
+    -  [User Stories](#user-stories)
+    -  [Strategy](#1-strategy)
+    -  [Scope](#2-scope)
+    -  [Structure](#3-structure)
+    -  [Skeleton](#4-skeleton)
+    -  [Surface](#5-surface)
 -  [Features](#features)
-
--  [Existing Features](#existing-features)
-
--  [Features to consider implementing in the future](#features-to-consider-implementing-in-the-future)
-
+    -  [Existing Features](#existing-features)
+    -  [Features to consider implementing in the future](#features-to-consider-implementing-in-the-future)
 -  [Technologies Used](#technologies-used)
-
--  [Languages](#1-languages)
-
--  [Integrations](#2-integrations)
-
--  [Workspace, Version Control, and Repository Storage](#3-workspace-version-control-and-repository-storage)
-
+    -  [Languages](#1-languages)
+    -  [Integrations](#2-integrations)
+    -  [Workspace, Version Control, and Repository Storage](#3-workspace-version-control-and-repository-storage)
 -  [Resources](#resources)
-
 -  [Testing](#testing)
-
 -  [Deployment](#deployment)
-
 -  [Credits](#credits)
-
--  [Media](#media)
-
--  [Code](#code)
-
 -  [Acknowledgments](#acknowledgments)
 
-  
-
 ## UX
-
-  
-
 ### User Stories
 
 - As a user, I want to easily understand the main purpose of the website so that I immediately know what the site is intended for upon entering.
@@ -73,17 +43,19 @@ Read more for Less is a project where users can subscribe to get a box of books 
 
 - As a user, I want to easily log in and log out on my account.
 
-- As a user, I want to set my Profile preferences and saved.
+- As a user, I want to set my Profile preferences and save it.
 
-- As a user, I want to check when I will recieve my next delivery and when my plan expire.
+- As a user, I want to check when I to know when my plan expire.
 
-- As a user, I want to partcipate of the Book Club, Creating, Editing and Deleting posts with my profile or anonymously.
+- As a user, I want to participate of the Book Club, Creating, Editing and Deleting posts with my profile.
+
+- As a user, I want to see my reviews in my profile with a direct link to the review.
+
+- As a user, I want be able to search for reviews.
 
 - As a admin/superuser, I want to have the ability to update site content.
 
 - As a admin/superuser, I want to be able to login to an administration panel.
-
-  
 
 ### 1. Strategy
 
@@ -93,11 +65,9 @@ As a person that loves to read, sometimes I spend more time looking for new book
 
 - Provide an easy navigation website.
 
-- Provide a platform where users can create a book reviews and interact with other users.
-
 - Give a way to users easily choose a plan and checkout.
 
-  
+- Provide a platform where users can create a book reviews and interact with other users.
 
 ### 2. Scope
 
@@ -107,38 +77,38 @@ As a person that loves to read, sometimes I spend more time looking for new book
 
 - Easy way to Sign Up, Log in and Log out.
 
-- Easily purchase a plan. 
+- Easily purchase a new plan. 
 
 - Allow users to create, read, update and delete reviews.
 
 - Allow users to comment in reviews from other users.
-  
 
+- Allow admin create, read, update and delete plans.
+  
 ### 3. Structure
 
-  
+The idea of the website is simple. Allow the user to subscribe to revieve books every month. The user will revieve a plus of being able to join an exclusive book club.
 
+The website has the same design to keep consistency and provide a easy and friendly navigaton to the user.
 
-
-  
+A clear comunication is provided to the user after some integrations, using the messages funciton in Django.
 
 ### 4. Skeleton
-
-  
-
 -  [Wireframes](static/docs/wireframe.pdf)
+- Navigation bar - Menu with links pointing to each page
+    - **Home** - A short description letting the user knows what the website is about with a direct link to the registration page.
+    - Pricing - Users can find details about the subscription options.
+    - Cart -  Provide details of the purchase, if the user has nothing in their cart, they are invited to go to the pricing page
+    Checkout - Users can check a purchase summary and are inveted to enter their delivery and payment details.
+    - Book Club -  User can create, update or delete book reviews, and also comment in reviews of other users.
+    - Profile - User can update their default delivery adress, check their current plan and see their reviews.
 
-
-
+### Data Schema
 ![Project Mock-up](static/images/db_diagram.png)
-
-  
 
 ### 5. Surface
 
 The overall UX is clean and similar in all pages to keep consistency.
-
-  
 
 ### Colors:
 
@@ -154,25 +124,26 @@ Following the biggest social-media(Facebook, Twitter, LinkedIn). **(#2D88FF)** w
 - Navigation Links and Buttons - "Josefin Sans" font (with fall-back font of Serif).  A geometric, elegant and kind of vintage font.  It has a great style and fit perfect for the website
 
 - Content - "Montserrat" font (with fall-back font of Serif). A classic the never get's old, was chosen for the general content for its readability, especialy in small screens.
- 
-
-  
+   
 
 ### Images:
 
 
-
-  
-
 ## Features
-
 ### Existing Features
-
-.
-
-- Footer with social media links.
-
-  
+- Fully responsive website across all popular devices, using Bootstrap Grid and custom media queries.
+- Plans to subscribe through an ecommerce system.
+- Intuitive and responsive Navigation menu.
+- Login and Register Page with form.
+- Profile page with plan Current Plan, Default Delivery Information and the reviews the user created.
+- Book Club, where the user can create, edit, update and delete reviews. Also, the user can interact by comments do other users.
+- Search functionality in the Book Club.
+- Cart page to vizualize order.
+- Checkout page.
+- Order confirmation email.
+- Checkout success page.
+- Contact page the sends a email notying the admin about a new query.
+- Footer with social links.
 
 ### Features to consider implementing in the future
 
@@ -180,12 +151,7 @@ Following the biggest social-media(Facebook, Twitter, LinkedIn). **(#2D88FF)** w
   
 
 ## Technologies Used
-
-  
-
 ### 1. Languages
-
-  
 
 -  [HTML5](https://en.wikipedia.org/wiki/HTML5)
 
@@ -195,30 +161,18 @@ Following the biggest social-media(Facebook, Twitter, LinkedIn). **(#2D88FF)** w
 
 -  [Python](<https://en.wikipedia.org/wiki/Python_(programming_language)>)
 
-  
-
 ### 2. Integrations
-
-  
-
 -  [Google Fonts](https://fonts.google.com/) - Typography.
 
--  [FontAwesome](https://fontawesome.com/) - Used for icons.
+-  [Bootstrap](https://getbootstrap.com/) - Used for icons.
 
 -  [Materalize](https://materializecss.com/) - CSS framework.
 
 -  [jQuery](https://jquery.com/) - JavaScript library.
 
--  [Flask](https://flask.palletsprojects.com/en/1.1.x/) - Micro web framework written in Python.
-
--  [MongoDB](https://www.mongodb.com/) - NoSQL database program, using JSON-like documents.
-
-  
+-  [Django](https://www.djangoproject.com/) - Micro web framework written in Python.
 
 ### 3. Workspace, version control, and repository storage
-
-  
-
 -  [Gitpod](https://www.gitpod.io/) - IDE (Integrated Development Environment) used to write the code.
 
 -  [GitHub](https://github.com/) - Repository hosting service to host the deployed website and track previous versions of code.
@@ -227,11 +181,9 @@ Following the biggest social-media(Facebook, Twitter, LinkedIn). **(#2D88FF)** w
 
 -  [Heroku](https://www.heroku.com/) - Container-based cloud platform for deployment and running of apps.
 
-  
+-  [AWS S3](https://aws.amazon.com/s3/) - Cloud storage for static and media files.
 
 ## Resources
-
-  
 
 -  [W3.CSS](https://www.w3schools.com/w3css/defaulT.asp) - General resource.
 
@@ -259,11 +211,7 @@ Following the biggest social-media(Facebook, Twitter, LinkedIn). **(#2D88FF)** w
 
 - Code Institute SLACK Community - General Resource
 
-  
-
 ## Code Validation
-
-  
 
 -  [W3C](https://validator.w3.org/) - HTML Markup Validation.
 
@@ -351,16 +299,8 @@ be uploaded to your IDE
 
 ### Media
 
-
-
-
-  
-
 ### Code
 
-
-
-  
 
 ## Acknowledgments
 
