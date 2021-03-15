@@ -26,7 +26,6 @@ class Order(models.Model):
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=40, null=True, blank=True)
-    date = models.DateTimeField(auto_now_add=True)
     start_date = models.DateTimeField(max_length=80, null=True, blank=True)
     end_date = models.DateTimeField(max_length=80, null=True, blank=True)
     plan_active = models.BooleanField(default=True)
