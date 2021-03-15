@@ -405,24 +405,13 @@ nav h3 {
     padding: 10px;
 }
 
-#submit-button {
+.submit-buttons {
     border: none;
 }
 
-.back-to-cart {
+.submit-buttons a {
     padding: 12px 15px;
-    font-family: "Josefin Sans", sans-serif;
-    color: #2D88FF !important;
-    background: #fff;
-    border: 2px solid #2D88FF;
-    margin-right: 5px;
-    text-decoration: none;
-    font-weight: 500;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
 }
-
 /* Stripe Payment */
 .StripeElement,
 .stripe-style-input {
