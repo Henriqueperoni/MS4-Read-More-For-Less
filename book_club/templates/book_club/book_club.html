@@ -31,6 +31,7 @@
             <div class="col-12">
                 <h2 class="text-center blue-text mt-5 mb-1">Reviews</h2>
             </div>
+            <!-- Search Reviews -->
             <div class="col-12">
                 <form class="w-100" action="{% url 'book_club' %}" method="GET">
                     <div class="w-100 d-flex justify-content-center input-search">
@@ -40,6 +41,7 @@
                 </form>
             </div>
         </div>
+        <!-- Reviews -->
         <div class="row">
             {% for review in reviews %}
                 <div class="col-6 col-md-4 col-lg-3 col-xl-2 book-cover my-3">

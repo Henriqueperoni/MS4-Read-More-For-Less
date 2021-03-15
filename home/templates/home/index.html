@@ -23,6 +23,7 @@
 {% block postloadjs %}
     {{ block.super }}
     <script type="text/javascript">
+        // Intro Animation
         if (window.matchMedia("(min-width: 992px)").matches) {
             const introAnim = gsap.timeline({ defaults: { ease: "power1.out" } });
             introAnim.from(".anim-knowledge", { y: 150, opacity: 0, duration: 1 });

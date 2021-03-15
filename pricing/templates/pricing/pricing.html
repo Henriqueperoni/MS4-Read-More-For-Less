@@ -16,17 +16,16 @@
                 </p>
             </div>
         </div>
-    </div>
-
-    <div class="container">
+    
         <div class="row">
             <div class="col-12">
                 <h2 class="text-center blue-text mb-4 mt-3">Payment Plans</h2>
             </div>
         </div>
+
         <div class="row d-flex justify-content-center d-lg-block">
-        
             <div class="ml-3 discount-wrapper">
+                <!-- Discount tag -->
                 <div class="discount-container mb-2">
                     <div class="discount text-center">
                         <p class="m-0 font-weight-bold">Best Value</p>
@@ -35,6 +34,7 @@
                     <div class="triangle">
                     </div>
                 </div>
+                <!-- Tabs -->
                 <ul class="nav nav-pills" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
@@ -47,6 +47,7 @@
                 </ul>
             </div>
 
+            <!-- Plan Options -->
             <div class="tab-content row mt-3 m-0 d-flex justify-content-center" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                     {% for plan in pricing %}
@@ -106,24 +107,23 @@
         </div>
     </div>
     
-    
-
 {% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
     <script type="text/javascript">
+        // Bootstrap Tabs
         $('#myTab a').on('click', function (event) {
             event.preventDefault()
             $(this).tab('show')
         });
 
+        // Plans Animation
         if (window.matchMedia("(min-width: 1200px)").matches) {
             const priceAnim = gsap.timeline({ defaults: { ease: "power1.out" } });
             priceAnim.from("#pills-home > div:nth-child(2) > div" , { opacity: 0, duration: 1.8 }).delay(0.1);
             priceAnim.from("#pills-home > div:nth-child(1) > div", { x: 200, opacity: 0, duration: 1.2 }, "-=1.2");
             priceAnim.from("#pills-home > div:nth-child(3) > div", { x: -200, opacity: 0, duration: 1.2 }, "-=1.2");
         };
-        // $('#myModal').modal('show')
     </script>
 {% endblock %}

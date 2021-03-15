@@ -20,6 +20,7 @@
                 <form class="mt-3" action="{% url 'edit_review' review.id %}" method="POST">
                     {% csrf_token %}
                     {{ form|crispy }}
+                    <!-- Edit Review Form -->
                     <div class="text-right mb-2">
                         <a class="float-left btn-danger btn-delete smaller-btn-red" href="#" data-toggle="modal" data-target="#modal-delete">
                             Delete<i class="fas fa-trash m-1"></i>

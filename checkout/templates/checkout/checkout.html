@@ -9,8 +9,9 @@
                 <h1 class="text-center page-title">Checkout</h1>
             </div>
         </div>
-    
+        
         <div class="row container-form">
+            <!-- Order Summary -->
             <div class="col-12 col-lg-5 order-lg-last">
                 <h3 class="mb-2">Order Summary</h3>
                 {% for item in cart_items %}
@@ -22,8 +23,9 @@
                         <p><strong>Expire Date:</strong> <span id="expire-date"></span></p>
                     </div>
                 {% endfor %}
-            
             </div>
+
+            <!-- Delivery Details -->
             <div class="col-12 col-lg-7">
                 <p>Please fill out the form below to complete your order</p>
                 <form class="checkout-form" action="{% url 'checkout' %}" method="POST" id="payment-form">
@@ -45,6 +47,7 @@
                         <label for="id-save-info">Save this delivey information to my profile</label>
                         <input class="m-0" type="checkbox" id="id-save-info" name="save-info">
                     </fieldset>
+                    <!-- Strype Payments -->
                     <fieldset>
                         <legend class="mb-0">Payment</legend>
                         <!-- Stripe card element -->

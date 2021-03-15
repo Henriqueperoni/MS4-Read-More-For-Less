@@ -97,11 +97,11 @@ A clear comunication is provided to the user after some integrations, using the 
 -  [Wireframes](static/docs/wireframe.pdf)
 - Navigation bar - Menu with links pointing to each page
     - **Home** - A short description letting the user knows what the website is about with a direct link to the registration page.
-    - Pricing - Users can find details about the subscription options.
-    - Cart -  Provide details of the purchase, if the user has nothing in their cart, they are invited to go to the pricing page
+    - **Pricing** - Users can find details about the subscription options.
+    - **Cart** -  Provide details of the purchase, if the user has nothing in their cart, they are invited to go to the pricing page
     Checkout - Users can check a purchase summary and are inveted to enter their delivery and payment details.
-    - Book Club -  User can create, update or delete book reviews, and also comment in reviews of other users.
-    - Profile - User can update their default delivery adress, check their current plan and see their reviews.
+    - **Book Club** -  User can create, update or delete book reviews, and also comment in reviews of other users.
+    - **Profile** - User can update their default delivery adress, check their current plan and see their reviews.
 
 ### Data Schema
 ![Project Mock-up](static/images/db_diagram.png)
