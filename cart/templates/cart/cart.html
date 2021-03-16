@@ -10,56 +10,56 @@
             </div>
             <div class="col-12">
                 <p class="text-center">
-                    Hi {{ user|capfirst }}, your cart info is below. Please make sure you review the details of the plan you
-                    selected before continuing to Checkout. If you are happy with your purchase, we can then proceed. Click the
-                    Checkout button and you will be asked your details adress and payment method.
+                    Hi {{ user|capfirst }}, your cart info is below. Please make sure you review the details of the plan you selected
+                    before continuing to Checkout. If you are happy with your purchase, we can then proceed. Click he Checkout button
+                    and you will be asked your details adress and payment method.
                 </p>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-6">
-                {% if cart_items %}
-                    <div class="row">
-                        <div class="col">
-                            {% for item in cart_items %}
-                            <div class="pricing-cards">
-                                <div class="card checkout-card">
-                                    <p> You chose the <span class="blue-text font-weight-bold">{{ item.plan.name }}</span> plan.</p>
-                                    <div class="checkout-price">
-                                        <p>Price:</p>
-                                        <div class="card-price checkout-value">
-                                            <i class="fas fa-euro-sign"></i>
-                                            <p>{{item.plan.price}}<span>EUR</span></p>
-                                        </div>
-                                    </div>
-                                    <p>And you will be billed {{item.plan.frequency|lower}}.</p>
-                                    <div class="checkout-buttons">
-                                        <a href="{% url 'clear_cart' %}" class="btn-white btn-checkout">Clear cart and pick another plan</a>
-                                        <a href="{% url 'checkout' %}" class="btn-blue btn-checkout">Checkout</a>
-                                    </div>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% else %}
-                    <div class="col-6"></div>
-                    <p>Your Cart is empty! Have a look at our plans in the <a class="btn-blue" href="{% url 'pricing' %}">Pricing</a> page.</p>
-                {% endif %}
-            </div>
-            <div class="col-6">
-                <form class="mt-3" action="{% url 'view_cart' %}" method="POST" id="profile-update-form">
+    
+        <div class="row general-container">
+            <div class="col-12 col-lg-6">
+                <form class="mt-3 checkout-form" action="{% url 'view_cart' %}" method="POST" id="book-preferences-form">
                     {% csrf_token %}
                     <fieldset>
-                        <legend>Details</legend>
+                        <legend>Book Preferences</legend>
                         {{ book_preferences_form.genres | as_crispy_field }}
                         {{ book_preferences_form.favorite_authors | as_crispy_field }}
                         {{ book_preferences_form.favorite_books | as_crispy_field }}
                     </fieldset>
-                    <button class="btn-blue float-right mb-2">Update Information</button>
+                    <button class="btn-blue float-right my-2">Add Preferences</button>
                 </form>
             </div>
+            <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+                {% if cart_items %}
+                    {% for item in cart_items %}
+                    <div class="pricing-cards">
+                        <div class="card checkout-card">
+                            <p> You chose the <span class="blue-text font-weight-bold">{{ item.plan.name }}</span> plan.
+                            </p>
+                            <div class="checkout-price">
+                                <p>Price:</p>
+                                <div class="card-price checkout-value">
+                                    <i class="fas fa-euro-sign"></i>
+                                    <p>{{item.plan.price}}<span>EUR</span></p>
+                                </div>
+                            </div>
+                            <p>And you will be billed {{item.plan.frequency|lower}}.</p>
+                            <div class="checkout-buttons">
+                                <a href="{% url 'clear_cart' %}" class="btn-white btn-checkout">Clear cart and pick
+                                    another plan</a>
+                                <a href="{% url 'checkout' %}" class="btn-blue btn-checkout">Checkout</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                <div class="col-6"></div>
+                <p>Your Cart is empty! Have a look at our plans in the <a class="btn-blue"
+                        href="{% url 'pricing' %}">Pricing</a> page.</p>
+                {% endif %}
+            </div>
+            
         </div>
     </div>
 

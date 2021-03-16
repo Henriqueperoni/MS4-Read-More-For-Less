@@ -10,10 +10,10 @@ def view_cart(request):
     """ A view that renders the cart content page """
     user = get_object_or_404(UserProfile, user=request.user)
     book_preferences_form = UserProfileForm(instance=user)
-    user = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
-        book_preferences_form = UserProfileForm(request.POST, instance=user)
+        book_preferences_form = (
+            UserProfileForm(request.POST, instance=user))
         if book_preferences_form.is_valid():
             book_preferences_form.save()
             messages.success(
