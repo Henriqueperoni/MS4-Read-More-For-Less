@@ -105,8 +105,9 @@ a:hover {
 }
 
 .smaller-btn-red {
-    padding: 3px 10px;
+    padding: 2px 10px;
 }
+
 /* ------- NAVBAR ------- */
 nav {
   display: flex;
@@ -314,6 +315,9 @@ nav {
 
 
 /* ------- CART ------- */
+.checkout-wrapper {
+    height: 430px;
+}
 .checkout-card p {
     margin: 0;
 }
@@ -330,12 +334,14 @@ nav {
     margin: 0;
     display: flex;
     justify-content: center;
+    position: initial;
+    top: 55%;
+    left: 50%;
+    transform: translate(0);
 }
 
 .checkout-buttons {
     display: flex;
-    justify-content: space-evenly;
-    padding-top: 145px;
 }
 
 .btn-checkout {
@@ -675,6 +681,9 @@ footer div {
     }
 
     
+    .btn-checkout {
+        padding: 9px 3px;
+    }
 
 
 

@@ -30,14 +30,14 @@
                     <button class="btn-blue float-right my-2">Add Preferences</button>
                 </form>
             </div>
-            <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+            <div class="col-12 col-lg-6">
                 {% if cart_items %}
                     {% for item in cart_items %}
-                    <div class="pricing-cards">
+                    <div class="checkout-wrapper d-flex justify-content-center align-items-center">
                         <div class="card checkout-card">
                             <p> You chose the <span class="blue-text font-weight-bold">{{ item.plan.name }}</span> plan.
                             </p>
-                            <div class="checkout-price">
+                            <div class="checkout-price mt-3">
                                 <p>Price:</p>
                                 <div class="card-price checkout-value">
                                     <i class="fas fa-euro-sign"></i>
@@ -45,13 +45,14 @@
                                 </div>
                             </div>
                             <p>And you will be billed {{item.plan.frequency|lower}}.</p>
-                            <div class="checkout-buttons">
-                                <a href="{% url 'clear_cart' %}" class="btn-white btn-checkout">Clear cart and pick
-                                    another plan</a>
-                                <a href="{% url 'checkout' %}" class="btn-blue btn-checkout">Checkout</a>
-                            </div>
                         </div>
                     </div>
+                    <div class="checkout-buttons float-right mb-2">
+                        <a href="{% url 'clear_cart' %}" class="btn-white btn-checkout">Clear cart and pick
+                            another plan</a>
+                        <a href="{% url 'checkout' %}" class="btn-blue btn-checkout">Checkout</a>
+                    </div>
+                    
                     {% endfor %}
                 {% else %}
                 <div class="col-6"></div>
