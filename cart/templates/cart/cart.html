@@ -49,9 +49,14 @@
                 {% endif %}
             </div>
             <div class="col-6">
-                <form class="mt-3" action="#" method="POST" id="profile-update-form">
+                <form class="mt-3" action="{% url 'view_cart' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
-                    {{ book_preferences_form|crispy }}
+                    <fieldset>
+                        <legend>Details</legend>
+                        {{ book_preferences_form.genres | as_crispy_field }}
+                        {{ book_preferences_form.favorite_authors | as_crispy_field }}
+                        {{ book_preferences_form.favorite_books | as_crispy_field }}
+                    </fieldset>
                     <button class="btn-blue float-right mb-2">Update Information</button>
                 </form>
             </div>

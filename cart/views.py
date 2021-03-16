@@ -3,11 +3,32 @@ from django.contrib import messages
 
 from pricing.models import Pricing
 from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 
 
 def view_cart(request):
     """ A view that renders the cart content page """
-    return render(request, 'cart/cart.html')
+    user = get_object_or_404(UserProfile, user=request.user)
+    book_preferences_form = UserProfileForm(instance=user)
+    user = get_object_or_404(UserProfile, user=request.user)
+
+    if request.method == 'POST':
+        book_preferences_form = UserProfileForm(request.POST, instance=user)
+        if book_preferences_form.is_valid():
+            book_preferences_form.save()
+            messages.success(
+                request, 'Book Preferences information updated successfully')
+        else:
+            messages.error(
+                request, 'Update failed. Please, ensure the form is valid')
+    else:
+        book_preferences_form = UserProfileForm(instance=user)
+
+    context = {
+        'book_preferences_form': book_preferences_form,
+    }
+
+    return render(request, 'cart/cart.html', context)
 
 
 def add_to_cart(request, item_id):

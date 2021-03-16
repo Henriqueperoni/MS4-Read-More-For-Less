@@ -8,16 +8,6 @@ frequency_types = [
     ('annually', 'Annually')
 ]
 
-genres = {
-    ('mindset', 'Mindset'),
-    ('business', 'Business'),
-    ('biography', 'Biography'),
-    ('romance', 'Romance'),
-    ('crime', 'Crime'),
-    ('horror', 'Horror'),
-    ('children', 'Children')
-}
-
 
 class Pricing(models.Model):
 

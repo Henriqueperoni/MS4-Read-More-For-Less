@@ -4,6 +4,16 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+genres = {
+    ('mindset', 'Mindset'),
+    ('business', 'Business'),
+    ('biography', 'Biography'),
+    ('romance', 'Romance'),
+    ('crime', 'Crime'),
+    ('horror', 'Horror'),
+    ('children', 'Children')
+}
+
 
 class UserProfile(models.Model):
     """
@@ -11,6 +21,9 @@ class UserProfile(models.Model):
     information and current active plan
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    genres = models.CharField(max_length=20, choices=genres, blank=True)
+    favorite_authors = models.TextField(max_length=100, blank=True)
+    favorite_books = models.TextField(max_length=100, blank=True)
     default_phone_number = models.CharField(
         max_length=20, null=True, blank=True)
     default_street_address1 = models.CharField(

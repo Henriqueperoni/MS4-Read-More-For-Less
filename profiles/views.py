@@ -15,11 +15,9 @@ def profile(request):
     # Check if user has a valid plan
     check_active_plan()
 
-    user = request.user
-    book_reviews = BookReview.objects.order_by('-date_posted')
-    my_reviews = book_reviews.filter(user__exact=user)
-
     profile = get_object_or_404(UserProfile, user=request.user)
+    book_reviews = BookReview.objects.order_by('-date_posted')
+    my_reviews = book_reviews.filter(user__exact=request.user)
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)

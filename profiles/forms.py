@@ -14,6 +14,10 @@ class UserProfileForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
+            'genres': 'Genre',
+            'favorite_authors': 'Let us know more about your favorite authors',
+            'favorite_books': (
+                'Books you enjoy reading to help us send good books for you'),
             'default_phone_number': 'Phone Number',
             'default_country': 'Country',
             'default_post_code': ' Postal Code',
@@ -23,7 +27,6 @@ class UserProfileForm(forms.ModelForm):
             'default_county': 'County',
         }
 
-        self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if self.fields[field].required:
                 placeholder = f'{placeholders[field]} *'
@@ -31,4 +34,6 @@ class UserProfileForm(forms.ModelForm):
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            self.fields['favorite_authors'].widget.attrs['rows'] = 5
+            self.fields['favorite_books'].widget.attrs['rows'] = 5
             self.fields[field].label = False
