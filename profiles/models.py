@@ -21,7 +21,8 @@ class UserProfile(models.Model):
     information and current active plan
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    genres = models.CharField(max_length=20, choices=genres, blank=True)
+    genres = models.CharField(
+        max_length=20, choices=genres, blank=True, default='Random Genres')
     favorite_authors = models.TextField(max_length=100, blank=True)
     favorite_books = models.TextField(max_length=100, blank=True)
     default_phone_number = models.CharField(

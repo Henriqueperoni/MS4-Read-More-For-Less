@@ -14,7 +14,7 @@ class UserProfileForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'genres': 'Genre',
+            'genres': 'Genres',
             'favorite_authors': 'Let us know more about your favorite authors',
             'favorite_books': (
                 'Books you enjoy reading to help us send good books for you'),
