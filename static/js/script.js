@@ -1,3 +1,4 @@
+// Show Toast
 $('.toast').toast('show');
 
 // Burguer Navigation bar
@@ -11,7 +12,12 @@ const navSlide = () => {
     burguer.addEventListener("click", () => {
         nav.classList.toggle("nav-active");
     });
-
 }
-
 navSlide();
+
+// Prevent submit forms more than once
+let forms = document.getElementById('form');
+forms.addEventListener('submit', function () {
+    $('#submit-button').attr('disabled', true);
+    console.log('hey')
+});

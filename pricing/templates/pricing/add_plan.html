@@ -12,13 +12,13 @@
 
         <!-- Add Plan Form -->
         <div class="row">
-            <div class="col-12 col-lg-6 general-container">
+            <div class="col-12 col-lg-6 general-container form">
                 <form method="POST" action="{% url 'add_plan' %}" class="form mt-4 mb-2">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="text-right">
                         <a class="btn-white" href="{% url 'pricing' %}">Cancel</a>
-                        <button class="btn-blue smaller-btn-blue" type="submit">Add Plan</button>
+                        <button id="submit-button" class="btn-blue smaller-btn-blue" type="submit">Add Plan</button>
                     </div>
                 </form>
             </div>            
