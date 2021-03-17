@@ -42,7 +42,7 @@ def add_to_cart(request, item_id):
     if request.user.is_authenticated:
         if len(orders) >= 1:
             messages.error(request, 'You already have a plan')
-            return redirect(reverse('home'))
+            return redirect(reverse('pricing'))
         else:
             if cart.items():
                 messages.error(request, 'You already have a plan in your cart')
@@ -52,6 +52,7 @@ def add_to_cart(request, item_id):
                 messages.success(
                     request, f"Successfully added {plan.frequency.lower()} \
                         {plan.name}'s plan to cart")
+                return redirect(reverse('view_cart'))
     else:
         messages.error(
             request, 'You must be logged in to add a plan to the cart')
