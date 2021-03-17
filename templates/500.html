@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content%}
+
+    <div class="container mt-5">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <p>
+                    Something went wrong....
+                </p>
+                <p>Click <a class="text-blue font-weight-bold" href="{% url 'home' %}">here</a> to return to the home page.</p>
+            </div>
+        </div>
+        
+        <div class="row py-2">
+            <div class="col-12 error-container d-flex justify-content-center">
+                <img src="{{ MEDIA_URL }}500.png" alt="500 error">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

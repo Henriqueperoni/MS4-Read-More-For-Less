@@ -634,6 +634,12 @@ footer div {
     background: #f9f8f6;
 }
 
+/* ------- 404/500 ERROR ------- */
+.error-container img {
+    max-width: inherit;
+}
+
+/* ------- MEDIA QUERIES ------- */
 @media screen and (max-width: 992px) {
     body {
         overflow-x: hidden;
