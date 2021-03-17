@@ -11,7 +11,7 @@ from .forms import CreateReviewForm, CreateCommentForm
 def book_club(request):
     """ A view to return the book club page with book reviews. """
 
-    reviews = BookReview.objects.all().order_by('date_posted')
+    reviews = BookReview.objects.all().order_by('-date_posted')
     query = None
 
     if request.GET:

@@ -489,6 +489,10 @@ select:invalid {
 }
 
 /* Allauth */
+.allauth-wrapper {
+    min-height: 50vh;
+}
+
 .container-allauth {
     margin-top: 150px;
 }
