@@ -4,7 +4,7 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-6 mt-5 mb-3">
+            <div class="col-12 col-lg-6 offset-lg-3 mt-5 mb-3">
                 <h2 class="blue-text mb-4">Product Management</h2>
                 <h5 class="text-muted">Edit a Plan</h5>
             </div>
@@ -12,8 +12,8 @@
 
         <!-- Edit Plan Form -->
         <div class="row">
-            <div class="col-12 col-md-6">
-                <form method="POST" action="{% url 'edit_plan' plan.id %}" class="form mb-2">
+            <div class="col-12 col-lg-6 general-container">
+                <form method="POST" action="{% url 'edit_plan' plan.id %}" class="form mt-4 mb-2">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="text-right">
