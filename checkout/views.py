@@ -157,6 +157,9 @@ def checkout_success(request, order_number):
 
     if save_info:
         profile_data = {
+            'genres': profile.genres,
+            'favorite_authors': profile.favorite_authors,
+            'favorite_books': profile.favorite_books,
             'default_phone_number': order.phone_number,
             'default_country': order.country,
             'default_post_code': order.post_code,

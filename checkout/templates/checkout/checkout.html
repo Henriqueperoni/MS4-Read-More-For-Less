@@ -37,6 +37,7 @@
                     </fieldset>
                     <fieldset>
                         <legend>Delivery</legend>
+                        <input type="hidden" value="{{ profile.favorite_authors }}" name="client_secret">
                         {{ order_form.phone_number | as_crispy_field }}
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
