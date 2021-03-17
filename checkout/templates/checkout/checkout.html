@@ -72,6 +72,11 @@
             </div>
         </div>
     </div>
+    <div id="loading-overlay">
+        <h1 class="text-center loading-spinner">
+            <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+        </h1>
+    </div>
 
 {% endblock %}
 
@@ -134,7 +139,9 @@
             ev.preventDefault();
             card.update({ 'disabled': true});
             $('#submit-button').attr('disabled', true);
-
+            $('#payment-form').fadeToggle(100);
+            $('#loading-overlay').fadeToggle(100);
+            
             var saveInfo = Boolean($('#id-save-info').attr('checked'));
             // From using {% csrf_token %} in the form
             var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();

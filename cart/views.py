@@ -52,6 +52,7 @@ def add_to_cart(request, item_id):
                 messages.success(
                     request, f"Successfully added {plan.frequency.lower()} \
                         {plan.name}'s plan to cart")
+                request.session['cart'] = cart
                 return redirect(reverse('view_cart'))
     else:
         messages.error(
