@@ -17,7 +17,9 @@ navSlide();
 
 // Prevent submit forms more than once
 let forms = document.getElementById('form');
-forms.addEventListener('submit', function () {
-    $('#submit-button').attr('disabled', true);
-    console.log('hey')
-});
+if(forms){
+    forms.addEventListener('submit', function () {
+        $('#submit-button').attr('disabled', true);
+        console.log('hey')
+    });
+}
