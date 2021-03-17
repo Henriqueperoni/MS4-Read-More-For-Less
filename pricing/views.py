@@ -21,18 +21,6 @@ def plans_pricing(request):
     return render(request, 'pricing/pricing.html', context)
 
 
-def plan_detail(request, pricing_id):
-    """ A view to show individual product details """
-
-    pricing = get_object_or_404(Pricing, pk=pricing_id)
-
-    context = {
-        'pricing': pricing,
-    }
-
-    return render(request, 'pricing/plan_detail.html', context)
-
-
 @login_required
 def add_plan(request):
     """ Add a product to the store """
