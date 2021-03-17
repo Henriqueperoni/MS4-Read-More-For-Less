@@ -5,6 +5,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 genres = {
+    ('random_genres', 'Random Genres'),
     ('mindset', 'Mindset'),
     ('business', 'Business'),
     ('biography', 'Biography'),
@@ -22,7 +23,7 @@ class UserProfile(models.Model):
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     genres = models.CharField(
-        max_length=20, choices=genres, blank=True, default='Random Genres')
+        max_length=20, choices=genres, blank=True, default='random_genres')
     favorite_authors = models.TextField(max_length=100, blank=True)
     favorite_books = models.TextField(max_length=100, blank=True)
     default_phone_number = models.CharField(
