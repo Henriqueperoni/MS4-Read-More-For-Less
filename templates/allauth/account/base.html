@@ -3,14 +3,16 @@
 {% load static %}
 
 {% block content %}
-    <div class="container container-allauth">
-        <div class="row">
-            <div class="col-sm-12 col-md-8 offset-md-2">
-                <div class="allauth-form">
-                    {% block inner_content %}
-                    {% endblock %}
+    <section class="allauth-wrapper">
+        <div class="container container-allauth">
+            <div class="row">
+                <div class="col-sm-12 col-md-8 offset-md-2">
+                    <div class="allauth-form">
+                        {% block inner_content %}
+                        {% endblock %}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 {% endblock %}
