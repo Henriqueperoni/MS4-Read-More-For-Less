@@ -11,7 +11,7 @@
         </div>
 
         <!-- Edit Plan Form -->
-        <div class="row">
+        <div class="row px-3">
             <div class="col-12 col-lg-6 general-container form">
                 <form method="POST" action="{% url 'edit_plan' plan.id %}" class="form mt-4 mb-2">
                     {% csrf_token %}

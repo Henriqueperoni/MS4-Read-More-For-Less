@@ -3,10 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Pricing
 
-
 from .forms import PricingForm
-
-# Create your views here.
 
 
 def plans_pricing(request):
