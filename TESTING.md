@@ -1,4 +1,7 @@
-# User Stories Testing
+# Read More For Less Testing
+
+## User Stories Testing
+***
 
 1. As a non-member, I want to visit the homepage to have a overview of what the site is about and pricing page to check the prices.
 
@@ -60,4 +63,62 @@
 **TEST**:
 - Only admin has the ability to add, update and delete plans.
 ![Profile Page](media/admin-edit.png)
+
+## Apps Manual Continuous Testing
+***
+### General Testing
+- Checked if all links in the navigation bar if they redirect to the desired pages.
+- Check if the navigation bar responsiveness works as desired when screen size reduced below 922px
+- Checked if the social links on the footer redirect to the desired page.
+
+### Home
+- Checked if the intro animation works as desired.
+- Check if the intro animation only happens in screens larger than 992 pexels.
+- Checked if the register buttons redirect to the registration page.
+- Checked if the register only appears in large screens.
+
+### Pricing
+- Checked if the animation works as desired when loading the page.
+- Checked if plans are adding to the cart by clicking in a pricing card.
+- Checked if adding a plan to the cart the user is registereded to the cart.
+- Checked if the user try to add more than one plan to the cart a error message is displayed.
+- Checked if the user is not logged a error message saying they must logged in is displayed.
+- Checked if tabs work as desired.
+- Checked if the edit plan button only appears for the superuser.
+- Verifield if after editing a plan the changes are saved.
+- Checked if the delete modal show up and the delete button is clicked.
+- Checked if the plan is delete from the database if the superuser delete it.
+- Verifield if after adding a new plan it is saved in the data base.
+
+### Cart
+- Checked if non-authenticated users try to acess the cart page they will be redirect to the login page.
+- Checked if the order summary is been displayed appropriately.
+- Checked if the Clear Cart button clears the cart and redirect the user to the pricing page.
+- Checked if the Book Preferences form work as desired, and if the changes are saved in the User Profile.
+- Checked if the Checkout button redirected the user to the redirect page.
+
+### Checkout
+- Checked if the order summary is correct.
+- Checked if the user had save the default informatiom in their profile show up correctly in the checkout form.
+- Verifield the the payment funcionality works with sucessfull payments works as desired by filling in the checkout form, adding 4242 4242 4242 4242 in the card number, add 12/24 into MM/YY and 123 into CVC.
+- Checked if the overlay animation while the form is been submited.
+- Checked if the checkout success template display the correct information.
+
+### Profile
+- Checked if the default information is saved after a purchase and if it can be edited.
+- Checked if the current plan is been displayed correctly.
+- Checked if the book reviews are been displayed.
+- Checked if the book reviews links are redirecting to the rigth review.
+
+### Book Club
+- Checked if all reviews are being displayed.
+- Checked if the search funcionality works as desired.
+- Checked if the Create Review button redirect to add review page, and the funcionality of adding a review works as desired.
+- Checked if when clicking in a review it redirects do the desired page.
+- In the view review page checked if the reviews are been display correctly.
+- In the view review page checked if the edit review button only appears for the review creator.
+- In the view review page checked if the comments work as desired.
+- In the edit review page checked if the changes are saved after editing a review.
+- In the edit review page checked if the delete review funcionality works as desired.
+
 
