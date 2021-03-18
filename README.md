@@ -2,12 +2,12 @@
 
   
 
-![Project Mock-up](static/images/intro-readme.png)
+![Project Mock-up](media/intro-readme.png)
 
   
 Read more for Less is a project where users can subscribe to get a box of books every month. To don't get any random book, users are able to set their preferences, such as genre, authors and books the enjoyed. Also, the website has a Book Club page, where users can create reviews about the books they are reading and discuss it with other users.
 
-## Live demo on Heroku pages [HERE](https://bookss-world.herokuapp.com/)
+## Live demo on Heroku pages [HERE](https://read-more-for-less.herokuapp.com/)
 
 ## Table of Contents:
 -  [UX](#ux)
@@ -66,6 +66,8 @@ As a person that loves to read, sometimes I spend more time looking for new book
 - Give a way to users easily choose a plan and checkout.
 
 - Provide a platform where users can create a book reviews and interact with other users.
+
+- Offer easy interaction on the page.
 
 ### 2. Scope
 
@@ -133,14 +135,14 @@ Following the biggest social-media(Facebook, Twitter, LinkedIn). **(#2D88FF)** w
 - Plans to subscribe through an ecommerce system.
 - Intuitive and responsive Navigation menu.
 - Login and Register Page with form.
-- Profile page with plan Current Plan, Default Delivery Information and the reviews the user created.
+- Profile page with plan Current Plan, Default Information and the Reviews the user created.
 - Book Club, where the user can create, edit, update and delete reviews. Also, the user can interact by comments do other users.
 - Search functionality in the Book Club.
 - Cart page to vizualize order.
 - Checkout page.
 - Order confirmation email.
 - Checkout success page.
-- Contact page the sends a email notying the admin about a new query.
+- Contact page.
 - Footer with social links.
 
 ### Features to consider implementing in the future
@@ -169,6 +171,8 @@ Following the biggest social-media(Facebook, Twitter, LinkedIn). **(#2D88FF)** w
 -  [jQuery](https://jquery.com/) - JavaScript library.
 
 -  [Django](https://www.djangoproject.com/) - Micro web framework written in Python.
+
+-  [GSAP](https://greensock.com/gsap/) - Animations Library.
 
 ### 3. Workspace, version control, and repository storage
 -  [Gitpod](https://www.gitpod.io/) - IDE (Integrated Development Environment) used to write the code.
@@ -321,9 +325,14 @@ USE_AWS
 ## Credits
 
 ### Media
+I decided to keep the website as clean as possible and focus on the content of it, keeping that in mind I haven't used images apart from the error pages.
+- 404 Error from [ManyPixels](https://www.manypixels.co/).
+- 500 Error from [unDraw](https://undraw.co/).
 
 ### Code
-
+- Navigation bar adapted from [Dev Ed](https://www.youtube.com/watch?v=gXkqy0b4M5g).
+- Although it's a totally different project, I got a lot of inspirational from a [project](https://php-barbell.herokuapp.com/) by [Anthony O' Brien](https://github.com/auxfuse).
+- [Daisy Mc Girr](https://github.com/Daisy-McG) help me to implement the code for adding 1 year of a subscription plan.
 
 ## Acknowledgments
 
