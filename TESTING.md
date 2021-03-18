@@ -5,66 +5,66 @@
 
 1. As a non-member, I want to visit the homepage to have a overview of what the site is about and pricing page to check the prices.
 
-**TEST**:
+    **TEST**:
 - After the user load the page the first thing they see on the home page is nice animation with a brief text explaining what the website is about.
 - The Pricing page is visible for all users.
 ![Home page intro message](media/home-page.png)
 
-2. - As a user, I want to easily understand the main purpose of the website so that I immediately know what the site is intended for upon entering.
+2. As a user, I want to easily understand the main purpose of the website so that I immediately know what the site is intended for upon entering.
 
-**TEST**:
+    **TEST**:
 - As mention above, after the user load the page the first thing they see on the home page is nice animation with a brief text explaining.
 
-3. - As a user, I want to be able to view the site on any device I may have, (mobile/tablet/desktop).
+3. As a user, I want to be able to view the site on any device I may have, (mobile/tablet/desktop).
 
-**TEST**:
+    **TEST**:
 -  All pages were testing in different mobiles, from desktop with a width of 1920px to mobile of 320px width.
 
-4. - As a user, I want to easily sign up to the website.
+4. As a user, I want to easily sign up to the website.
 
-**TEST**:
+    **TEST**:
 - In the home, for large screens there are two buttons redirecting to the registrations page, one the navbar bar and the other in the intro text. For small screens only the button in the intro text is been displayed.
 
 5. As a user, I want to easily log in and log out on my account.
 
-**TEST**:
+    **TEST**:
 - With two clicks the users can easily login into their accounts.
 
 6. As a user, I want to set my Profile preferences and save it.
 
-**TEST**:
+    **TEST**:
 - In the Profile page the user can change their book preferences and delivery adress.
 
 6. As a user, I want to check when I to know when my plan expire.
 
-**TEST**:
+    **TEST**:
 - In the Profile page the user can see their current order, with the start and end date
 
 7. As a user, I want to participate of the Book Club, Creating, Editing and Deleting.
 
-**TEST**:
+    **TEST**:
 - Every registered user can create review in the Book Club.
 - The user can update and delete the reviews they created.
 
 8. As a user, I want to see my reviews in my profile with a direct link to the review.
 
-**TEST**:
+    **TEST**:
 - All reviews the user created are displayed in their profile, with the posted date and a direct link to the view review page.
 ![Profile Page](media/profile.png)
 
 9. As a user, I want be able to search for reviews.
 
-**TEST**:
+    **TEST**:
 - In the Book Club page the user can search for reviews by title or author.
 ![Profile Page](media/search-reviews.png)
 
 10. As a admin/superuser, I want to have the ability to update site content.
 
-**TEST**:
+    **TEST**:
 - Only admin has the ability to add, update and delete plans.
 ![Profile Page](media/admin-edit.png)
 
-## Apps Manual Continuous Testing
+## Apps Manual Testing
 ***
 ### General Testing
 - Checked if all links in the navigation bar if they redirect to the desired pages.
@@ -103,6 +103,7 @@
 - Verifield the the payment funcionality works with sucessfull payments works as desired by filling in the checkout form, adding 4242 4242 4242 4242 in the card number, add 12/24 into MM/YY and 123 into CVC.
 - Checked if the overlay animation while the form is been submited.
 - Checked if the checkout success template display the correct information.
+- Tested if the plan is deleted after in the end_date(one year after purchase).
 
 ### Profile
 - Checked if the default information is saved after a purchase and if it can be edited.
