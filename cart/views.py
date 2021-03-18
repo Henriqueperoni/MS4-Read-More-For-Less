@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from pricing.models import Pricing
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 
 
+@login_required
 def view_cart(request):
     """ A view that renders the cart content page """
     user = get_object_or_404(UserProfile, user=request.user)
