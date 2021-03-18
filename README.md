@@ -33,9 +33,11 @@ Read more for Less is a project where users can subscribe to get a box of books 
 ## UX
 ### User Stories
 
+- As a non-member, I want to visit the homepage to have a overview of what the site is about and pricing page to check the prices.
+
 - As a user, I want to easily understand the main purpose of the website so that I immediately know what the site is intended for upon entering.
 
--  As a user, I want to be able to view the site on any device I may have, (mobile/tablet/desktop).
+- As a user, I want to be able to view the site on any device I may have, (mobile/tablet/desktop).
 
 - As a user, I want to easily sign up to the website.
 
@@ -52,8 +54,6 @@ Read more for Less is a project where users can subscribe to get a box of books 
 - As a user, I want be able to search for reviews.
 
 - As a admin/superuser, I want to have the ability to update site content.
-
-- As a admin/superuser, I want to be able to login to an administration panel.
 
 ### 1. Strategy
 
