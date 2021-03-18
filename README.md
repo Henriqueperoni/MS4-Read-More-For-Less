@@ -1,13 +1,10 @@
 # Read more for Less
 
-  
-
 ![Project Mock-up](media/intro-readme.png)
 
-  
-Read more for Less is a project where users can subscribe to get a box of books every month. To don't get any random book, users are able to set their preferences, such as genre, authors and books the enjoyed. Also, the website has a Book Club page, where users can create reviews about the books they are reading and discuss it with other users.
+Read more for Less is a project where users can subscribe to get a box of books every month. To don't get any random book, users are able to set their preferences, such as genre, authors and books the enjoyed. Also, the website has a Book Club page, where users can create reviews about the books they are reading and discuss them with other users.
 
-## Live demo on Heroku pages [HERE](https://read-more-for-less.herokuapp.com/)
+## Live site can be found [here](https://read-more-for-less.herokuapp.com/)
 
 ## Table of Contents:
 -  [UX](#ux)
@@ -33,7 +30,7 @@ Read more for Less is a project where users can subscribe to get a box of books 
 ## UX
 ### User Stories
 
-- As a non-member, I want to visit the homepage to have a overview of what the site is about and pricing page to check the prices.
+- As a non-member, I want to visit the homepage to have an overview of what the site is about and the pricing page to check the prices.
 
 - As a user, I want to easily understand the main purpose of the website so that I immediately know what the site is intended for upon entering.
 
@@ -43,17 +40,17 @@ Read more for Less is a project where users can subscribe to get a box of books 
 
 - As a user, I want to easily log in and log out on my account.
 
-- As a user, I want to set my Profile preferences and save it.
+- As a user, I want to set my Profile preferences and save them.
 
-- As a user, I want to check when I to know when my plan expire.
+- As a user, I want to check when my plan expires.
 
 - As a user, I want to participate of the Book Club, Creating, Editing and Deleting posts with my profile.
 
-- As a user, I want to see my reviews in my profile with a direct link to the review.
+- As a user, I want to see my reviews in my profile with a direct link to the review page.
 
-- As a user, I want be able to search for reviews.
+- As a user, I want to be able to search for reviews.
 
-- As a admin/superuser, I want to have the ability to update site content.
+- As an admin/superuser, I want to have the ability to update site content.
 
 ### 1. Strategy
 
@@ -63,9 +60,9 @@ As a person that loves to read, sometimes I spend more time looking for new book
 
 - Provide an easy navigation website.
 
-- Give a way to users easily choose a plan and checkout.
+- Give a way to users easily chose a plan and checkout.
 
-- Provide a platform where users can create a book reviews and interact with other users.
+- Provide a platform where users can create book reviews and interact with other users.
 
 - Offer easy interaction on the page.
 
@@ -81,17 +78,17 @@ As a person that loves to read, sometimes I spend more time looking for new book
 
 - Allow users to create, read, update and delete reviews.
 
-- Allow users to comment in reviews from other users.
+- Allow users to comment on reviews from other users.
 
 - Allow admin create, read, update and delete plans.
   
 ### 3. Structure
 
-The idea of the website is simple. Allow the user to subscribe to revieve books every month. The user will revieve a plus of being able to join an exclusive book club.
+The idea of the website is simple. Allow the user to subscribe to receive books every month. The user will receive a plus of being able to join an exclusive book club.
 
-The website has the same design to keep consistency and provide a easy and friendly navigaton to the user.
+The website has the same design to keep consistency and provide easy and friendly navigation to the user.
 
-A clear comunication is provided to the user after some integrations, using the messages funciton in Django.
+A clear communication is provided to the user after some integrations, using the messages function in Django.
 
 ### 4. Skeleton
 -  [Wireframes](static/docs/wireframe.pdf)
@@ -99,46 +96,43 @@ A clear comunication is provided to the user after some integrations, using the 
     - **Home** - A short description letting the user knows what the website is about with a direct link to the registration page.
     - **Pricing** - Users can find details about the subscription options.
     - **Cart** -  Provide details of the purchase, if the user has nothing in their cart, they are invited to go to the pricing page
-    Checkout - Users can check a purchase summary and are inveted to enter their delivery and payment details.
+    - **Checkout** - Users can check a purchase summary and are invited to enter their delivery and payment details.
     - **Book Club** -  User can create, update or delete book reviews, and also comment in reviews of other users.
-    - **Profile** - User can update their default delivery adress, check their current plan and see their reviews.
-
+    - **Profile** - User can update their default delivery address, check their current plan and see their reviews.
+    - **Contact** - User can submit a form with their doubts and an email will be sent to the admin notifying about the request.
 ### Data Schema
 ![Project Mock-up](static/images/db_diagram.png)
 
 ### 5. Surface
 
-The overall UX is clean and similar in all pages to keep consistency.
+The overall UX is clean and similar on all pages to keep consistency.
 
 ### Colors:
 
-Following the biggest social-media(Facebook, Twitter, LinkedIn). **(#2D88FF)** was chosen a base color. In general, blue colours show trust to the users and fit perfect for this project. All the other colours were chosen to keep harmony with the base colour, and also keep the project consistent and elegent.
+Following the biggest social-media(Facebook, Twitter, LinkedIn). **(#2D88FF)** was chosen a base color. In general, blue colours show trust to the users and fit perfect for this project. All the other colours were chosen to keep harmony with the base colour, and also keep the project consistent and elegant.
 
 ![Palette of colors](media/palette.png)
 
 ### Typography :
-
-#### Content
-- Logo - "Merriweather" font (with fall-back font of Serif). A mordern font created especialy for screen was a perfect choice for the logo.
+- Logo - "Merriweather" font (with fall-back font of Serif). A modern font created especially for small screen was a perfect choice for the logo.
 
 - Navigation Links and Buttons - "Josefin Sans" font (with fall-back font of Serif).  A geometric, elegant and kind of vintage font.  It has a great style and fit perfect for the website
 
-- Content - "Montserrat" font (with fall-back font of Serif). A classic the never get's old, was chosen for the general content for its readability, especialy in small screens.
-   
+- Content - "Montserrat" font (with fall-back font of Serif). A classic the never gets old,  Montserrat was chosen for the general content for its readability, especially on small screens.   
 
 ### Images:
-
+I decided to not use images in the website unless in the error pages to focus on the content of the website, keeping the user focus on what is important and not overwhelming them.
 
 ## Features
 ### Existing Features
 - Fully responsive website across all popular devices, using Bootstrap Grid and custom media queries.
-- Plans to subscribe through an ecommerce system.
+- Plans to subscribe through an e-commerce system.
 - Intuitive and responsive Navigation menu.
 - Login and Register Page with form.
 - Profile page with plan Current Plan, Default Information and the Reviews the user created.
-- Book Club, where the user can create, edit, update and delete reviews. Also, the user can interact by comments do other users.
+- Book Club, where the user can create, edit, update and delete reviews. Also, the user can interact with comments do other users.
 - Search functionality in the Book Club.
-- Cart page to vizualize order.
+- Cart page to visualize order.
 - Checkout page.
 - Order confirmation email.
 - Checkout success page.
@@ -147,8 +141,6 @@ Following the biggest social-media(Facebook, Twitter, LinkedIn). **(#2D88FF)** w
 
 ### Features to consider implementing in the future
 
-
-  
 
 ## Technologies Used
 ### 1. Languages
@@ -231,28 +223,31 @@ correctly.
 
 ## Testing
 
-  
+### For testing the Stripe checkout use the following:
+```
+Card number: 4242 4242 4242 4242
+CVC_: any 3 digits
+Card expiry date: any future date
+ZIP/Postcode: any 5 digits
+```
+For further tests, different card info can be found in the [Stripe Documentation](https://stripe.com/docs/testing#cards)
 
-Testing documentation can be found [HERE](static/testing/TESTING.md)
-
-  
+Testing documentation can be found [here](static/testing/TESTING.md)
 
 ## Project barriers and solutions
 
 - Was hard to figure out how to save the start_date and end_date in the Order model as they were not part of the OrderForm. I easily managed to create the variables start_date and end_date, my first option was to include the form_data in the checkout function in the checkout app, but as the start_date and end_date was part of OrderForm it wasn't saving. So I decided to add the start_date and end_date as fields of the OrderForm and add hidden input fields in the checkout template, but it also did not work. In the end, I have the idea to add the variables after creating the form and order. And then setting the variables.
-
   
-
 ## Deployment
 
 ### Project Creation
-- To create this project the [CI Gitpod Full Template](https://github.com/Code-Institute-Org/gitpod-full-template).
-- I was then directed to the create new repository from template page and entered in my desired repository name, then clicked create
-repository from template button.
+- To create this project the used the [CI Gitpod Full Template](https://github.com/Code-Institute-Org/gitpod-full-template).
+- I was then directed to the create a new repository from the template page and entered in my desired repository name, then clicked create
+repository.
 - Once created, I navigated to my new repository on GitHub and clicked the Gitpod button which built my workspace.
 
 ### Local Installation
-1. Save a copy of the github [repository](https://github.com/Henriqueperoni/MS4-Read-More-For-Less) by clicking the `download.zip` button at the top of the page 
+1. Save a copy of the GitHub [repository](https://github.com/Henriqueperoni/MS4-Read-More-For-Less) by clicking the `download.zip` button at the top of the page 
 and extracting the zip file, or you clone the repository with this command:
 ```
 $ git clone https://github.com/Henriqueperoni/MS4-Read-More-For-Less.git
@@ -279,7 +274,7 @@ python3 manage.py migrate
 ```
 python3 manage.py createsuperuser
 ```
-7. Start you server running the following command:
+7. Start your server running the following command:
 ```
 python3 manage.py runserver
 ```
@@ -319,7 +314,7 @@ USE_AWS
 
 #### Enable automatic deployment:
 1. Click the `Deploy tab`.
-2. In the Automatic Deploys section, choose the branch you want to deploy (the master branc in my Read More For Less in my case).
+2. In the Automatic Deploys section, choose the branch you want to deploy (the master branch in my Read More For Less in my case).
 3. Click `Enable Automation Deploys`.
 
 ## Credits
@@ -336,10 +331,14 @@ I decided to keep the website as clean as possible and focus on the content of i
 
 ## Acknowledgments
 
-- Thanks for my mentor, Excellence Ilesanm for guidence and excellent advices.
+- Thanks to my mentor, Excellence Ilesanm for guidance and excellent advice.
 
 - Thanks to all Code Institute staff.
 
 - Thanks to CI Slack Community for all the assistance and support.
 
 - Thanks for all the web development community on Internet.
+
+- Thanks to all the web development community on the Internet.
+
+- And a special thanks to my wife for the lovely intro image in this README, and all support during this project.
