@@ -27,7 +27,7 @@ class CreateReviewForm(forms.ModelForm):
         for field in self.fields:
             placeholder = placeholders[field]
             self.fields[field].label = placeholder
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            self.fields[field].widget.attrs['class'] = 'm-0 form-style-input'
 
 
 class CreateCommentForm(forms.ModelForm):
@@ -41,6 +41,6 @@ class CreateCommentForm(forms.ModelForm):
         widget=forms.Textarea(attrs={
             'rows': 2,
             'class': 'stripe-style-input',
-            'placeholder': 'Add your Comment here',
+            'placeholder': 'Add your comment here',
         })
     )

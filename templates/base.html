@@ -61,8 +61,8 @@
         <div>
             <nav>
                 <a class="blue-text" href="{% url 'home' %}">
-                    <h3 class="name-logo d-none d-sm-block">Read More For Less</h3>
-                    <h3 class="small-logo d-sm-none d-flex">R</h3>
+                    <h3 class="name-logo d-none d-sm-block ml-3">Read More For Less</h3>
+                    <h3 class="small-logo d-sm-none d-flex ml-3">R</h3>
                 </a>
                 <ul class="nav-links">
                     {% if request.user.is_authenticated %}
@@ -95,7 +95,7 @@
                         </li>
                         <!-- Cart icon with total for large and larger screens -->
                         {% if total %}
-                            <li class="shopping-card d-none d-lg-block">
+                            <li class="shopping-card d-none d-lg-block mr-2">
                                 <a class=" blue-text font-weight-bold  nav-anchor" href="{% url 'view_cart' %}">
                                     <i class="fas fa-shopping-cart"></i>
                                     <p class="my-0">
