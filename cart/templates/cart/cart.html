@@ -61,9 +61,11 @@
                     </div>
                     {% endfor %}
                 {% else %}
-                <div class="col-6"></div>
-                <p>Your Cart is empty! Have a look at our plans in the <a class="btn-blue"
-                        href="{% url 'pricing' %}">Pricing</a> page.</p>
+                <div class="text-center">
+                    <h3 class="blue-text my-5">Your Cart is empty!</h3>
+                    <p class="my-5">Have a look at our plans in the <a class="btn-blue"
+                            href="{% url 'pricing' %}">Pricing</a> page.</p>
+                </div>
                 {% endif %}
             </div>
         </div>
