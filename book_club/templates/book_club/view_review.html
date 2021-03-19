@@ -18,7 +18,11 @@
         <div class="row my-3">
             <div class="col-12 col-lg-5 review-image mb-2">
                 <div class="book-cover-wrapper">
-                    <img src="{{ review.image_url }}" alt="{{ review.book_name }}'s cover'">
+                    {% if review.image_url %}
+                        <img src="{{ review.image_url }}" alt="{{ review.book_name }}'s cover'">
+                    {% else %}
+                        <img src="{{ MEDIA_URL }}noimage.png" alt="No image available'">
+                    {% endif %}
                     {% if request.user == review.user or request.user.is_superuser %}
                         <div class="btn-edit-container btn-edit-review">
                             <a href="{% url 'edit_review' review.id %}">

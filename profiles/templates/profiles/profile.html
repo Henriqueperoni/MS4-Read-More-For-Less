@@ -56,8 +56,13 @@
                             {% if my_reviews %}
                                 {% for review in my_reviews %}
                                     <div class="col-6 col-md-4 my-reviews my-3">
-                                        <a href="{% url 'view_review' review.id %}"><img src="{{ review.image_url }}"
+                                        {% if review.image_url %}
+                                            <a href="{% url 'view_review' review.id %}"><img src="{{ review.image_url }}"
+                                                    alt="{{ review.book_name }}'s cover'"></a>
+                                        {% else %}
+                                            <a href="{% url 'view_review' review.id %}"><img src="{{ MEDIA_URL }}noimage.png"
                                                 alt="{{ review.book_name }}'s cover'"></a>
+                                        {% endif %}
                                         <p class="mt-1">Posted: {{ review.date_posted|date:'d/m/Y' }}</p>
                                     </div>
                                 {% endfor %}
