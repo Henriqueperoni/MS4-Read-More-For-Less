@@ -10,8 +10,7 @@ class CreateReviewForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Add placeholders and classes, remove auto-generated
-        labels and set autofocus no first field
+        Add placeholders and classes, remove auto-generated labels.
         """
         super().__init__(*args, **kwargs)
         placeholders = {
@@ -22,7 +21,6 @@ class CreateReviewForm(forms.ModelForm):
         }
 
         self.fields['book_review'].widget.attrs['rows'] = 5
-
         self.fields['book_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             placeholder = placeholders[field]

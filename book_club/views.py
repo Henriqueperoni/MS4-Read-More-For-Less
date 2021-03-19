@@ -37,7 +37,7 @@ def book_club(request):
 @login_required
 def view_review(request, review_id):
     """
-    A view to return a book review that enable user to add comments to it.
+    A view to return a book review that enables the user to add comments to it.
     """
     review = get_object_or_404(BookReview, pk=review_id)
     review_comments = ReviewComment.objects.filter(
@@ -88,7 +88,7 @@ def create_review(request):
 
 @login_required
 def edit_review(request, review_id):
-    """ A view to allows the user edit their reviews """
+    """ A view to allows the user edit their reviews. """
     review = get_object_or_404(BookReview, pk=review_id)
 
     if request.user != review.user:
@@ -119,7 +119,7 @@ def edit_review(request, review_id):
 
 @login_required
 def delete_review(request, review_id):
-    """ A view to allows the user delete their reviews """
+    """ A view to allows the user delete their reviews. """
     review = get_object_or_404(BookReview, pk=review_id)
 
     if request.user == review.user or request.user.is_superuser:

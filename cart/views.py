@@ -9,7 +9,7 @@ from profiles.forms import UserProfileForm
 
 @login_required
 def view_cart(request):
-    """ A view that renders the cart content page """
+    """ A view that renders the cart content page. """
     user = get_object_or_404(UserProfile, user=request.user)
     book_preferences_form = UserProfileForm(instance=user)
 
@@ -66,7 +66,7 @@ def add_to_cart(request, item_id):
 
 
 def clear_cart(request):
-    """ Remove plan from the cart """
+    """ Remove plan from the cart. """
 
     cart = request.session.get('cart', {})
 

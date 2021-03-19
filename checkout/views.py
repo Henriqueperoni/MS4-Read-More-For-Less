@@ -16,11 +16,8 @@ from .models import OrderLineItem
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 
-
 import stripe
 import json
-
-# Create your views here.
 
 
 @require_POST
@@ -155,6 +152,7 @@ def checkout_success(request, order_number):
     order.user_profile = profile
     order.save()
 
+    # Save the user's info
     if save_info:
         profile_data = {
             'genres': profile.genres,

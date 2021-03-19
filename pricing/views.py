@@ -7,7 +7,7 @@ from .forms import PricingForm
 
 
 def plans_pricing(request):
-    """ A view to show all the plans available """
+    """ A view to show all the plans available. """
 
     pricing = Pricing.objects.all().order_by('price')
 
@@ -20,7 +20,7 @@ def plans_pricing(request):
 
 @login_required
 def add_plan(request):
-    """ Add a product to the store """
+    """ Add a new plan. """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only website owners can do that.')
         return redirect(reverse('home'))
@@ -47,7 +47,7 @@ def add_plan(request):
 
 @login_required
 def edit_plan(request, pricing_id):
-    """ Edit a plan """
+    """ Edit a plan. """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only website owners can do that.')
         return redirect(reverse('home'))
