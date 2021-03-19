@@ -1,10 +1,10 @@
-# Read more for Less
+# Read More For Less
 
-![Project Mock-up](media/intro-readme.png)
+![Intro Readme](docs/readme_images/intro-readme.png)
 
 Read more for Less is a project where users can subscribe to get a box of books every month. To don't get any random book, users are able to set their preferences, such as genre, authors and books the enjoyed. Also, the website has a Book Club page, where users can create reviews about the books they are reading and discuss them with other users.
 
-## Live site can be found [here](https://read-more-for-less.herokuapp.com/)
+### Live site can be found [here](https://read-more-for-less.herokuapp.com/)
 
 ## Table of Contents:
 -  [UX](#ux)
@@ -101,7 +101,7 @@ A clear communication is provided to the user after some integrations, using the
     - **Profile** - User can update their default delivery address, check their current plan and see their reviews.
     - **Contact** - User can submit a form with their doubts and an email will be sent to the admin notifying about the request.
 ### Data Schema
-![Project Mock-up](static/images/db_diagram.png)
+![Project Mock-up](docs/readme_images/db_diagram.png)
 
 ### 5. Surface
 
@@ -111,7 +111,7 @@ The overall UX is clean and similar on all pages to keep consistency.
 
 Following the biggest social-media(Facebook, Twitter, LinkedIn). **(#2D88FF)** was chosen a base color. In general, blue colours show trust to the users and fit perfect for this project. All the other colours were chosen to keep harmony with the base colour, and also keep the project consistent and elegant.
 
-![Palette of colors](media/palette.png)
+![Palette of colors](docs/readme_images/palette.png)
 
 ### Typography :
 - Logo - "Merriweather" font (with fall-back font of Serif). A modern font created especially for small screen was a perfect choice for the logo.
@@ -232,7 +232,7 @@ ZIP/Postcode: any 5 digits
 ```
 For further tests, different card info can be found in the [Stripe Documentation](https://stripe.com/docs/testing#cards)
 
-Testing documentation can be found [here](static/testing/TESTING.md)
+Testing documentation can be found [here](docs/TESTING.md)
 
 ## Project barriers and solutions
 

@@ -1,5 +1,5 @@
 # Read More For Less Testing
-
+![Tested image for readme](../docs/readme_images/test-readme.png)
 ## User Stories Testing
 
 1. As a non-member, I want to visit the homepage to have a overview of what the site is about and the pricing page to check the prices.
@@ -7,7 +7,7 @@
     **TEST**:
 - After the user loads the page the first thing they see on the home page is a nice animation with a brief text explaining what the website is about.
 - The Pricing page is visible for all users.
-![Home page intro message](media/home-page.png)
+![Home page intro message](../docs/readme_images/home-page.png)
 
 2. As a user, I want to easily understand the main purpose of the website so that I immediately know what the site is intended for upon entering.
 
@@ -49,19 +49,19 @@
 
     **TEST**:
 - All reviews the user created are displayed in their profile, with the posted date and a direct link to the view review page.
-![Profile Page](media/profile.png)
+![Profile Page](../docs/readme_images/profile.png)
 
 10. As a user, I want to be able to search for reviews.
 
     **TEST**:
 - On the Book Club page the user can search for reviews by title or author.
-![Profile Page](media/search-reviews.png)
+![Profile Page](../docs/readme_images/search-reviews.png)
 
 11. As an admin/superuser, I want to have the ability to update site content.
 
     **TEST**:
 - Only the admin has the ability to add, update and delete plans.
-![Profile Page](media/admin-edit.png)
+![Profile Page](../docs/readme_images/admin-edit.png)
 
 ## Apps Manual Testing
 
@@ -92,6 +92,7 @@
 
 ### Cart
 - Checked if non-authenticated users try to acess the cart page they will be redirect to the login page.
+- Checked if the cart icon with total only shows up in the navbar when an item is added to the cart.
 - Checked if the order summary is been displayed appropriately.
 - Checked if the Clear Cart button clears the cart and redirect the user to the pricing page.
 - Checked if the Book Preferences form works as desired and if the changes are saved in the User Profile.
