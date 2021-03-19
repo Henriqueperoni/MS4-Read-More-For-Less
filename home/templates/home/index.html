@@ -23,14 +23,17 @@
     {{ block.super }}
     <script type="text/javascript">
         // Intro Animation
+        const introAnim = gsap.timeline({ defaults: { ease: "power1.out" } });
         if (window.matchMedia("(min-width: 992px)").matches) {
-            const introAnim = gsap.timeline({ defaults: { ease: "power1.out" } });
             introAnim.from(".anim-knowledge", { y: 150, opacity: 0, duration: 1 });
             introAnim.from(".anim-knowledge", { x: 150, duration: 1 });
-            introAnim.from(".anim-freedom", { x: -150, opacity: 0, duration: 1 }, "-=1");
-            introAnim.from(".anim-brain", { opacity: 0, duration: 2 }, "-=0.5");
-            introAnim.from(".anim-intro-text", { opacity: 0, duration: 1 }, "-=1.5");
-            introAnim.from(".anim-intro-text", { opacity: 0, duration: 1 }, "-=1.8");
-        };
+        } else {
+           introAnim.from(".anim-knowledge", { x: 150, opacity: 0, duration: 1 });
+        }
+        introAnim.from(".anim-freedom", { x: -150, opacity: 0, duration: 1 }, "-=1");
+        introAnim.from(".anim-brain", { opacity: 0, duration: 2 }, "-=0.5");
+        introAnim.from(".anim-intro-text", { opacity: 0, duration: 1 }, "-=1.5");
+        introAnim.from(".anim-intro-text", { opacity: 0, duration: 1 }, "-=1.8");
+        introAnim.from(".social-links li", { opacity: 0, duration: 1, stagger: 0.20 }, "-=1");
     </script>
 {% endblock %}
