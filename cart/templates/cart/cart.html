@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_title %} - Cart{% endblock %}
 
 {% block content%}
-
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -24,6 +24,7 @@
     
         <div class="row general-container">
             <div class="col-12 col-lg-6">
+                <!-- Book Preferences Form -->
                 <form class="mt-3 checkout-form" action="{% url 'view_cart' %}" method="POST" id="book-preferences-form">
                     {% csrf_token %}
                     <fieldset>
@@ -35,6 +36,7 @@
                     <button class="btn-blue float-right my-2">Add Preferences</button>
                 </form>
             </div>
+            <!-- Order Summary -->
             <div class="col-12 col-lg-6">
                 {% if cart_items %}
                     {% for item in cart_items %}
@@ -57,7 +59,6 @@
                             another plan</a>
                         <a href="{% url 'checkout' %}" class="btn-blue btn-checkout">Checkout</a>
                     </div>
-                    
                     {% endfor %}
                 {% else %}
                 <div class="col-6"></div>
@@ -65,8 +66,6 @@
                         href="{% url 'pricing' %}">Pricing</a> page.</p>
                 {% endif %}
             </div>
-            
         </div>
     </div>
-
 {% endblock %}

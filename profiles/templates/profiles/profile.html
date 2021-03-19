@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_title %} - {{ user|capfirst }}'s Profile{% endblock %}
 
 {% block content%}
-
     <div class="container mt-5">
         <div class="row mb-5">
             <div class="col-12">
@@ -83,5 +83,4 @@
             </div>
         </div>
     </div>
-
 {% endblock %}

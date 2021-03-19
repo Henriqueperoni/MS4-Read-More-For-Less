@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_title %} - Checkout{% endblock %}
 
 {% block extracss %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
 {% block content%}
-
     <div class="container">
         <div class="row mb-5">
             <div class="col-12">
@@ -82,7 +82,6 @@
             <i class="fas fa-3x fa-sync-alt fa-spin"></i>
         </h1>
     </div>
-
 {% endblock %}
 
 {% block postloadjs %}

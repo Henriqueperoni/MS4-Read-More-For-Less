@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_title %} - Create Review{% endblock %}
+
+{% block extracss %}
+    <link rel="stylesheet" href="{% static 'book_club/css/book_club.css' %}">
+{% endblock %}
 
 {% block content%}
-
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -29,5 +33,4 @@
             </div>
         </div>
     </div>
- 
 {% endblock %}

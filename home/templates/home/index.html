@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_title %} - Home{% endblock %}
 
 {% block content%}
-
     <div class="container-fluid hero">
         <div class="container-intro">
             <div class="intro-animation">
@@ -17,7 +17,6 @@
             </p>
         </div>
      </div>
-
 {% endblock %}
 
 {% block postloadjs %}
@@ -34,5 +33,4 @@
             introAnim.from(".anim-intro-text", { opacity: 0, duration: 1 }, "-=1.8");
         };
     </script>
-
 {% endblock %}

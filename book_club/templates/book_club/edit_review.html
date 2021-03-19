@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_title %} - Edit {{ review.book_name }}{% endblock %}
+
+{% block extracss %}
+    <link rel="stylesheet" href="{% static 'book_club/css/book_club.css' %}">
+{% endblock %}
 
 {% block content%}
-
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -10,7 +14,7 @@
             </div>
             <div class="col-12">
                 <p class="text-center">
-                    Add the details for your Book Review in the form below and click Create Review.
+                    Edit the {{ review.book_name }}'s review.
                 </p>
             </div>
         </div>
@@ -34,5 +38,4 @@
         <!-- Modal Delete -->
         {% include 'includes/modals/modal_delete_review.html' %}
     </div>
- 
 {% endblock %}
