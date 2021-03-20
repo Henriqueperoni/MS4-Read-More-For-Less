@@ -7,7 +7,7 @@
 {% block head_title %}{% trans "Register" %}{% endblock %}
 
 {% block inner_content %}
-<h2 class="blue-text mb-3">{% trans "Sign Up" %}</h2>
+<h2 class="blue-text mb-3">{% trans "Register" %}</h2>
 
 {% get_providers as socialaccount_providers %}
 <a class="login-google " href="{% provider_login_url 'google' %}">
@@ -15,7 +15,7 @@
     Continue with Google</a>
 
 <p class="my-3">or</p>
-<p class="my-3">Sign up with your email address</p>
+<p class="my-3">Register with your email address</p>
 
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
@@ -23,7 +23,7 @@
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <button class="btn-blue btn-allauth" type="submit">{% trans "Sign Up" %} &raquo;</button>
+  <button class="btn-blue btn-allauth" type="submit">{% trans "Register" %} &raquo;</button>
   <a href="{% url 'home' %}" class="btn-white">{% trans 'Cancel' %}</a>
 </form>
 <p class="text-center mt-2">{% blocktrans %}Have an account?<a class="blue-text" href="{{ login_url }}"> Log in</a>{% endblocktrans %}</p>
