@@ -1,4 +1,5 @@
 {% extends "account/base.html" %}
+{% block extra_title %} - Log In{% endblock %}
 
 {% load i18n %}
 {% load account socialaccount %}
@@ -7,24 +8,19 @@
 
 {% block inner_content %}
 
-<h1 class="blue-text mb-3">{% trans "Log In" %}</h1>
+<h2 class="blue-text mb-3">{% trans "Log In" %}</h2>
 
 {% get_providers as socialaccount_providers %}
 
 {% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
-of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+<p>{% blocktrans with site.name as site_name %}Please sign in with your registered details or with your Google Account.{% endblocktrans %}</p>
 
-<div class="socialaccount_ballot">
+{% get_providers as socialaccount_providers %}
+<a class="login-google " href="{% provider_login_url 'google' %}">
+    <img src="{{ MEDIA_URL }}google-icon.svg" alt="Sign in with Google Button" />
+    Continue with Google</a>
 
-  <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </ul>
-
-  <div class="login-or">{% trans 'or' %}</div>
-
-</div>
+<p class="my-3">or</p>
 
 {% include "socialaccount/snippets/login_extra.html" %}
 
@@ -45,5 +41,5 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
     <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
   </p>
 </form>
-
+<p class="text-center mt-2">{% blocktrans %}Don't have an account yet?<a class="blue-text" href="{{ signup_url }}"> Sign Up</a>{% endblocktrans %}</p>
 {% endblock %}
