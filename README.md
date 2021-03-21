@@ -91,7 +91,7 @@ The website has the same design to keep consistency and provide easy and friendl
 A clear communication is provided to the user after some integrations, using the messages function in Django.
 
 ### 4. Skeleton
--  [Wireframes](static/docs/wireframe.pdf)
+-  [Wireframes](docs/wireframes/wireframe.pdf)
 - Navigation bar - Menu with links pointing to each page
     - **Home** - A short description letting the user knows what the website is about with a direct link to the registration page.
     - **Pricing** - Users can find details about the subscription options.
@@ -100,8 +100,21 @@ A clear communication is provided to the user after some integrations, using the
     - **Book Club** -  User can create, update or delete book reviews, and also comment in reviews of other users.
     - **Profile** - User can update their default delivery address, check their current plan and see their reviews.
     - **Contact** - User can submit a form with their doubts and an email will be sent to the admin notifying about the request.
-### Data Schema
-![Project Mock-up](docs/readme_images/db_diagram.png)
+
+### Database Schema
+![Project Mock-up](docs/readme_images/db-diagram.png)
+
+**UserProfile**: These are the fields the user saves their default information for deliveries and their book preferences.
+
+**Order**: This model includes all the order details. Including the delivery details, the start and end date of the subscription, total and has the OrderLineItem modal linked to it.
+
+**OrderLineItem**: Contains the details of the chosen plan.
+
+**Pricing**: This includes all the information related to each plan, including, their description, price and frequency.
+
+**BookReview**: This model is not related to the purchase part of the website. This model allows the user to create book reviews with Book Author, Book Title, an URL Image and the Book Review.
+
+**Comment**: Related to the BookReview model, it allows the user to add comments to the reviews.
 
 ### 5. Surface
 
@@ -137,7 +150,7 @@ I decided to not use images in the website unless in the error pages to focus on
 - Checkout page.
 - Order confirmation email.
 - Checkout success page.
-- Contact page.
+- Contact page that sends an email notifying the admin about a new contact form was submitted.
 - Footer with social links.
 
 ### Features to consider implementing in the future

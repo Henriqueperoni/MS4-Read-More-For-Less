@@ -136,6 +136,8 @@
     - After the form submission, the user is redirected to the confirm-email saying a confirmation email has been sent to their email.
     - Once the user confirms their email, they are redirected to the login page with a successful message.
     - The user can easily log in and log out.
+    - Checked if the Sign In with Google Account works as desired.
+    
 
 ### Error pages
 ***
