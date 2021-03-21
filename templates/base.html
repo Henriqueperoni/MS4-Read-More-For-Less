@@ -74,15 +74,12 @@
                 </a>
                 <ul class="nav-links">
                     {% if request.user.is_authenticated %}
-                        {% if request.user.is_superuser%}
+                        {% if request.user.is_superuser %}
                             <li>
                                 <a class="nav-anchor" href="{% url 'add_plan' %}">Admin</a>
                             </li>
                         {% endif %}
-                        <li class="d-none d-lg-block">
-                            <p class="m-0 blue-text">Hello,</p>
-                            <p class="m-0 blue-text">{{ user|capfirst }}</p>  
-                        </li>
+                        <li class="d-none d-lg-block blue-text">Hello, {{ user|capfirst }}</li>
                         <li>
                             <a class="nav-anchor" href="{% url 'home' %}">Home</a>
                         </li>
@@ -112,7 +109,10 @@
                                 </a>
                             </li>
                         {% endif %}
-                        {% else %}
+                    {% else %}
+                        <li>
+                            <a class="nav-anchor" href="{% url 'home' %}">Home</a>
+                        </li>
                         <li>
                             <a class="nav-anchor" href="{% url 'pricing' %}">Pricing</a>
                         </li>
