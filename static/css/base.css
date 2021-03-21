@@ -140,7 +140,7 @@ nav {
   background: #fff;
   font-family: "Josefin Sans", sans-serif;
   width: 100%;
-  height: 7vh;
+  height: 8vh;
   box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.15);
   z-index: 2;
 }
@@ -197,7 +197,7 @@ nav {
 
 /* ------- HERO ------- */
 .hero {
-    height: 70vh;
+    height: 62vh;
     position: relative;
 }
 
@@ -205,7 +205,7 @@ nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-top: 10rem;
+    padding-top: 7rem;
 }
 
 .intro-animation p {
@@ -227,7 +227,7 @@ nav {
 
 .container-intro > p {
     width: 80%;
-    max-width: 800px;
+    max-width: 870px;
     line-height: 2rem;
     text-align: center;
     position: absolute;
@@ -384,7 +384,7 @@ nav {
 
 /* ------- FOOTER ------- */
 footer {
-    min-height: 200px;
+    min-height: 30vh;
     display: flex;
 }
 
@@ -531,7 +531,7 @@ select:invalid {
 
 /* Allauth */
 .allauth-wrapper {
-    min-height: 70vh;
+    min-height: 62vh;
 }
 
 .btn-allauth {
@@ -544,6 +544,16 @@ select:invalid {
 }
 
 /* ------- MEDIA QUERIES ------- */
+@media screen and (min-width: 1300px) {
+    nav {
+        height: 7vh;
+    }
+
+    .intro-animation {
+        padding-top: 10rem;
+    }
+}
+
 @media screen and (max-width: 992px) {
     body {
         overflow-x: hidden;
@@ -559,8 +569,8 @@ select:invalid {
         background: radial-gradient(circle, rgba(162,201,252,1) 0%, rgba(45,136,255,1) 100%);
         width: 70%;
         right: 0;
-        top: 7vh;
-        height: 93vh;
+        top: 8vh;
+        height: 92vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -588,16 +598,12 @@ select:invalid {
         font-size: 2.5rem;
     }
 
-    .hero {
-        height: 75vh;
-    }
-
     .intro-animation {
         padding-top: 3rem;
     }
 
     .intro-animation p {
-        font-size: 3rem;
+        font-size: 2.8rem;
     }
 
     .container-intro > p {
@@ -614,14 +620,9 @@ select:invalid {
         padding: 9px 3px;
     }
 
-    footer {
-        min-height: 100px;
-    }
-
     footer div {
         margin-bottom: 10px;
     }
-
 }
 
 @media screen and (max-width: 320px) {
@@ -636,6 +637,7 @@ select:invalid {
 
     .intro-animation p {
         margin: 0;
+        font-size: 2.5rem;
     }
 
     .card {
@@ -650,5 +652,35 @@ select:invalid {
 
     .my-reviews p {
         width: 100px;
+    }
+}
+
+@media screen and (max-height: 415px) {
+    nav {
+        height: 15vh;
+    }
+
+    .nav-links {
+        top: 15vh;
+        height: 85vh;
+    }
+    .container-intro {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(0, 0);
+        width: 95%;
+    }
+    
+    .container-intro > p {
+        width: 100%;
+    }
+    
+    .intro-animation {
+        padding-top: 1rem;
+    }
+
+    .intro-animation p {
+        font-size: 3rem;
     }
 }
