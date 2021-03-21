@@ -102,7 +102,7 @@ A clear communication is provided to the user after some integrations, using the
     - **Contact** - User can submit a form with their doubts and an email will be sent to the admin notifying about the request.
 
 ### Database Schema
-![Project Mock-up](docs/readme_images/db-diagram.png)
+![Database Schema](docs/readme_images/db-diagram.png)
 
 **UserProfile**: These are the fields the user saves their default information for deliveries and their book preferences.
 
@@ -137,6 +137,7 @@ Following the biggest social-media(Facebook, Twitter, LinkedIn). **(#2D88FF)** w
 I decided to not use images in the website unless in the error pages to focus on the content of the website, keeping the user focus on what is important and not overwhelming them.
 
 ## Features
+![Project Mock-up](docs/readme_images/mock-up.png)
 ### Existing Features
 - Fully responsive website across all popular devices, using Bootstrap Grid and custom media queries.
 - Plans to subscribe through an e-commerce system.
