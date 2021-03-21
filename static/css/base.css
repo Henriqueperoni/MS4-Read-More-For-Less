@@ -334,10 +334,6 @@ nav {
     padding: 3.5rem 0 0 1rem;
 }
 
-.checkout-card > p:nth-child(3) {
-    text-align: end;
-}
-
 .checkout-value {
     margin: 0;
     display: flex;

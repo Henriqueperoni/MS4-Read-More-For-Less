@@ -12,9 +12,14 @@
             <div class="col-12 col-lg-10 offset-lg-1">
                 <h4 class="blue-text mb-4 mt-2 text-center">Thank you for chose Read More For Less</h4>
                 <p class="text-justify">
-                    {{ user|capfirst }}, your subscription plan starts on {{ order.start_date|date:"M d, Y" }} and will end on
-                    {{ order.end_date|date:"M d, Y" }}. If you are based in Ireland or the UK, you will receive your first delivery within 5 days. Otherwise,
-                    it might take a few more days.
+                    {% for item in order.lineitem.all %}
+                        {{ user|capfirst }}, {% if item.plan.frequency == 'anually' %}your plan starts on
+                        {{ order.start_date|date:"M d, Y" }} and will end on {{ order.end_date|date:"M d, Y" }}{% else %}you chose the
+                        {{ item.plan.frequency }} {{ item.plan.name }} plan, so will receive a single develivery{% endif %}.
+                        {% if item.plan.name == 'Modern' %} You will receive your e-book in up to 24 hours in your email.{% else %}If you
+                        are based in Ireland or the UK, you will receive your {% if item.plan.frequency == 'anually' %}first{% endif %}
+                        delivery within 5 days. Otherwise, it might take a few more days.{% endif %}
+                    {% endfor %}
                 </p>
                 <p>
                     In the meanwhile, we encourage you to join our <a class="blue-text font-weight-bold" href="{% url 'book_club' %}" target="_blank">Book Club</a>,

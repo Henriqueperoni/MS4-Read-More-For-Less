@@ -2,7 +2,11 @@
 
 ![Intro Readme](docs/readme_images/intro-readme.png)
 
-Read more for Less is a project where users can subscribe to get a box of books every month. To don't get any random book, users are able to set their preferences, such as genre, authors and books the enjoyed. Also, the website has a Book Club page, where users can create reviews about the books they are reading and discuss them with other users.
+Read more for Less is a project where users can make a purchase to get a box of books, they can choose between single delivery or get a monthly delivery for one year.
+I felt there is a pain in the market with subscriptions, that some people don't do a subscription because they know it might be a pain to cancel it, in this project
+the user can buy a box of books for only one single month and if they like the service than they get can the annually plan. To don't get any random book, users are
+able to set their preferences, such as genre, authors and books they enjoyed. Also, the website has a Book Club page, where users can create reviews about the books
+they are reading and discuss them with other users.
 
 ### Live site can be found [here](https://read-more-for-less.herokuapp.com/)
 
@@ -39,6 +43,8 @@ Read more for Less is a project where users can subscribe to get a box of books 
 - As a user, I want to easily sign up to the website.
 
 - As a user, I want to easily log in and log out on my account.
+
+- As a user, I want to be able to purchase a single instead of the regular one-year subscription.
 
 - As a user, I want to set my Profile preferences and save them.
 
@@ -84,7 +90,8 @@ As a person that loves to read, sometimes I spend more time looking for new book
   
 ### 3. Structure
 
-The idea of the website is simple. Allow the user to subscribe to receive books every month. The user will receive a plus of being able to join an exclusive book club.
+The idea of the website is simple. Allow the user to plan to receive books every month or a test the service a receive a single delivery.
+The user will receive a plus of being able to join an exclusive book club.
 
 The website has the same design to keep consistency and provide easy and friendly navigation to the user.
 
@@ -94,7 +101,7 @@ A clear communication is provided to the user after some integrations, using the
 -  [Wireframes](docs/wireframes/wireframe.pdf)
 - Navigation bar - Menu with links pointing to each page
     - **Home** - A short description letting the user knows what the website is about with a direct link to the registration page.
-    - **Pricing** - Users can find details about the subscription options.
+    - **Pricing** - Users can find details about the plan options.
     - **Cart** -  Provide details of the purchase, if the user has nothing in their cart, they are invited to go to the pricing page
     - **Checkout** - Users can check a purchase summary and are invited to enter their delivery and payment details.
     - **Book Club** -  User can create, update or delete book reviews, and also comment in reviews of other users.
@@ -106,7 +113,7 @@ A clear communication is provided to the user after some integrations, using the
 
 **UserProfile**: These are the fields the user saves their default information for deliveries and their book preferences.
 
-**Order**: This model includes all the order details. Including the delivery details, the start and end date of the subscription, total and has the OrderLineItem modal linked to it.
+**Order**: This model includes all the order details. Including the delivery details, the start and end date of the plan, total and has the OrderLineItem modal linked to it.
 
 **OrderLineItem**: Contains the details of the chosen plan.
 
@@ -140,7 +147,7 @@ I decided to not use images in the website unless in the error pages to focus on
 ![Project Mock-up](docs/readme_images/mock-up.png)
 ### Existing Features
 - Fully responsive website across all popular devices, using Bootstrap Grid and custom media queries.
-- Plans to subscribe through an e-commerce system.
+- Purchase plans through an e-commerce system.
 - Intuitive and responsive Navigation menu.
 - Sign in with Google Account.
 - Sign in and Sign Up Page with form.

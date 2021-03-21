@@ -24,14 +24,18 @@
                         <p><strong>Plan:</strong> {{ item.plan.name }}</p>
                         <p><strong>Price:</strong> {{ item.plan.price }}</p>
                         <p><strong>Frequency:</strong> {{ item.plan.frequency|capfirst }}</p>
-                        <p><strong>Expire Date:</strong> <span id="expire-date"></span></p>
+                        {% if item.plan.frequency == "annually" %}
+                            <p><strong>Expire Date:</strong> <span id="expire-date"></span></p>
+                        {% else %}
+                            <small class="font-weight-bold m-2">You will receive a single delivery.</small>
+                        {% endif %}
                     </div>
                 {% endfor %}
             </div>
 
             <!-- Delivery Details -->
             <div class="col-12 col-lg-7">
-                <p>Please fill out the form below to complete your order</p>
+                <p class="mt-2">Please fill out the form below to complete your order</p>
                 <form class="checkout-form" action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset>

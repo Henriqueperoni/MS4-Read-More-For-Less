@@ -41,11 +41,17 @@ def cache_checkout_data(request):
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-
     if request.method == 'POST':
         cart = request.session.get('cart', {})
+        for item_id, quantity in cart.items():
+            plan = get_object_or_404(Pricing, pk=item_id)
+        frequency = plan.frequency
         start_date = make_aware(datetime.now())
-        end_date = start_date + relativedelta(years=1)
+
+        if frequency == 'annually':
+            end_date = start_date + relativedelta(years=1)
+        else:
+            end_date = start_date + relativedelta(months=1)
 
         form_data = {
             'full_name': request.POST['full_name'],

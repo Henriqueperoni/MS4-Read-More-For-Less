@@ -29,35 +29,40 @@
     **TEST**:
 - With two clicks the users can easily login into their accounts.
 
-6. As a user, I want to set my Profile preferences and save it.
+6. As a user, I want to be able to purchase a single instead of the regular one-year subscription.
+
+    **TEST**:
+- The user can choose between receiving a single delivery or a monthly delivery for one year.
+
+7. As a user, I want to set my Profile preferences and save it.
 
     **TEST**:
 - On the Profile page the user can change their book preferences and delivery address.
 
-7. As a user, I want to check when my plan expires.
+8. As a user, I want to check when my plan expires.
 
     **TEST**:
 - On the Profile page the user can see their current order, with the start and end date.
 
-8. As a user, I want to participate of the Book Club, Creating, Editing and Deleting posts with my profile.
+9. As a user, I want to participate of the Book Club, Creating, Editing and Deleting posts with my profile.
 
     **TEST**:
 - Every registered user can create review in the Book Club.
 - The user can update and delete the reviews they created.
 
-9. As a user, I want to see my reviews in my profile with a direct link to the review page.
+10. As a user, I want to see my reviews in my profile with a direct link to the review page.
 
     **TEST**:
 - All reviews the user created are displayed in their profile, with the posted date and a direct link to the view review page.
 ![Profile Page](../docs/readme_images/profile.png)
 
-10. As a user, I want to be able to search for reviews.
+11. As a user, I want to be able to search for reviews.
 
     **TEST**:
 - On the Book Club page the user can search for reviews by title or author.
 ![Profile Page](../docs/readme_images/search-reviews.png)
 
-11. As an admin/superuser, I want to have the ability to update site content.
+12. As an admin/superuser, I want to have the ability to update site content.
 
     **TEST**:
 - Only the admin has the ability to add, update and delete plans.

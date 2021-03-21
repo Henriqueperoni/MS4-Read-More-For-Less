@@ -11,8 +11,8 @@
             <div class="col-12">
                 <p class="text-center">
                     Hi {{ user|capfirst }}, your cart info is below. Before you checkout you can add your book preferences to the form
-                    below, if this information we can know you better and send you books you will enjoy more. If you want to get random
-                    books leave the form empty, you update it later in you Profile if you want.
+                    below, with this information we can know you better and send you books you will enjoy more. If you want to get random
+                    books leave the form empty, you can update it later in you Profile if you want.
                 </p>
                 <p class="text-center">
                     Please make sure you review the details of the plan you selected before continuing to Checkout. If you are happy
@@ -42,16 +42,15 @@
                     {% for item in cart_items %}
                     <div class="checkout-wrapper d-flex justify-content-center align-items-center">
                         <div class="card checkout-card">
-                            <p> You chose the <span class="blue-text font-weight-bold">{{ item.plan.name }}</span> plan.
+                            <p> You chose the {{ item.plan.frequency|capfirst }} <span class="blue-text font-weight-bold">{{ item.plan.name }}</span> plan.
                             </p>
                             <div class="checkout-price mt-3">
-                                <p>Price:</p>
+                                <p>Total Price:</p>
                                 <div class="card-price checkout-value">
                                     <i class="fas fa-euro-sign"></i>
                                     <p>{{item.plan.price}}<span>EUR</span></p>
                                 </div>
                             </div>
-                            <p>And you will be billed {{item.plan.frequency|lower}}.</p>
                         </div>
                     </div>
                     <div class="checkout-buttons float-right mb-2">
