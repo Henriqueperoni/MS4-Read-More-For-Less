@@ -5,9 +5,9 @@ This is a confirmation of your order at Read More For Less. Your order informati
 Order Number: {{ order.order_number }}
 Order Date: {{ order.start_date|date:"M d, Y" }}
 
-Order Total: ${{ order.total }}
+Order Total: €{{ order.total }}
 
-Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}. If you are based in Ireland or UK, you will get your first delevery within 5 days, otherwise it will take a few more days.
+Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
 
 We've got your phone number on file as {{ order.phone_number }}.
 

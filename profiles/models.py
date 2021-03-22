@@ -9,7 +9,7 @@ genres = [
     ('art', 'Art'),
     ('biography', 'Biography'),
     ('business', 'Business'),
-    ('children', 'Children')
+    ('children', 'Children'),
     ('crime', 'Crime'),
     ('health', 'Health'),
     ('romance', 'Romance'),
