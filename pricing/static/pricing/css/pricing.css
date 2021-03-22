@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 .pricing-cards {
     position: relative;
 }
@@ -31,7 +38,9 @@
 }
 
 .discount-container {
-    transform: translateX(-46px);
+    -webkit-transform: translateX(-46px);
+        -ms-transform: translateX(-46px);
+            transform: translateX(-46px);
     max-width: 188px;
 }
 
