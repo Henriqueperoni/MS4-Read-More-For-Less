@@ -8,7 +8,7 @@ the user can buy a box of books for only one single month and if they like the s
 able to set their preferences, such as genre, authors and books they enjoyed. Also, the website has a Book Club page, where users can create reviews about the books
 they are reading and discuss them with other users.
 
-### Live site can be found [here](https://read-more-for-less.herokuapp.com/)
+### [Live site](https://read-more-for-less.herokuapp.com/)
 
 ## Table of Contents:
 -  [UX](#ux)
@@ -55,6 +55,10 @@ they are reading and discuss them with other users.
 - As a user, I want to see my reviews in my profile with a direct link to the review page.
 
 - As a user, I want to be able to search for reviews.
+
+- As a user, I want to contact the website management to clarify doubts.
+
+- As an admin/superuser, I want to recieve a confirmation email when a contact form is submitted.
 
 - As an admin/superuser, I want to have the ability to update site content.
 
@@ -240,8 +244,6 @@ correctly.
 -  [JSHINT](https://jshint.com/) - JavaScript code warning & error check.
 
 -  [PEP8 online](http://pep8online.com/) - PEP8 validator.
-
-  
 
 ## Testing
 

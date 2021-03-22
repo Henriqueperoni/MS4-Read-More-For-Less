@@ -22,7 +22,8 @@
 4. As a user, I want to easily sign up to the website.
 
     **TEST**:
-- In the home, for large screens, there are two buttons redirecting to the registrations page, one in the navbar bar and the other in the intro text. For small screens, only the button in the intro text is been displayed.
+- In the home, for large screens, there are two buttons redirecting to the registrations page, one in the navbar and the other in the intro text. For small screens, only the button in the intro text is been displayed.
+- On the registration page users can chose between continue with their Google Account or sign in with their email.
 
 5. As a user, I want to easily log in and log out on my account.
 
@@ -56,13 +57,24 @@
 - All reviews the user created are displayed in their profile, with the posted date and a direct link to the view review page.
 ![Profile Page](../docs/readme_images/profile.png)
 
-11. As a user, I want to be able to search for reviews.
+11. As a user, I want to contact the website management to clarify doubts.
+
+    **TEST**:
+- Member and non-members can get in touch with the website management thought a form on the contact page.
+
+12. - As an admin/superuser, I want to recieve a confirmation email when a contact form is submitted.
+
+    **TEST**:
+- Immediately after a form is submitted a confirmation email is sent to the admin email notifying about a new request.
+![Profile Page](../docs/readme_images/customer-query.png)
+
+13. As a user, I want to be able to search for reviews.
 
     **TEST**:
 - On the Book Club page the user can search for reviews by title or author.
 ![Profile Page](../docs/readme_images/search-reviews.png)
 
-12. As an admin/superuser, I want to have the ability to update site content.
+14. As an admin/superuser, I want to have the ability to update site content.
 
     **TEST**:
 - Only the admin has the ability to add, update and delete plans.
@@ -133,7 +145,7 @@
 - Checked if General Query is set as default.
 - Checked if the form won't submit if the required fields were left blank.
 - Checked if the user is redirected to the home a success message is been displayed.
-- Checked if an email letting the admin know about a new contact form submitted.
+- Checked if an email was sent letting the admin know about a new contact form submitted.
 
 ### User Login/Register system and templates
 - The login and register procedure worked as expected.
@@ -143,16 +155,15 @@
     - The user can easily log in and log out.
     - Checked if the Sign In with Google Account works as desired.
     
-
 ### Error pages
-***
+
 ### 404
 - Verified 404 page is displayed if navigate to an invalid link.
 - Check if the Click Here button redirect to the home page.
+
 ### 500
 - Verified if 500 page displays when an internal error happened.
 - Check if the Click Here button redirect to the home page.
-
 
 ## Responsive Test
 - Test responsiveness of website on all screen sizes using different browsers(Google Chome, Opera, Firefox and Microsoft Edge)
