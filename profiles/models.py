@@ -4,26 +4,27 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-genres = {
+genres = [
     ('random_genres', 'Random Genres'),
-    ('mindset', 'Mindset'),
-    ('business', 'Business'),
+    ('art', 'Art'),
     ('biography', 'Biography'),
-    ('romance', 'Romance'),
-    ('crime', 'Crime'),
-    ('horror', 'Horror'),
+    ('business', 'Business'),
     ('children', 'Children')
-}
+    ('crime', 'Crime'),
+    ('health', 'Health'),
+    ('romance', 'Romance'),
+    ('mindset', 'Mindset'),
+    ('horror', 'Horror'),
+]
 
 
 class UserProfile(models.Model):
     """
-    A user profile model for maintaning default
-    information and current active plan
+    A user profile model for maintaning default information.
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     genres = models.CharField(
-        max_length=20, choices=genres, blank=True, default='random_genres')
+        max_length=20, choices=genres, blank=False, default='random_genres')
     favorite_authors = models.TextField(max_length=100, blank=True)
     favorite_books = models.TextField(max_length=100, blank=True)
     default_phone_number = models.CharField(
