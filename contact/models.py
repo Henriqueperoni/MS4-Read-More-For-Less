@@ -18,7 +18,7 @@ class Contact(models.Model):
         default='general_query')
     name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=50, null=False, blank=False)
-    comments = models.TextField(max_length=50, null=False, blank=False)
+    comments = models.TextField(max_length=1500, null=False, blank=False)
 
     def __str__(self):
         return f'{self.contact_reason} - {self.name}'
