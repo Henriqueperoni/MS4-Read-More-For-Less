@@ -5,7 +5,7 @@
 1. As a non-member, I want to visit the homepage to have a overview of what the site is about and the pricing page to check the prices.
 
     **TEST**:
-- After the user loads the page the first thing they see on the home page is a nice animation with a brief text explaining what the website is about.
+- After the user loads the page the first thing they see on the home page is an animation with a brief text explaining what the website is about.
 - The Pricing page is visible for all users.
 ![Home page intro message](../docs/readme_images/home-page.png)
 
@@ -17,7 +17,7 @@
 3. As a user, I want to be able to view the site on any device I may have, (mobile/tablet/desktop).
 
     **TEST**:
--  All pages were testing in different mobiles, from desktop with a width of 1920px to mobile of 320px width.
+-  All pages were tested in different mobiles, from desktop with a width of 1920px to mobile of 320px width.
 
 4. As a user, I want to easily sign up to the website.
 
@@ -30,7 +30,7 @@
     **TEST**:
 - With two clicks the users can easily login into their accounts.
 
-6. As a user, I want to be able to purchase a single instead of the regular one-year subscription.
+6. As a user, I want to be able to purchase a single month plan instead of the regular one-year subscription.
 
     **TEST**:
 - The user can choose between receiving a single delivery or a monthly delivery for one year.
@@ -90,17 +90,17 @@
 
 ### Home
 - Checked if the intro animation works as desired.
-- Check if the intro animation only happens on screens larger than 992 pixels.
 - Checked if the register buttons redirect to the registration page.
-- Checked if the register only appears on large screens.
+- Checked if the register on the navigation bar only appears on large screens.
 
 ### Pricing
 - Checked if the animation works as desired when loading the page.
 - Checked if plans are adding to the cart by clicking on a pricing card.
-- Checked if adding a plan to the cart the user is registered to the cart.
+- Checked if adding a plan to the cart the user is redirect to the cart.
 - Checked if the user tries to add more than one plan to the cart an error message is displayed.
 - Checked if the user is not logged an error message saying they must be logged in is displayed.
-- Checked if tabs work as desired.
+- Checked if the user tries to add a new plan when there is an active plan an error message will be displayed
+- Checked if the tabs work as desired.
 - Checked if the edit plan button only appears for the superuser.
 - Verified if after editing a plan the changes are saved.
 - Checked if the delete modal show up and the delete button is clicked.
@@ -118,16 +118,17 @@
 ### Checkout
 - Checked if the order summary is correct.
 - Checked if the user had saved the default information in their profile show up correctly in the checkout form.
-- Verified the payment functionality works with successful payments works as desired by filling in the checkout form, adding 4242 4242 4242 4242 in the card number, add 12/24 into MM/YY and 123 into CVC.
-- Checked if the overlay animation while the form is been submitted.
+- Verified the payment functionality works with successful payments works as desired by filling in the checkout form, adding 4242 4242 4242 4242
+in the card number, add 12/24 into MM/YY and 123 into CVC.
+- Checked if the overlay animation loads while the form is been submitted.
 - Checked if the checkout success template displays the correct information.
-- Tested if the plan is deleted after the end_date(one year after purchase).
 
 ### Profile
 - Checked if the default information is saved after purchase and if it can be edited.
 - Checked if the current plan is been displayed correctly.
 - Checked if the book reviews are been displayed.
 - Checked if the book reviews links are redirecting to the right review.
+- Tested if the plan is deleted after the end_date(one year after purchase) by going to the admin page and editing the end_date to a date before the current day.
 
 ### Book Club
 - Checked if all reviews are being displayed.
@@ -144,7 +145,7 @@
 - Checked if the form is been displayed as desired.
 - Checked if General Query is set as default.
 - Checked if the form won't submit if the required fields were left blank.
-- Checked if the user is redirected to the home a success message is been displayed.
+- Checked if the user is redirected to the home with a success message is been displayed.
 - Checked if an email was sent letting the admin know about a new contact form submitted.
 
 ### User Login/Register system and templates

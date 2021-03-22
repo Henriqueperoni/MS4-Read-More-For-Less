@@ -94,19 +94,20 @@ As a person that loves to read, sometimes I spend more time looking for new book
   
 ### 3. Structure
 
-The idea of the website is simple. Allow the user to plan to receive books every month or a test the service a receive a single delivery.
-The user will receive a plus of being able to join an exclusive book club.
+The idea of the website is simple. Allow the user to buy a plan to receive books every month for one year at home or buy
+it each month they desire and get a single delivery for each purchase. Also, after sign in the user will be able to create,
+update, and delete book reviews in an exclusive Book Club, they will be able to add comments to the reviews as well.
 
 The website has the same design to keep consistency and provide easy and friendly navigation to the user.
 
-A clear communication is provided to the user after some integrations, using the messages function in Django.
+A clear communication is provided to the user after some interactions, using the messages function in Django.
 
 ### 4. Skeleton
 -  [Wireframes](docs/wireframes/wireframe.pdf)
 - Navigation bar - Menu with links pointing to each page
     - **Home** - A short description letting the user knows what the website is about with a direct link to the registration page.
     - **Pricing** - Users can find details about the plan options.
-    - **Cart** -  Provide details of the purchase, if the user has nothing in their cart, they are invited to go to the pricing page
+    - **Cart** -  Provide details of the purchase. If the user has nothing in their cart, they are invited to go to the pricing page
     - **Checkout** - Users can check a purchase summary and are invited to enter their delivery and payment details.
     - **Book Club** -  User can create, update or delete book reviews, and also comment in reviews of other users.
     - **Profile** - User can update their default delivery address, check their current plan and see their reviews.
@@ -123,7 +124,8 @@ A clear communication is provided to the user after some integrations, using the
 
 **Pricing**: This includes all the information related to each plan, including, their description, price and frequency.
 
-**BookReview**: This model is not related to the purchase part of the website. This model allows the user to create book reviews with Book Author, Book Title, an URL Image and the Book Review.
+**BookReview**: This model is not related to the purchase part of the website. This model allows the user to create book reviews with Book Author, Book Title, an URL
+Image and the Book Review.
 
 **Comment**: Related to the BookReview model, it allows the user to add comments to the reviews.
 
@@ -133,7 +135,8 @@ The overall UX is clean and similar on all pages to keep consistency.
 
 ### Colors:
 
-Following the biggest social-media(Facebook, Twitter, LinkedIn). **(#2D88FF)** was chosen a base color. In general, blue colours show trust to the users and fit perfect for this project. All the other colours were chosen to keep harmony with the base colour, and also keep the project consistent and elegant.
+Following the biggest social-media(Facebook, Twitter, LinkedIn). **(#2D88FF)** was chosen as base color. In general, blue colours give trust to the users and fit perfect for this project.
+All the other colours were chosen to keep harmony with the base colour, and also keep the project consistent and elegant.
 
 ![Palette of colors](docs/readme_images/palette.png)
 
@@ -155,18 +158,15 @@ I decided to not use images in the website unless in the error pages to focus on
 - Intuitive and responsive Navigation menu.
 - Sign in with Google Account.
 - Sign in and Sign Up Page with form.
-- Profile page with plan Current Plan, Default Information and the Reviews the user created.
-- Book Club, where the user can create, edit, update and delete reviews. Also, the user can interact with comments do other users.
+- Profile page with Current Plan, Default Information and the Reviews the user created.
+- Book Club, where the user can create, update and delete reviews. Also, the user can interact with comments do other users.
 - Search functionality in the Book Club.
 - Cart page to visualize order.
 - Checkout page.
 - Order confirmation email.
 - Checkout success page.
-- Contact page that sends an email notifying the admin about a new contact form was submitted.
+- Contact page that sends an email notifying the admin about a new contact form submission.
 - Footer with social links.
-
-### Features to consider implementing in the future
-
 
 ## Technologies Used
 ### 1. Languages
@@ -183,8 +183,6 @@ I decided to not use images in the website unless in the error pages to focus on
 -  [Google Fonts](https://fonts.google.com/) - Typography.
 
 -  [Bootstrap](https://getbootstrap.com/) - Used for icons.
-
--  [Materalize](https://materializecss.com/) - CSS framework.
 
 -  [jQuery](https://jquery.com/) - JavaScript library.
 
@@ -203,41 +201,11 @@ I decided to not use images in the website unless in the error pages to focus on
 
 -  [AWS S3](https://aws.amazon.com/s3/) - Cloud storage for static and media files.
 
-## Resources
-
--  [W3.CSS](https://www.w3schools.com/w3css/defaulT.asp) - General resource.
-
--  [Stack Overflow](https://pt.stackoverflow.com/) - General resource.
-
--  [Youtube](https://www.youtube.com/) - General resource.
-
--  [CSS Matic](https://www.cssmatic.com) - Box Shadow Genetator.
-
--  [CommonMark](https://commonmark.org/) - For Markdown language reference.
-
--  [Coolors](https://coolors.co/) - Find matching color palette for site.
-
--  [TinyPNG](https://tinypng.com/) - Efficient compression of images for site.
-
--  [Balsamiq](https://balsamiq.com/wireframes/) - Wireframing design tool.
-
--  [Autoprefixer](https://autoprefixer.github.io/) - Parses CSS and adds vendor prefixes.
-
--  [Figma](https://www.figma.com/) - Web-based UI and UX design application.
-
--  [Quick DBD](https://www.quickdatabasediagrams.com/) - Draw your database relationship diagrams and flow quickly using simple DSL language.
-
--  [Google Mobile-Friendly](https://search.google.com/test/mobile-friendly) - Test Mobile-friendly check on site.
-
-- Code Institute SLACK Community - General Resource
-
 ## Code Validation
 
 -  [W3C](https://validator.w3.org/) - HTML Markup Validation.
 
--  [Closing Tag Checker for HTML5](https://www.aliciaramirez.com/closing-tags-checker/) - Validates all tags are opening and closing
-
-correctly.
+-  [Closing Tag Checker for HTML5](https://www.aliciaramirez.com/closing-tags-checker/) - Validates all tags are opening and closing correctly.
 
 -  [W3C](https://jigsaw.w3.org/css-validator/) - CSS Validation.
 
@@ -254,13 +222,17 @@ CVC_: any 3 digits
 Card expiry date: any future date
 ZIP/Postcode: any 5 digits
 ```
-For further tests, different card info can be found in the [Stripe Documentation](https://stripe.com/docs/testing#cards)
+For further tests, different card info can be found in the [Stripe Documentation](https://stripe.com/docs/testing#cards).
 
 Testing documentation can be found [here](docs/TESTING.md)
 
 ## Project barriers and solutions
 
-- Was hard to figure out how to save the start_date and end_date in the Order model as they were not part of the OrderForm. I easily managed to create the variables start_date and end_date, my first option was to include the form_data in the checkout function in the checkout app, but as the start_date and end_date was part of OrderForm it wasn't saving. So I decided to add the start_date and end_date as fields of the OrderForm and add hidden input fields in the checkout template, but it also did not work. In the end, I have the idea to add the variables after creating the form and order. And then setting the variables.
+- Was hard to figure out how to save the start_date and end_date in the Order model as they were not part of the OrderForm. I easily managed to
+create the variables start_date and end_date, my first option was to include the form_data in the checkout function in the checkout app, but as
+the start_date and end_date was part of OrderForm it wasn't saving. So I decided to add the start_date and end_date as fields of the OrderForm
+and add hidden input fields in the checkout template, but it also did not work. In the end, I have the idea to add the variables after creating
+the form and order. And then setting the variables.
   
 ## Deployment
 
@@ -343,6 +315,33 @@ USE_AWS
 
 ## Credits
 
+### Resources
+- [Code Institute](https://codeinstitute.net/full-stack-software-development-diploma/) Course Content - Main source of fundamental knowledge.
+
+- Code Institute SLACK Community - General Resource.
+
+-  [W3.CSS](https://www.w3schools.com/w3css/defaulT.asp) - General resource.
+
+-  [Stack Overflow](https://pt.stackoverflow.com/) - General resource.
+
+-  [Youtube](https://www.youtube.com/) - General resource.
+
+-  [CSS Matic](https://www.cssmatic.com) - Box Shadow Genetator.
+
+-  [CommonMark](https://commonmark.org/) - For Markdown language reference.
+
+-  [Coolors](https://coolors.co/) - Find matching color palette for site.
+
+-  [TinyPNG](https://tinypng.com/) - Efficient compression of images for site.
+
+-  [Balsamiq](https://balsamiq.com/wireframes/) - Wireframing design tool.
+
+-  [Autoprefixer](https://autoprefixer.github.io/) - Parses CSS and adds vendor prefixes.
+
+-  [Quick DBD](https://www.quickdatabasediagrams.com/) - Draw your database relationship diagrams and flow quickly using simple DSL language.
+
+-  [Google Mobile-Friendly](https://search.google.com/test/mobile-friendly) - Test Mobile-friendly check on site.
+
 ### Media
 I decided to keep the website as clean as possible and focus on the content of it, keeping that in mind I haven't used images apart from the error pages.
 - 404 Error from [ManyPixels](https://www.manypixels.co/).
@@ -358,11 +357,7 @@ I decided to keep the website as clean as possible and focus on the content of i
 
 - Thanks to my mentor, Excellence Ilesanm for guidance and excellent advice.
 
-- Thanks to all Code Institute staff.
-
-- Thanks to CI Slack Community for all the assistance and support.
-
-- Thanks for all the web development community on Internet.
+- Thanks to all Code Institute staff and CI Slack Community for all the assistance and support.
 
 - Thanks to all the web development community on the Internet.
 
