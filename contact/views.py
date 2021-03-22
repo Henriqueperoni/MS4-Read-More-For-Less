@@ -19,7 +19,8 @@ def contact(request):
             send_mail(
                 'Read More For Less - New Contact Form',
                 'You have a new contact form available to you on '
-                f'Read More For Less. \nCustomer Query: \n{customer_query}',
+                'Read More For Less. \n\n\nCustomer Query:'
+                f'\n\n{customer_query}',
                 settings.DEFAULT_FROM_EMAIL,
                 [settings.DEFAULT_FROM_EMAIL],
             )
