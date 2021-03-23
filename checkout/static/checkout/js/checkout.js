@@ -1,13 +1,13 @@
-// Set Expire if it exists
+// Set Expire Date if it exists
 let date = () => {
-    expireDate = document.getElementById("expire-date")
-    n = new Date();
-    y = n.getFullYear() + 1;
-    m = n.getMonth();
-    d = n.getDate();
+    let expireDate = document.getElementById("expire-date")
+    let n = new Date();
+    let y = n.getFullYear() + 1;
+    let m = ("0" + (n.getMonth() + 1)).slice(-2)
+    let d = ("0" + n.getDate()).slice(-2)
     if (expireDate) {
         expireDate.innerHTML = d + "/" + m + "/" + y;
-    }
+    };
 };
 date()
 

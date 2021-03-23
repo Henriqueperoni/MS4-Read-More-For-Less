@@ -352,6 +352,7 @@ I decided to keep the website as clean as possible and focus on the content of i
 - Although it's a totally different project, I got a lot of inspirational from a [project](https://php-barbell.herokuapp.com/) by [Anthony O' Brien](https://github.com/auxfuse).
 - [Daisy Mc Girr](https://github.com/Daisy-McG) help me to implement the code for adding 1 year of a subscription plan.
 - [Zoe Chew](https://whizzoe.medium.com/in-5-mins-set-up-google-login-to-sign-up-users-on-django-e71d5c38f5d5) - Sign In with Google Account.
+- Format Data and Month in 2 digits format from [Stack Overflow](https://stackoverflow.com/questions/6040515/how-do-i-get-month-and-date-of-javascript-in-2-digit-format/18610204).
 
 ## Acknowledgments
 

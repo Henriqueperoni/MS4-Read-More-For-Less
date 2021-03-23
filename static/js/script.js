@@ -1,4 +1,4 @@
-// Show Toast
+// Show toast messages
 $('.toast').toast('show');
 
 // Burguer Navigation bar
@@ -6,8 +6,7 @@ $('.toast').toast('show');
 const navSlide = () => {
     const burguer = document.querySelector(".burguer");
     const nav = document.querySelector(".nav-links");
-    const navLinks = document.querySelectorAll(".nav-links li");
-    
+
     // Active Burguer
     burguer.addEventListener("click", () => {
         nav.classList.toggle("nav-active");
@@ -15,11 +14,10 @@ const navSlide = () => {
 }
 navSlide();
 
-// Prevent submit forms more than once
+// Prevent forms to submit more than once
 let forms = document.getElementById('form');
-if(forms){
+if (forms) {
     forms.addEventListener('submit', function () {
         $('#submit-button').attr('disabled', true);
-        console.log('hey')
     });
 }
