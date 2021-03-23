@@ -44,7 +44,7 @@ they are reading and discuss them with other users.
 
 - As a user, I want to easily log in and log out on my account.
 
-- As a user, I want to be able to purchase a single instead of the regular one-year subscription.
+6. As a user, I want to be able to purchase a single month plan instead of the regular one-year subscription.
 
 - As a user, I want to set my Profile preferences and save them.
 
@@ -158,6 +158,7 @@ I decided to not use images in the website unless in the error pages to focus on
 - Intuitive and responsive Navigation menu.
 - Sign in with Google Account.
 - Sign in and Sign Up Page with form.
+- Users can choose between a one year plan meaning they will get 12 deliveries or a single month plan meaning they will get one delivery.
 - Profile page with Current Plan, Default Information and the Reviews the user created.
 - Book Club, where the user can create, update and delete reviews. Also, the user can interact with comments do other users.
 - Search functionality in the Book Club.
