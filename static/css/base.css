@@ -572,23 +572,23 @@ footer div {
 }
 
 .form-style-input::-webkit-input-placeholder {
-    color: #aab7c4;
+    color: #aab7c4 !important;
 }
 
 .form-style-input::-moz-placeholder {
-    color: #aab7c4;
+    color: #aab7c4 !important;
 }
 
 .form-style-input:-ms-input-placeholder {
-    color: #aab7c4;
+    color: #aab7c4 !important;
 }
 
 .form-style-input::-ms-input-placeholder {
-    color: #aab7c4;
+    color: #aab7c4 !important;
 }
 
 .form-style-input::placeholder {
-    color: #aab7c4;
+    color: #aab7c4 !important;
 }
 
 .form-control {

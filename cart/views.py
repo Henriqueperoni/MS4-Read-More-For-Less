@@ -19,7 +19,7 @@ def view_cart(request):
         if book_preferences_form.is_valid():
             book_preferences_form.save()
             messages.success(
-                request, 'Book Preferences information updated successfully')
+                request, 'Book Preferences successfully saved')
         else:
             messages.error(
                 request, 'Update failed. Please, ensure the form is valid')

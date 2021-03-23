@@ -27,10 +27,7 @@ class UserProfileForm(forms.ModelForm):
         }
 
         for field in self.fields:
-            if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
-            else:
-                placeholder = placeholders[field]
+            placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'form-style-input'
             self.fields['favorite_authors'].widget.attrs['rows'] = 5
