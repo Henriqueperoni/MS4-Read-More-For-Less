@@ -30,12 +30,12 @@
 }
 
 #id-save-info, label {
-    margin: 0 0 10px 10px;
+    margin: 0 10px 10px 10px;
     width: unset;
 }
 
 #id-save-info {
-    margin: 0;
+    margin-left: 0;
 }
 
 .checkout-form legend {
@@ -110,4 +110,9 @@ form-style-input
             box-shadow: 0px 0px 12px -7px rgba(0, 0, 0, 1);
     margin: 10px;
     font-size: 0.9rem;
+}
+@media screen and (max-width: 576px) {
+    #id-save-info {
+        margin-left: 10px;
+    }
 }

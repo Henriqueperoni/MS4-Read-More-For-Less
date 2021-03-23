@@ -1,15 +1,15 @@
 // Set Expire Date if it exists
-let date = () => {
-    let expireDate = document.getElementById("expire-date")
+let expireDate = () => {
+    let date = document.getElementById("expire-date")
     let n = new Date();
     let y = n.getFullYear() + 1;
     let m = ("0" + (n.getMonth() + 1)).slice(-2)
     let d = ("0" + n.getDate()).slice(-2)
-    if (expireDate) {
-        expireDate.innerHTML = d + "/" + m + "/" + y;
+    if (date) {
+        date.innerHTML = d + "/" + m + "/" + y;
     };
 };
-date()
+expireDate()
 
 // Stripe Payment
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
