@@ -15,9 +15,9 @@
             </div>
         </div>
 
-        <!-- Add Plan Form -->
         <div class="row px-3">
             <div class="col-12 col-lg-6 general-container form">
+                <!-- Add Plan Form -->
                 <form method="POST" action="{% url 'add_plan' %}" class="form mt-4 mb-2">
                     {% csrf_token %}
                     {{ form | crispy }}

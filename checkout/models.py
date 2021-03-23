@@ -7,8 +7,6 @@ from django.db.models import Sum
 from django_countries.fields import CountryField
 from profiles.models import UserProfile
 
-# Create your models here.
-
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
@@ -42,9 +40,7 @@ class Order(models.Model):
         return uuid.uuid4().hex.upper()
 
     def update_total(self):
-        """
-        Update total
-        """
+        """ Update total """
         self.total = self.lineitem.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
         self.save()

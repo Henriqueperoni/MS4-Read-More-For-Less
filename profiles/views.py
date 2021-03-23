@@ -12,6 +12,7 @@ from book_club.models import BookReview
 @login_required
 def profile(request):
     """ Display the user's profile. """
+
     # Check if user has a valid plan
     check_active_plan()
 

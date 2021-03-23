@@ -34,7 +34,7 @@ def view_cart(request):
 
 
 def add_to_cart(request, item_id):
-    """ Add a pricing plan to the shopping cart"""
+    """ Add a pricing plan to the shopping cart. """
     plan = get_object_or_404(Pricing, pk=item_id)
     quantity = 1
     cart = request.session.get('cart', {})
@@ -42,6 +42,7 @@ def add_to_cart(request, item_id):
     if request.user.is_authenticated:
         user = get_object_or_404(UserProfile, user=request.user)
         orders = user.orders.all()
+
         # Check if user already has a plan
         if len(orders) >= 1:
             messages.error(request, 'You already have a plan')
@@ -50,6 +51,7 @@ def add_to_cart(request, item_id):
             if cart.items():
                 messages.error(request, 'You already have a plan in your cart')
 
+            # Check if there is an item in the cart already
             if len(cart) < 1:
                 cart[item_id] = cart.get(item_id, quantity)
                 messages.success(

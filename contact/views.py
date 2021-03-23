@@ -7,8 +7,10 @@ from .forms import ContactForm
 
 
 def contact(request):
-    """ A view to return the contact page and send emails alerting
-    the admin about a new Contact Form been submitted. """
+    """
+    A view to return the contact page and send emails alerting
+    the admin about a new Contact Form been submitted.
+    """
 
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -16,6 +18,7 @@ def contact(request):
         if form.is_valid():
             form.save()
 
+            # Send an email letting the admin know about a new form submission
             send_mail(
                 'Read More For Less - New Contact Form',
                 'You have a new contact form available to you on '

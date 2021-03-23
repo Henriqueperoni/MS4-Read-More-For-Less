@@ -132,7 +132,7 @@ def checkout(request):
             order_form = OrderForm()
 
     if not stripe_public_key:
-        messages.warning(request, 'Stripe public is missing.')
+        messages.warning(request, 'Stripe public key is missing.')
 
     template = 'checkout/checkout.html'
     context = {
@@ -146,9 +146,8 @@ def checkout(request):
 
 @login_required
 def checkout_success(request, order_number):
-    """
-    Handle succesfull checkouts
-    """
+    """ Handle succesfull checkouts """
+
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     end_date = datetime.strftime(order.end_date, '%d %B %Y')
