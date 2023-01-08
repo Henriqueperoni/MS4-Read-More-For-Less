@@ -26,11 +26,14 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if 'DEVELOPMENT' in os.environ:
-    DEBUG = True
-else:
     DEBUG = False
+else:
+    DEBUG = True
 
-ALLOWED_HOSTS = ['read-more-for-less.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['read-more-for-less.herokuapp.com', 'localhost', '127.0.0.1']
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+	ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
